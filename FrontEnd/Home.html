@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./Home.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Plus Jakarta Sans:wght@400;500;600;700;800&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="home1">
+      <header class="pageheader" id="headerHome">
+        <div class="iphone-x-or-newer5">
+          <img class="text-icon5" alt="" src="./public/text@2x.png" />
+
+          <img class="notch-icon5" alt="" src="./public/notch@2x.png" />
+
+          <div class="right-side5">
+            <img class="battery-icon5" alt="" src="./public/battery@2x.png" />
+
+            <img class="wifi-icon5" alt="" src="./public/wifi@2x.png" />
+
+            <img
+              class="mobile-signal-icon5"
+              alt=""
+              src="./public/mobile-signal@2x.png"
+            />
+
+            <img
+              class="recording-indicator-icon5"
+              alt=""
+              src="./public/recording-indicator@2x.png"
+            />
+          </div>
+        </div>
+        <section class="pageheader-contents">
+          <section class="userhome" id="userHome">
+            <button class="profile-picture" id="settingsBtn">
+              <img
+                class="male-user-icon"
+                alt=""
+                src="./public/male-user@2x.png"
+              />
+            </button>
+            <b class="hello-name">Hello, John Doe</b>
+          </section>
+          <img
+            class="asthmapp-logo-light-11"
+            alt=""
+            src="./public/Asthmapp Logo light@2x.png"
+          />
+        </section>
+      </header>
+      <main class="mainhome" id="mainHome">
+        <section class="airqltywidget" id="AirQltyWidget">
+          <a class="header4" id="airQltyLink" href="./AirQuality01.html">
+            <img class="cloud-icon1" alt="" src="./public/cloud1@2x.png" />
+
+            <h1 class="air-quality">Air Quality</h1>
+          </a>
+          <section class="airqltyinsights" id="insightsAirQltyHome">
+            <header class="headerinsights">
+              <img
+                class="place-marker-icon"
+                alt=""
+                src="./public/place-marker@2x.png"
+              />
+
+              <h2 class="air-quality">Your area</h2>
+            </header>
+            <section class="aqi-widget1" id="AQIWidget">
+              <h2 class="air-quality">AQI</h2>
+              <b class="b1">9/10</b>
+            </section>
+            <h2 class="air-quality">Breaking news</h2>
+            <i class="sudden-drop-in">-Sudden drop in Hammersmith</i>
+          </section>
+        </section>
+        <section class="myinhalerwidget" id="myInhalerWidget">
+          <a class="header5" id="myInhalerLink" href="./MyInhaler.html">
+            <img class="cloud-icon1" alt="" src="./public/inhaler1@2x.png" />
+
+            <h1 class="air-quality">My inhaler</h1>
+          </a>
+          <button class="quickintakebtn" id="quickIntakeBtn">
+            <b class="text26">Quick New Intake</b>
+          </button>
+          <section class="inhalerstats" id="statsInhalerHome">
+            <h2 class="statistics">Statistics</h2>
+            <div class="nextintake">
+              <h3 class="my-next-intake">My next intake:</h3>
+              <div class="reminderframe">
+                <p class="nextremindervar" id="nextReminderVar">5:00 PM</p>
+              </div>
+            </div>
+            <div class="nextintake">
+              <h3 class="my-next-intake">Expires in:</h3>
+              <div class="expiryframe">
+                <p class="nextremindervar" id="expiryDateFavVar">2 hours</p>
+              </div>
+            </div>
+          </section>
+        </section>
+        <section class="emergencywidget" id="emergencyWidget">
+          <a class="header6" id="emergencyLink" href="./Emergency1.html">
+            <img
+              class="hospital-icon1"
+              alt=""
+              src="./public/hospital1@2x.png"
+            />
+
+            <h1 class="emergency">Emergency</h1>
+          </a>
+          <div class="actions">
+            <button class="home2" id="999Home">
+              <img
+                class="add-phone-icon"
+                alt=""
+                src="./public/add-phone@2x.png"
+              />
+            </button>
+            <button class="crisisstepsbtn" id="crisisStepsBtn">
+              <h2 class="crisis-steps">Crisis steps</h2>
+              <img class="sneeze-icon" alt="" src="./public/sneeze@2x.png" />
+            </button>
+          </div>
+        </section>
+      </main>
+      <div class="navbar">
+        <nav class="frame2" id="navBarHome">
+          <img class="sneeze-icon" alt="" src="./public/home1@2x.png" />
+
+          <button class="cloud" id="airQltyBar">
+            <img class="male-user-icon" alt="" src="./public/cloud2@2x.png" />
+          </button>
+          <button class="cloud" id="inhalerBar">
+            <img class="male-user-icon" alt="" src="./public/inhaler@2x.png" />
+          </button>
+          <button class="cloud" id="emergencyBar">
+            <img class="male-user-icon" alt="" src="./public/hospital@2x.png" />
+          </button>
+        </nav>
+        <div class="home-indicator">
+          <div class="home-selected"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="quickIntakePopup" class="popup-overlay" style="display: none">
+      <div class="quickintakepopup">
+        <header class="headerquickintake" id="headerQuickIntake">
+          <img
+            class="inhaler-icon6"
+            alt=""
+            src="./public/inhalerLogoDark@2x.png"
+          />
+
+          <h1 class="quick-intake">Quick Intake</h1>
+          <button class="close5" id="closeBtn">
+            <img class="close-icon5" alt="" src="./public/close1@2x.png" />
+          </button>
+        </header>
+        <img
+          class="quickintakepopup-child"
+          alt=""
+          src="./public/vector-4@2x.png"
+        />
+
+        <section class="maininhalerintake">
+          <h1 class="quick-intake">You added an intake</h1>
+          <i class="favinhalervar" id="favInhalerVar">Favorite Inhaler</i>
+        </section>
+        <div class="cancelbtn" id="popupcancelBtnContainer">
+          <div class="content14">
+            <b class="text34">Cancel</b>
+          </div>
+        </div>
+        <img
+          class="quickintakepopup-item"
+          alt=""
+          src="./public/loadingBar@2x.png"
+        />
+      </div>
+    </div>
+
+    <script>
+      var popupclose = document.getElementById("closeBtn");
+      if (popupclose) {
+        popupclose.addEventListener("click", function (e) {
+          var popup = e.currentTarget.parentNode;
+          function isOverlay(node) {
+            return !!(
+              node &&
+              node.classList &&
+              node.classList.contains("popup-overlay")
+            );
+          }
+          while (popup && !isOverlay(popup)) {
+            popup = popup.parentNode;
+          }
+          if (isOverlay(popup)) {
+            popup.style.display = "none";
+          }
+        });
+      }
+      
+      var popupcancelBtnContainer = document.getElementById(
+        "popupcancelBtnContainer"
+      );
+      if (popupcancelBtnContainer) {
+        popupcancelBtnContainer.addEventListener("click", function (e) {
+          var popup = e.currentTarget.parentNode;
+          function isOverlay(node) {
+            return !!(
+              node &&
+              node.classList &&
+              node.classList.contains("popup-overlay")
+            );
+          }
+          while (popup && !isOverlay(popup)) {
+            popup = popup.parentNode;
+          }
+          if (isOverlay(popup)) {
+            popup.style.display = "none";
+          }
+        });
+      }
+      
+      var profilePicture = document.getElementById("settingsBtn");
+      if (profilePicture) {
+        profilePicture.addEventListener("click", function (e) {
+          window.location.href = "./Settings.html";
+        });
+      }
+      
+      var quickIntakeBtn = document.getElementById("quickIntakeBtn");
+      if (quickIntakeBtn) {
+        quickIntakeBtn.addEventListener("click", function () {
+          var popup = document.getElementById("quickIntakePopup");
+          if (!popup) return;
+          var popupStyle = popup.style;
+          if (popupStyle) {
+            popupStyle.display = "flex";
+            popupStyle.zIndex = 100;
+            popupStyle.backgroundColor = "rgba(30, 56, 95, 0.8)";
+            popupStyle.alignItems = "center";
+            popupStyle.justifyContent = "center";
+          }
+          popup.setAttribute("closable", "");
+      
+          var onClick =
+            popup.onClick ||
+            function (e) {
+              if (e.target === popup && popup.hasAttribute("closable")) {
+                popupStyle.display = "none";
+              }
+            };
+          popup.addEventListener("click", onClick);
+        });
+      }
+      
+      var home = document.getElementById("999Home");
+      if (home) {
+        home.addEventListener("click", function (e) {
+          //TODO: <a href="tel:999">
+        });
+      }
+      
+      var crisisStepsBtn = document.getElementById("crisisStepsBtn");
+      if (crisisStepsBtn) {
+        crisisStepsBtn.addEventListener("click", function (e) {
+          window.location.href = "./Emergency2.html";
+        });
+      }
+      
+      var cloud = document.getElementById("airQltyBar");
+      if (cloud) {
+        cloud.addEventListener("click", function (e) {
+          window.location.href = "./AirQuality01.html";
+        });
+      }
+      
+      var inhaler = document.getElementById("inhalerBar");
+      if (inhaler) {
+        inhaler.addEventListener("click", function (e) {
+          window.location.href = "./MyInhaler.html";
+        });
+      }
+      
+      var hospital = document.getElementById("emergencyBar");
+      if (hospital) {
+        hospital.addEventListener("click", function (e) {
+          window.location.href = "./Emergency1.html";
+        });
+      }
+      </script>
+  </body>
+</html>
