@@ -1,5 +1,9 @@
 /* === Imports === */
-import { initializeApp } from "firebase/app"
+//import { initializeApp } from "firebase/app"
+//import { getFirestore, collection, query, where, getDocs, addDoc } from "firebase/firestore";
+import { initializeApp } from 'https://cdn.jsdelivr.net/npm/firebase/firebase-app.js';
+import { getFirestore } from 'https://cdn.jsdelivr.net/npm/firebase/firestore/dist/index.esm2017.min.js';
+
 
 
 /* === Firebase Setup === */
@@ -20,134 +24,78 @@ const firebaseConfig = {
 
 
 const app = initializeApp(firebaseConfig)
-const auth = getAuth(app)
+const db = getFirestore(app)
 
 /* === UI === */
 
 /* == UI - Elements == */
 
-const viewLoggedOut = document.getElementById("logged-out-view")
-const viewLoggedIn = document.getElementById("logged-in-view")
+const inputFieldsSignIn = document.getElementById("inputFielsSignIn")
+const sectionEmail = document.getElementById("sectionEmail")
 
-const signInWithGoogleButtonEl = document.getElementById("sign-in-with-google-btn")
+const sectionPassword = document.getElementById("sectionPassword")
 
-const emailInputEl = document.getElementById("email-input")
-const passwordInputEl = document.getElementById("password-input")
+/* == UI - Buttons == */
+const passwordEye1El = document.getElementById("PasswordEye1")
+const signInButtonEl = document.getElementById("signInBtn")
 
-const signInButtonEl = document.getElementById("sign-in-btn")
-const createAccountButtonEl = document.getElementById("create-account-btn")
+/* == UI - Variables == */
+const emailInput = document.getElementById('emailInput')
+const passwordInput = document.getElementById('passwordInput')
 
-const signOutButtonEl = document.getElementById("sign-out-btn")
-
-const userProfilePictureEl = document.getElementById("user-profile-picture")
-const userGreetingEl = document.getElementById("user-greeting")
-
-/* == UI - Event Listeners == */
+/* == Event Listeners == */
+signInButtonEl.addEventListener("click", authSignInWithEmail);
+forgotPasswordLinkEl.addEventListener("click", () => navigateTo("./ForgotPassword.html"));
+signUpLinkEl.addEventListener("click", () => navigateTo("./SignUp.html"));
 
 
-signInButtonEl.addEventListener("click", authSignInWithEmail)
-createAccountButtonEl.addEventListener("click", authCreateAccountWithEmail)
+/* == Function - Navigate to new page == */
 
-signOutButtonEl.addEventListener("click", authSignOut)
+function navigateTo(url){
+    window.location.href = url;
+}
 
-/* === Main Code === */
-
-onAuthStateChanged(auth, (user) => {
-    if (user) {
-        showLoggedInView()
-        showProfilePicture(userProfilePictureEl, user)
-        showUserGreeting(userGreetingEl, user)
-    } else {
-        showLoggedOutView()
-    }
-})
 
 /* === Functions === */
 
-/* = Functions - Firebase - Authentication = */
-
-
 function authSignInWithEmail() {
-    const email = emailInputEl.value
-    const password = passwordInputEl.value
+    //const email = emailInput.value;
+    //const password = passwordInput.value;
+    //readDataFromDB(email)
 
-    signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            clearAuthFields()
+    // Implementation for signing in
+    // After successful sign in, you might navigate to home page
+    navigateTo("./Home.html");
+}
+/* === Functions - UI Functions === */
+
+
+
+/* === Async Functions == */
+async function addDataToDB(postBody) {
+
+    try {
+        const docRef = await addDoc(collection(db, "users"), {
+            body: 'test'
         })
-        .catch((error) => {
-            console.error(error.message)
-        })
-}
-
-function authCreateAccountWithEmail() {
-    const email = emailInputEl.value
-    const password = passwordInputEl.value
-
-    createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            clearAuthFields()
-        })
-        .catch((error) => {
-            console.error(error.message)
-        })
-}
-
-function authSignOut() {
-    signOut(auth)
-        .then(() => {
-        }).catch((error) => {
-        console.error(error.message)
-    })
-}
-
-/* == Functions - UI Functions == */
-
-function showLoggedOutView() {
-    hideView(viewLoggedIn)
-    showView(viewLoggedOut)
-}
-
-function showLoggedInView() {
-    hideView(viewLoggedOut)
-    showView(viewLoggedIn)
-}
-
-function showView(view) {
-    view.style.display = "flex"
-}
-
-function hideView(view) {
-    view.style.display = "none"
-}
-
-function clearInputField(field) {
-    field.value = ""
-}
-
-function clearAuthFields() {
-    clearInputField(emailInputEl)
-    clearInputField(passwordInputEl)
-}
-
-function showProfilePicture(imgElement, user) {
-    const photoURL = user.photoURL
-
-    if (photoURL) {
-        imgElement.src = photoURL
-    } else {
-        imgElement.src = "assets/images/default-profile-picture.jpeg"
+        console.log("Document written with ID: ", docRef.id);
+    } catch (error) {
+        console.error(error.message);
     }
 }
 
-function showUserGreeting(element, user) {
-    const displayName = user.displayName
+async function readDataFromDB(name, email) {
+    console.log("AAAAAAAAAAAAAA")
+    try {
+        // Create a query against the collection.
+        const q = query(collection(db, "users"), where("name", "==", name), where("email", "==", email));
 
-    if (displayName) {
-        const userFirstName = displayName.split(" ")[0]
-
-        element.textContent = `Hey ${userFirstName}, how are you?`
-    } else {
-        element.textContent = `Hey friend, how are you?`
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+            console.log(`${doc.id} =>`, doc.data());
+        });
+    } catch (error) {
+        console.error(error.message);
     }
 }
+

@@ -1,6 +1,7 @@
 {
   "name": "asthmapp",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "scripts": {
     "start": "parcel ./*.html ",
@@ -10,5 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "parcel": "^2.7.0"
+  },
+  "dependencies": {
+    "firebase": "^10.7.1"
   }
 }
