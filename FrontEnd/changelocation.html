@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+  <link rel="stylesheet" href="./changelocation.css" />
+  <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Plus Jakarta Sans:wght@400;700;800&display=swap"
+  />
+</head>
+<body>
+<div class="change-location">
+  <header class="headerairquality" id="airQualityHeader">
+    <div class="headerlogos">
+      <img
+              class="asthmapp-logo-light-1"
+              alt=""
+              src="./public/asthmappLogoLight@2x.png"
+      />
+
+      <img
+              class="airqualitylogo-icon"
+              alt=""
+              src="./public/airQualityLogo@2x.png"
+      />
+    </div>
+    <button class="close" id="closeBtn">
+      <img class="close-icon" alt="" src="./public/close@2x.png" />
+    </button>
+  </header>
+  <main class="mainairqlty" id="areaInsightsMain">
+    <section class="locationprofile" id="locationProfile">
+      <h1 class="areavar" id="areaVar">Change Location</h1>
+      <div class="text-input">
+        <div class="text">
+          <input type="text" id="postcode" class="loremus-ipsumus-d"/>
+        </div>
+      </div>
+      <button class="changelocationbtn" id="changeLocationBtn">
+        <div class="text">
+          <b class="text1">Change Location</b>
+        </div>
+      </button>
+    </section>
+  </main>
+  <nav class="navbarairqlty" id="navBarAirQlty">
+    <button class="home" id="HomeBtn">
+      <img class="home-icon" alt="" src="./public/home@2x.png" />
+    </button>
+    <img class="cloud-icon" alt="" src="./public/cloud@2x.png" />
+
+    <button class="home" id="inhalerBtn">
+      <img class="home-icon" alt="" src="./public/inhaler@2x.png" />
+    </button>
+    <button class="home" id="emergencyBtn">
+      <img class="home-icon" alt="" src="./public/hospital@2x.png" />
+    </button>
+  </nav>
+</div>
+
+<script>
+  var close = document.getElementById("closeBtn");
+  if (close) {
+    close.addEventListener("click", function (e) {
+      window.location.href = "./Home.html";
+    });
+  }
+
+  var home = document.getElementById("HomeBtn");
+  if (home) {
+    home.addEventListener("click", function (e) {
+      window.location.href = "./Home.html";
+    });
+  }
+
+  var inhaler = document.getElementById("inhalerBtn");
+  if (inhaler) {
+    inhaler.addEventListener("click", function (e) {
+      window.location.href = "./MyInhaler.html";
+    });
+  }
+
+  var hospital = document.getElementById("emergencyBtn");
+  if (hospital) {
+    hospital.addEventListener("click", function (e) {
+      window.location.href = "./Emergency1.html";
+    });
+  }
+  var changelocation = document.getElementById("changeLocationBtn");
+  if (changelocation) {
+    changelocation.addEventListener("click", function (e) {
+      var postcode = document.getElementById("postcode").value;
+      if postcode
+      localStorage.setItem('postcode', postcode);
+      window.location.href = "./AirQuality01.html";
+    });
+  }
+</script>
+</body>
+</html>
