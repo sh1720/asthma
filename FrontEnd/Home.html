@@ -17,29 +17,6 @@
   <body>
     <div class="home1">
       <header class="pageheader" id="headerHome">
-        <div class="iphone-x-or-newer5">
-          <img class="text-icon5" alt="" src="./public/text@2x.png" />
-
-          <img class="notch-icon5" alt="" src="./public/notch@2x.png" />
-
-          <div class="right-side5">
-            <img class="battery-icon5" alt="" src="./public/battery@2x.png" />
-
-            <img class="wifi-icon5" alt="" src="./public/wifi@2x.png" />
-
-            <img
-              class="mobile-signal-icon5"
-              alt=""
-              src="./public/mobile-signal@2x.png"
-            />
-
-            <img
-              class="recording-indicator-icon5"
-              alt=""
-              src="./public/recording-indicator@2x.png"
-            />
-          </div>
-        </div>
         <section class="pageheader-contents">
           <section class="userhome" id="userHome">
             <button class="profile-picture" id="settingsBtn">
@@ -134,7 +111,7 @@
         </section>
       </main>
       <div class="navbar">
-        <nav class="frame2" id="navBarHome">
+        <nav class="frame" id="navBarHome">	
           <img class="sneeze-icon" alt="" src="./public/home1@2x.png" />
 
           <button class="cloud" id="airQltyBar">
@@ -147,9 +124,6 @@
             <img class="male-user-icon" alt="" src="./public/hospital@2x.png" />
           </button>
         </nav>
-        <div class="home-indicator">
-          <div class="home-selected"></div>
-        </div>
       </div>
     </div>
 
@@ -191,26 +165,6 @@
     </div>
 
     <script>
-      var popupclose = document.getElementById("closeBtn");
-      if (popupclose) {
-        popupclose.addEventListener("click", function (e) {
-          var popup = e.currentTarget.parentNode;
-          function isOverlay(node) {
-            return !!(
-              node &&
-              node.classList &&
-              node.classList.contains("popup-overlay")
-            );
-          }
-          while (popup && !isOverlay(popup)) {
-            popup = popup.parentNode;
-          }
-          if (isOverlay(popup)) {
-            popup.style.display = "none";
-          }
-        });
-      }
-      
       var popupcancelBtnContainer = document.getElementById(
         "popupcancelBtnContainer"
       );

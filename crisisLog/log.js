@@ -8,14 +8,24 @@ databaseURL: "https://scrimba-162f5-default-rtdb.europe-west1.firebasedatabase.a
 const app = initializeApp(appSettings); 
 const database = getDatabase(app); 
 const emergencyLogInDB = ref(database, "emergencyLog");  
+
+
 const inputLocationEl = document.getElementById("input-location"); 
 const inputDateOccurredEl = document.getElementById("input-date-occurred"); 
+
+
 const inputPuffsEl = document.getElementById("input-puffs"); 
+// Set up symptoms log
+const inputSymptomsEl = []}; 
 const inputSymptomsEl = document.getElementById("input-symptoms"); 
+
 const inputDurationMinutesEl = document.getElementById("input-duration-minutes"); 
+
 const hospitalTripYesEl = document.getElementById("hospital-trip-yes"); 
 const hospitalTripNoEl = document.getElementById("hospital-trip-no"); 
+
 const addButtonEl = document.getElementById("add-emergency-button"); 
+
 const emergencyLogListEl = document.getElementById("emergency-log-list"); 
  
 

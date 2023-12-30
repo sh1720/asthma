@@ -56,7 +56,7 @@
   overflow: hidden;
   flex-shrink: 0;
 }
-.asthmapp-logo-dark-12 {
+.asthmapp-logo-dark-11 {
   position: relative;
   width: 19.44rem;
   height: 10.19rem;
@@ -75,7 +75,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  cursor: pointer;
 }
 .logo-full {
   align-self: stretch;
@@ -98,4 +97,5 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
+  cursor: pointer;
 }
