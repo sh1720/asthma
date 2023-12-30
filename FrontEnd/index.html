@@ -44,6 +44,7 @@
 
                   <input
                     class="loremus-ipsumus-d6"
+                    id = "emailInput"
                     name="emailAdress"
                     placeholder="example@email.com"
                     type="email"
@@ -70,6 +71,7 @@
 
                   <input
                     class="loremus-ipsumus-d7"
+                    id = "passwordInput"
                     name="passwordLog"
                     placeholder="********"
                     type="password"
@@ -116,32 +118,7 @@
       </main>
     </div>
 
-    <script
-            type = 'module'>
-      var buttonPrimary = document.getElementById("signInBtn");
-      if (buttonPrimary) {
-        buttonPrimary.addEventListener("click", function (e) {
-          window.location.href = "./Home.html";
-        });
-      }
-      
-      var textContainer2 = document.getElementById("textContainer2");
-      if (textContainer2) {
-        textContainer2.addEventListener("click", function (e) {
-          window.location.href = "./ForgotPassword.html";
-        });
-      }
-      
-      var textContainer3 = document.getElementById("textContainer3");
-      if (textContainer3) {
-        textContainer3.addEventListener("click", function (e) {
-          window.location.href = "./SignUp.html";
-        });
-      }
-      //reference: https://css-tricks.com/creating-scheduled-push-notifications/
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register(new URL('service-worker.js', import.meta.url));
-      }
-      </script>
+
+      <script src="index.js" type="module"></script>
   </body>
 </html>
