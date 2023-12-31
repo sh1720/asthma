@@ -43,6 +43,7 @@
   justify-content: space-between;
   padding: 0.75rem 1.5rem 0.31rem;
   box-sizing: border-box;
+  z-index: 0;
 }
 .btntext1 {
   position: relative;
@@ -267,6 +268,7 @@
   justify-content: flex-start;
   padding: 0 1.88rem;
   gap: 0.38rem;
+  z-index: 1;	
   text-align: left;
   font-size: 1rem;
   color: #1e385f;
@@ -312,17 +314,26 @@
 .my-inhaler1,
 .navbarmyinhaler1 {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
 }
 .navbarmyinhaler1 {
   margin: 0;
-  align-self: stretch;
+  position: fixed;
+  bottom: 0;
+  left: 0;  
+  right: 0;
+  justify-content: flex-end;
+  mix-blend-mode: normal;
+  z-index: 2;
   border-radius: 32px 32px 0 0;
   background-color: #fff;
   box-shadow: 0 0 34px rgba(0, 0, 0, 0.6);
   height: 5.13rem;
+  display: flex;
   flex-direction: row;
   align-items: flex-start;
+  justify-content: space-between;
   padding: 0.63rem 1.88rem;
   box-sizing: border-box;
 }
@@ -331,10 +342,14 @@
   border-radius: 32px;
   background-color: #fcf8f8;
   width: 100%;
-  height: 50.75rem;
-  overflow: hidden;
+  min-height: 50.75rem;
+  overflow: auto;
+  margin: 0;
   flex-direction: column;
   align-items: center;
+  padding: 0 0 5.6rem;
+  gap: 0.75rem;
+
 }
 .inhaler-icon7 {
   position: relative;
