@@ -239,7 +239,7 @@
   font-family: "Plus Jakarta Sans";
 }
 .mainemergency2 {
-  padding: 0 1.88rem;
+  padding: 0 1.88 5.6 rem;
   z-index: 1;
 }
 .home-icon3 {
@@ -294,6 +294,7 @@
   position: relative;
   border-radius: 32px;
   width: 100%;
+  min-height: 50.75rem;
   overflow: auto;
   margin: 0;
   flex-direction: column;

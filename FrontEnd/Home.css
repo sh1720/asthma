@@ -542,7 +542,9 @@
   background-color: #fff;
   box-shadow: 0 2px 20px 5px rgba(0, 0, 0, 0.1);
   width: 20.06rem;
-  overflow: hidden;
+  min-height: 50.75rem;
+  overflow: auto;
+  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
