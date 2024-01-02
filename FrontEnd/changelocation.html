@@ -35,7 +35,7 @@
       <h1 class="areavar" id="areaVar">Change Location</h1>
       <div class="text-input">
         <div class="text">
-          <input type="text" id="postcode" class="loremus-ipsumus-d"/>
+          <input type="text" id="postcode" placeholder="Enter Postcode" class="loremus-ipsumus-d"/>
         </div>
       </div>
       <button class="changelocationbtn" id="changeLocationBtn">
@@ -92,7 +92,7 @@
   if (changelocation) {
     changelocation.addEventListener("click", function (e) {
       var postcode = document.getElementById("postcode").value;
-      if postcode
+      console.log(postcode);
       localStorage.setItem('postcode', postcode);
       window.location.href = "./AirQuality01.html";
     });
