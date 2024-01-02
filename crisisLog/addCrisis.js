@@ -80,7 +80,7 @@ function submitForm() {
     const resDateTimeInput = document.getElementById('resDateTimeInput').value; 
 
     // Reference to the database node where you want to store the data
-    const dataRef = ref(database, 'selected_data');
+    const dataRef = ref(database, 'addCrisisData');
 
     // Sample data to be added
     const newData = {
