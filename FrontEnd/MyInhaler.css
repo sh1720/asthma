@@ -342,7 +342,7 @@
   border-radius: 32px;
   background-color: #fcf8f8;
   width: 100%;
-  min-height: 50.75rem;
+  min-height: 100dvh;
   overflow: auto;
   margin: 0;
   flex-direction: column;

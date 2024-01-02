@@ -436,7 +436,7 @@
   position: relative;
   border-radius: 32px;
   width: 100%;
-  min-height: 100vh; /* Use 100vh to make it 100% of the viewport height */
+  min-height: 100dvh; /* Use 100vh to make it 100% of the viewport height */
   overflow: auto;
   margin: 0;
   flex-direction: column;

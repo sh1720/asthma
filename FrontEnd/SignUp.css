@@ -413,15 +413,16 @@
   position: relative;
   border-radius: 32px;
   width: 100%;
-  min-height: 50.75rem;
+  min-height: 100dvh;
   overflow: auto;
   margin: 0;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   gap: 1.63rem;
+  background-color: #F0ECEC;
   background-image: url(./public/forgot-password2@3x.png);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: top;
+  background-position: bottom;
 }
