@@ -16,33 +16,10 @@
   </head>
   <body>
     <div class="sign-in">
-      <header class="header">
-        <div class="iphone-x-or-newer">
-          <img class="text-icon" alt="" src="./public/text1@2x.png" />
-
-          <img class="notch-icon" alt="" src="./public/notch@2x.png" />
-
-          <div class="right-side">
-            <img class="battery-icon" alt="" src="./public/battery2@2x.png" />
-
-            <img class="wifi-icon" alt="" src="./public/wifi1@2x.png" />
-
-            <img
-              class="mobile-signal-icon"
-              alt=""
-              src="./public/mobile-signal1@2x.png"
-            />
-
-            <img
-              class="recording-indicator-icon"
-              alt=""
-              src="./public/recording-indicator@2x.png"
-            />
-          </div>
-        </div>
-        <header class="headercontents" id="header">
+      <header class="header27">
+        <header class="headercontents2" id="header">
           <img
-            class="asthmapp-logo-dark-1"
+            class="asthmapp-logo-dark-12"
             alt="Asthmapp "
             loading="eager"
             id="AsthmappDarkLogo"
@@ -53,54 +30,56 @@
         </header>
       </header>
       <main class="signinmain" id="mainLogIn">
-        <section class="form" id="inputFielsSignIn">
-          <section class="email" id="sectionEmail">
-            <div class="input-fields">
-              <h2 class="name" id="h2EmailAdress">Email Address</h2>
-              <div class="content">
-                <div class="text">
+        <section class="form1" id="inputFielsSignIn">
+          <section class="email4" id="sectionEmail">
+            <div class="input-fields6">
+              <h2 class="name6" id="h2EmailAdress">Email Address</h2>
+              <div class="content18">
+                <div class="text36">
                   <img
-                    class="emailicon"
+                    class="emailicon2"
                     alt=""
                     src="./public/emailIcon11@2x.png"
                   />
 
                   <input
-                    class="loremus-ipsumus-d"
+                    class="loremus-ipsumus-d6"
+                    id = "emailInput"
                     name="emailAdress"
                     placeholder="example@email.com"
                     type="email"
                   />
                 </div>
                 <img
-                  class="solid-eye-icon"
+                  class="solid-eye-icon3"
                   alt=""
                   src="./public/solid-eye1@2x.png"
                 />
               </div>
             </div>
           </section>
-          <section class="password" id="sectionPassword">
-            <div class="input-fields">
-              <h2 class="name1" id="h2_Password">Password</h2>
-              <div class="content1">
-                <div class="text">
+          <section class="password4" id="sectionPassword">
+            <div class="input-fields6">
+              <h2 class="name7" id="h2_Password">Password</h2>
+              <div class="content19">
+                <div class="text36">
                   <img
-                    class="passwordicon"
+                    class="passwordicon3"
                     alt=""
                     src="./public/passwordicon.svg"
                   />
 
                   <input
-                    class="loremus-ipsumus-d1"
+                    class="loremus-ipsumus-d7"
+                    id = "passwordInput"
                     name="passwordLog"
                     placeholder="********"
                     type="password"
                   />
                 </div>
-                <button class="solid-eye" id="PasswordEye1">
+                <button class="solid-eye3" id="PasswordEye1">
                   <img
-                    class="vector-icon"
+                    class="vector-icon12"
                     alt=""
                     src="./public/vector2@2x.png"
                   />
@@ -109,61 +88,37 @@
             </div>
           </section>
         </section>
-        <button class="button-primary" autofocus="{true}" id="signInBtn">
-          <div class="button-primary1">
-            <div class="content2">
-              <b class="text2">Sign In</b>
+        <button class="button-primary7" autofocus="{true}" id="signInBtn">
+          <div class="button-primary8">
+            <div class="content20">
+              <b class="text38">Sign In</b>
             </div>
           </div>
         </button>
-        <a
-          class="hyperlink"
-          id="forgotPasswordBtn"
-          href="./ForgotPassword.html"
-        >
-          <div class="text3" id="textContainer2">
-            <div class="text4">Forgot password?</div>
+        <button class="hyperlink1" id="forgotPasswordBtn">
+          <div class="text39" id="textContainer2">
+            <div class="text40">Forgot password?</div>
           </div>
-        </a>
+        </button>
         <div class="or" id="orDiv">
-          <img class="vector-icon1" alt="" src="./public/vector3@2x.png" />
+          <img class="vector-icon13" alt="" src="./public/vector3@2x.png" />
 
           <div class="or1">Or</div>
-          <img class="vector-icon2" alt="" src="./public/vector4@2x.png" />
+          <img class="vector-icon14" alt="" src="./public/vector4@2x.png" />
         </div>
-        <a class="sign-up" id="signUpPageBtn" href="./SignUp.html">
-          <div class="or1">Don’t have an account?</div>
-          <div class="text6" id="textContainer3">
-            <div class="text7">
-              <span class="span"> </span>
-              <span class="sign-up1">Sign Up.</span>
+        <button class="sign-up6" id="signUpPageBtn">
+          <div class="text41">Don’t have an account?</div>
+          <div class="text42" id="textContainer3">
+            <div class="text43">
+              <span class="span2"> </span>
+              <span class="sign-up7">Sign Up.</span>
             </div>
           </div>
-        </a>
+        </button>
       </main>
     </div>
 
-    <script>
-      var buttonPrimary = document.getElementById("signInBtn");
-      if (buttonPrimary) {
-        buttonPrimary.addEventListener("click", function (e) {
-          window.location.href = "./Home.html";
-        });
-      }
-      
-      var textContainer2 = document.getElementById("textContainer2");
-      if (textContainer2) {
-        textContainer2.addEventListener("click", function (e) {
-          window.location.href = "./ForgotPassword.html";
-        });
-      }
-      
-      var textContainer3 = document.getElementById("textContainer3");
-      if (textContainer3) {
-        textContainer3.addEventListener("click", function (e) {
-          window.location.href = "./SignUp.html";
-        });
-      }
-      </script>
+
+      <script src="index.js" type="module"></script>
   </body>
 </html>

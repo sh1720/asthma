@@ -133,13 +133,15 @@
 
             <h1 class="emergency-steps">Video</h1>
           </header>
-          <a
-            class="httpswwwyoutubecomwatch"
-            href="https://www.youtube.com/watch?v=pt53nH_dX1Y&t=1s"
-            target="_blank"
-            >https://www.youtube.com/watch?v=pt53nH_dX1Y&t=1s</a
-          >
-        </section>
+          <iframe
+          width="420"
+          height="236.25"
+          src="https://www.youtube.com/embed/pt53nH_dX1Y?si=DS-f5ByXL5vtnKsw"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+         </iframe>        </section>
       </main>
       <nav class="navbaremergency1" id="navBarEmergency">
         <button class="home5" id="homeBtn">
@@ -155,41 +157,6 @@
       </nav>
     </div>
 
-    <script>
-      var topNav = document.getElementById("back");
-      if (topNav) {
-        topNav.addEventListener("click", function (e) {
-          window.location.href = "./Emergency1.html";
-        });
-      }
-      
-      var close = document.getElementById("close");
-      if (close) {
-        close.addEventListener("click", function (e) {
-          window.location.href = "./Home.html";
-        });
-      }
-      
-      var home = document.getElementById("homeBtn");
-      if (home) {
-        home.addEventListener("click", function (e) {
-          window.location.href = "./Home.html";
-        });
-      }
-      
-      var cloud = document.getElementById("airQltyBtn");
-      if (cloud) {
-        cloud.addEventListener("click", function (e) {
-          window.location.href = "./AirQuality01.html";
-        });
-      }
-      
-      var inhaler = document.getElementById("inhalerBtn");
-      if (inhaler) {
-        inhaler.addEventListener("click", function (e) {
-          window.location.href = "./MyInhaler.html";
-        });
-      }
-      </script>
+    <script src="./Emergency2.js" type="module"></script>
   </body>
 </html>

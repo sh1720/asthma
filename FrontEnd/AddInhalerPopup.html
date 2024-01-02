@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <title>Add Inhaler Popup</title>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
@@ -37,20 +38,22 @@
       <section class="inputinhalernamesection" id="inputInhalerNameSection">
         <h1 class="header20">Input Inhaler Name</h1>
         <div class="inhalername">
-          <h3 class="inhaler-name">Inhaler Name:</h3>
+          <label class="inhaler-name">Inhaler Name:</label>
           <input
             class="text-input3"
             name="inhalerNameVar"
+            id = "newInhalerName"
             placeholder="Name"
             type="text"
-          />
+          >
         </div>
         <div class="inhalername">
-          <h3 class="inhaler-name">Number of Doses:</h3>
+          <h3 class="inhaler-volume">Volume:</h3>
           <input
             class="text-input3"
-            name="nbDosesInhalerVar"
-            placeholder="Total doses"
+            name="inhalerVolumeVar"
+            id = "newInhalerVolume"
+            placeholder="Volume of Inhaler - see packaging"
             type="number"
           />
         </div>
@@ -62,7 +65,8 @@
           <input
             class="expirydate-child"
             name="expiryDateVar"
-            placeholder="date"
+            id = "newInhalerExpDate"
+            placeholder="Expiry Date - see packaging"
             type="date"
           />
         </div>
@@ -105,6 +109,7 @@
             class="text-input5"
             name="reminderTimeVar"
             placeholder="Time"
+            id ="newDose"
             type="datetime-local"
           />
         </ul>
@@ -116,46 +121,7 @@
       </button>
     </div>
 
-    <script>
-      var popupclose = document.getElementById("closeBtn");
-      if (popupclose) {
-        popupclose.addEventListener("click", function (e) {
-          var popup = e.currentTarget.parentNode;
-          function isOverlay(node) {
-            return !!(
-              node &&
-              node.classList &&
-              node.classList.contains("popup-overlay")
-            );
-          }
-          while (popup && !isOverlay(popup)) {
-            popup = popup.parentNode;
-          }
-          if (isOverlay(popup)) {
-            popup.style.display = "none";
-          }
-        });
-      }
-      
-      var popupbuttonPrimary = document.getElementById("applyBtn");
-      if (popupbuttonPrimary) {
-        popupbuttonPrimary.addEventListener("click", function (e) {
-          var popup = e.currentTarget.parentNode;
-          function isOverlay(node) {
-            return !!(
-              node &&
-              node.classList &&
-              node.classList.contains("popup-overlay")
-            );
-          }
-          while (popup && !isOverlay(popup)) {
-            popup = popup.parentNode;
-          }
-          if (isOverlay(popup)) {
-            popup.style.display = "none";
-          }
-        });
-      }
-      </script>
+    <script src="./AddInhalerPopup.js" type="module">
+    </script>
   </body>
 </html>

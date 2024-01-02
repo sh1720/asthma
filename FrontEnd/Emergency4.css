@@ -490,6 +490,11 @@
   border-radius: 32px;
   background-color: #7a8aa1;
   width: 100%;
-  height: 50.75rem;
-  overflow: hidden;
+  min-height: 50.75rem;
+  overflow: auto;
+  margin: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.63rem;
 }

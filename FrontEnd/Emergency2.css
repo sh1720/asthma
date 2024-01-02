@@ -107,6 +107,13 @@
   justify-content: space-between;
   padding: 0.75rem 1.5rem 0.31rem;
   box-sizing: border-box;
+  z-index: 0;
+}
+.hospital-icon {
+  position: relative;
+  width: 2.25rem;
+  height: 2.25rem;
+  object-fit: cover;
 }
 .emergency-steps {
   margin: 0;
@@ -232,7 +239,8 @@
   font-family: "Plus Jakarta Sans";
 }
 .mainemergency2 {
-  padding: 0 1.88rem;
+  padding: 1.88rem 1.88rem 5.6rem;
+  z-index: 1;
 }
 .home-icon3 {
   position: absolute;
@@ -259,28 +267,42 @@
 .emergency-2,
 .navbaremergency1 {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
 }
 .navbaremergency1 {
   margin: 0;
-  align-self: stretch;
+  position: fixed;
+  bottom: 0;
+  left: 0;  
+  right: 0;
+  justify-content: flex-end;
+  mix-blend-mode: normal;
+  z-index: 2;
   border-radius: 32px 32px 0 0;
   background-color: #fff;
   box-shadow: 0 0 34px rgba(0, 0, 0, 0.6);
   height: 5.13rem;
+  display: flex;
   flex-direction: row;
   align-items: flex-start;
+  justify-content: space-between;
   padding: 0.63rem 1.88rem;
-  box-sizing: border-box;
+  box-sizing: border-box;	
 }
 .emergency-2 {
   position: relative;
   border-radius: 32px;
   width: 100%;
-  height: 50.75rem;
-  overflow: hidden;
+  min-height: 100dvh;
+  overflow: auto;
+  margin: 0;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  padding: 0 0 5.6rem;
+  gap: 0.75rem;
+  background-color: #FFE8C8;
   background-image: url(./public/emergency-2@3x.png);
   background-size: cover;
   background-repeat: no-repeat;

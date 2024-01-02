@@ -1,61 +1,3 @@
-.text-icon5 {
-  top: calc(50% - 5px);
-  left: 2.13rem;
-  width: 1.75rem;
-  height: 0.69rem;
-}
-.battery-icon5,
-.notch-icon5,
-.text-icon5 {
-  position: absolute;
-  object-fit: cover;
-}
-.notch-icon5 {
-  top: -0.12rem;
-  left: 4.88rem;
-  width: 0;
-  height: 0;
-}
-.battery-icon5 {
-  top: 0;
-  right: 0.01rem;
-  width: 1.52rem;
-  height: 0.71rem;
-}
-.mobile-signal-icon5,
-.wifi-icon5 {
-  position: relative;
-  width: 0.96rem;
-  height: 0.69rem;
-  object-fit: cover;
-}
-.mobile-signal-icon5 {
-  width: 1.06rem;
-  height: 0.67rem;
-}
-.recording-indicator-icon5 {
-  position: absolute;
-  top: -0.58rem;
-  right: 3.53rem;
-  width: 0.38rem;
-  height: 0.38rem;
-  object-fit: cover;
-  display: none;
-}
-.right-side5 {
-  position: absolute;
-  top: 1.08rem;
-  right: 0.91rem;
-  width: 4.17rem;
-  height: 0.71rem;
-}
-.iphone-x-or-newer5 {
-  align-self: stretch;
-  position: relative;
-  height: 2.75rem;
-  overflow: hidden;
-  flex-shrink: 0;
-}
 .male-user-icon {
   position: absolute;
   height: 100%;
@@ -118,6 +60,7 @@
   align-items: center;
   justify-content: flex-start;
   padding: 0 0 1.5rem;
+  z-index: 0;	
 }
 .cloud-icon1 {
   position: relative;
@@ -320,16 +263,15 @@
   font-family: "Plus Jakarta Sans";
 }
 .inhalerstats {
-  flex: 1;
+  height: 5.25rem;	
   padding: 0 0.63rem;
+  box-sizing: border-box;
   font-size: 0.88rem;
 }
 .myinhalerwidget {
   border-radius: 12px;
   background-color: rgba(255, 255, 255, 0.6);
-  height: 11.25rem;
   padding: 0.63rem;
-  box-sizing: border-box;
   font-size: 1rem;
 }
 .hospital-icon1 {
@@ -440,6 +382,7 @@
   justify-content: flex-start;
   padding: 0 1.5rem;
   gap: 0.75rem;
+  z-index: 1;  
 }
 .cloud {
   cursor: pointer;
@@ -450,7 +393,7 @@
   width: 2.25rem;
   height: 2.25rem;
 }
-.frame2 {
+.frame {
   margin: 0;
   align-self: stretch;
   border-radius: 32px 32px 0 0;
@@ -464,39 +407,35 @@
   padding: 0.63rem 1.88rem;
   box-sizing: border-box;
 }
-.home-selected {
-  position: absolute;
-  bottom: 0.5rem;
-  left: calc(50% - 66.5px);
-  border-radius: 1.5px;
-  background-color: #1e385f;
-  width: 8.38rem;
-  height: 0.31rem;
-}
-.home-indicator {
-  align-self: stretch;
-  position: relative;
-  height: 2.13rem;
-  margin-top: -2.31rem;
-}
 .home1,
 .navbar {
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .navbar {
-  align-self: stretch;
+  margin: 0 !important; /*Added*/
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
   justify-content: flex-end;
   mix-blend-mode: normal;
+  z-index: 2;
 }
 .home1 {
   position: relative;
   border-radius: 32px;
   width: 100%;
-  height: 50.75rem;
-  justify-content: space-between;
+  min-height: 100dvh;
+  overflow-y: auto;
+  margin: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1.88rem 0 5.31rem;
+  box-sizing: border-box;
+  gap: 0.75rem;
   background-image: url(./public/home2@3x.png);
   background-size: cover;
   background-repeat: no-repeat;
@@ -606,7 +545,9 @@
   background-color: #fff;
   box-shadow: 0 2px 20px 5px rgba(0, 0, 0, 0.1);
   width: 20.06rem;
-  overflow: hidden;
+  min-height: 50.75rem;
+  overflow: auto;
+  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;

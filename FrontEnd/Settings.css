@@ -121,8 +121,12 @@
   border: 0;
   padding: 0;
   background-color: transparent;
-  width: 20.44rem;
-  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
 }
 .change-pic-child,
 .male-user-icon1 {
@@ -438,18 +442,16 @@
 }
 .mainsettings,
 .settings {
-  overflow: hidden;
+  overflow: auto;
 }
 .mainsettings {
   align-self: stretch;
+  flex: 1;	
   border-radius: 24px 24px 0 0;
   background-color: #fcf8f8;
-  height: 31.25rem;
-  flex-shrink: 0;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 0.75rem 0.63rem 0;
-  box-sizing: border-box;
+  padding: 0.75rem 0.63rem 0.75rem;
   gap: 0.63rem;
   text-align: left;
   font-size: 0.88rem;
@@ -460,9 +462,13 @@
   position: relative;
   border-radius: 32px;
   width: 100%;
-  height: 50.75rem;
+  min-height: 100dvh;
+  overflow: auto;
+  margin: 0;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  background-color: #F0ECEC;
   background-image: url(./public/home2@3x.png);
   background-size: cover;
   background-repeat: no-repeat;

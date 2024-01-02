@@ -56,13 +56,7 @@
       </section>
       <section class="inputtimeintakesecion" id="selectInhalerSection">
         <b class="add-intake">Select Inhaler</b>
-        <section class="btnssection" id="symptomsSection">
-          <button class="inhaler11" id="inhaler1Btn">
-            <div class="inhaler12">Inhaler1</div>
-          </button>
-          <button class="inhaler11" id="inhaler2Btn">
-            <div class="inhaler12">Inhaler2</div>
-          </button>
+        <section class="btnssection" id="pickInhaler">
         </section>
       </section>
       <button class="addintakebtn" id="addIntakeBtn">
@@ -72,46 +66,8 @@
       </button>
     </div>
 
-    <script>
-      var popupclose = document.getElementById("closeBtn");
-      if (popupclose) {
-        popupclose.addEventListener("click", function (e) {
-          var popup = e.currentTarget.parentNode;
-          function isOverlay(node) {
-            return !!(
-              node &&
-              node.classList &&
-              node.classList.contains("popup-overlay")
-            );
-          }
-          while (popup && !isOverlay(popup)) {
-            popup = popup.parentNode;
-          }
-          if (isOverlay(popup)) {
-            popup.style.display = "none";
-          }
-        });
-      }
+    <script src="./AddIntakePopup.js" type = "module">
       
-      var popupaddIntakeBtn = document.getElementById("addIntakeBtn");
-      if (popupaddIntakeBtn) {
-        popupaddIntakeBtn.addEventListener("click", function (e) {
-          var popup = e.currentTarget.parentNode;
-          function isOverlay(node) {
-            return !!(
-              node &&
-              node.classList &&
-              node.classList.contains("popup-overlay")
-            );
-          }
-          while (popup && !isOverlay(popup)) {
-            popup = popup.parentNode;
-          }
-          if (isOverlay(popup)) {
-            popup.style.display = "none";
-          }
-        });
-      }
-      </script>
+    </script>
   </body>
 </html>
