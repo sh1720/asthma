@@ -1,434 +1,121 @@
 AQIdata = {'SO2':'0','NO2':'0','O3':'0','PM10':'0','PM25':'0'};
-async function setmap(){
-    const response = await fetch("https://api.erg.ic.ac.uk/AirQuality/Hourly/MonitoringIndex/GroupName=London/Json");
-    const apidata = await response.json();
-    barking=barnet=bexley=brent=bromley=camden=city=croydon=ealing=enfield=greenwich=hackney=hammersmith=haringey=harrow=havering=hillingdon=hounslow=islington=kc=kingston=lambeth=lewisham=merton=newham=redbridge=richmond=southwark=sutton=towerhamlet=waltham=wandsworth=westminster=AQIdata;
-    //barking
-    barking.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[0].Site[0].Species[0]["@AirQualityIndex"];
-    barking.SO2 = apidata.HourlyAirQualityIndex.LocalAuthority[0].Site[0].Species[1]["@AirQualityIndex"];
-    barking.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[0].Site[1].Species[1]["@AirQualityIndex"];
-    if (parseInt(barking.NO2) == 1 || parseInt(barking.NO2) == 2 || parseInt(barking.NO2) ==3){
-        const imgsrc = document.getElementById("barking");
-         imgsrc.src = "./public/londonmaps/Barking_green.png";
-    } else if (parseInt(barking.NO2) == 4 || parseInt(barking.NO2) == 5 || parseInt(barking.NO2) ==6) {
-        const imgsrc = document.getElementById("barking");
-        imgsrc.src = "./public/londonmaps/Barking_orange.png";
-    } else if (parseInt(barking.NO2) == 7 || parseInt(barking.NO2) == 8 || parseInt(barking.NO2) ==9 || parseInt(barking.NO2) == 10) {
-        const imgsrc = document.getElementById("barking");
-        imgsrc.src = "./public/londonmaps/Barking_red.png";
-    }
-    //barnet
-    const imgsrcbarnet = document.getElementById('barnet');
-    imgsrcbarnet.src = "./public/londonmaps/barnet_white.png";
-    //bexley
-    bexley.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[2].Site[0].Species[0]["@AirQualityIndex"];
-    bexley.O3 = apidata.HourlyAirQualityIndex.LocalAuthority[2].Site[0].Species[1]["@AirQualityIndex"];
-    bexley.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[2].Site[0].Species[2]["@AirQualityIndex"];
-    bexley.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[2].Site[0].Species[3]["@AirQualityIndex"];
-    bexley.SO2 = apidata.HourlyAirQualityIndex.LocalAuthority[2].Site[2].Species[2]["@AirQualityIndex"];
-    if (parseInt(bexley.NO2) == 1 || parseInt(bexley.NO2) == 2 || parseInt(bexley.NO2) ==3){
-        const imgsrc1 = document.getElementById("bexley");
-        imgsrc1.src = "./public/londonmaps/bexley_green.png";
-    } else if (parseInt(bexley.NO2) == 4 || parseInt(bexley.NO2) == 5 || parseInt(bexley.NO2) ==6) {
-        const imgsrc1 = document.getElementById("bexley");
-        imgsrc1.src = "./public/londonmaps/bexley_orange.png";
-    } else if (parseInt(bexley.NO2) == 7 || parseInt(bexley.NO2) == 8 || parseInt(bexley.NO2) ==9 || parseInt(bexley.NO2) == 10) {
-        const imgsrc1 = document.getElementById("bexley");
-        imgsrc1.src = "./public/londonmaps/bexley_red.png";
-    }
-    //brent
-    brent.O3 = apidata.HourlyAirQualityIndex.LocalAuthority[3].Site[0].Species[1]["@AirQualityIndex"];
-    brent.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[3].Site[0].Species[2]["@AirQualityIndex"];
-    brent.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[3].Site[0].Species[3]["@AirQualityIndex"];
-    brent.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[3].Site[1].Species[0]["@AirQualityIndex"];
-    if (parseInt(brent.NO2) == 1 || parseInt(brent.NO2) == 2 || parseInt(brent.NO2) ==3){
-        const imgsrc2 = document.getElementById("brent");
-        imgsrc2.src = "./public/londonmaps/brent_green.png";
-    } else if (parseInt(brent.NO2) == 4 || parseInt(brent.NO2) == 5 || parseInt(brent.NO2) ==6) {
-        const imgsrc2 = document.getElementById("brent");
-        imgsrc2.src = "./public/londonmaps/brent_orange.png";
-    } else if (parseInt(brent.NO2) == 7 || parseInt(brent.NO2) == 8 || parseInt(brent.NO2) ==9 || parseInt(brent.NO2) == 10) {
-        const imgsrc2 = document.getElementById("brent");
-        imgsrc2.src = "./public/londonmaps/brent_red.png";
-    }
-    //bromley
-    bromley.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[4].Site.Species[0]["@AirQualityIndex"];
-    bromley.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[4].Site.Species[1]["@AirQualityIndex"];
-    bromley.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[4].Site.Species[2]["@AirQualityIndex"];
-    if (parseInt(bromley.NO2) == 1 || parseInt(bromley.NO2) == 2 || parseInt(bromley.NO2) ==3){
-        const imgsrc3 = document.getElementById("bromley");
-        imgsrc3.src = "./public/londonmaps/bromley_green.png";
-    } else if (parseInt(bromley.NO2) == 4 || parseInt(bromley.NO2) == 5 || parseInt(bromley.NO2) ==6) {
-        const imgsrc3 = document.getElementById("bromley");
-        imgsrc3.src = "./public/londonmaps/bromley_orange.png";
-    } else if (parseInt(bromley.NO2) == 7 || parseInt(bromley.NO2) == 8 || parseInt(bromley.NO2) ==9 || parseInt(bromley.NO2) == 10) {
-        const imgsrc3 = document.getElementById("bromley");
-        imgsrc3.src = "./public/londonmaps/bromley_red.png";
-    }
-    //camden
-    camden.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[5].Site[0].Species[0]["@AirQualityIndex"];
-    camden.O3 = apidata.HourlyAirQualityIndex.LocalAuthority[5].Site[0].Species[1]["@AirQualityIndex"];
-    camden.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[5].Site[0].Species[2]["@AirQualityIndex"];
-    camden.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[5].Site[0].Species[3]["@AirQualityIndex"];
-    camden.SO2 = apidata.HourlyAirQualityIndex.LocalAuthority[5].Site[0].Species[4]["@AirQualityIndex"];
-    if (parseInt(camden.NO2) == 1 || parseInt(camden.NO2) == 2 || parseInt(camden.NO2) ==3){
-        const imgsrc4 = document.getElementById("camden");
-        imgsrc4.src = "./public/londonmaps/camden_green.png";
-    } else if (parseInt(camden.NO2) == 4 || parseInt(camden.NO2) == 5 || parseInt(camden.NO2) ==6) {
-        const imgsrc4 = document.getElementById("camden");
-        imgsrc4.src = "./public/londonmaps/camden_orange.png";
-    } else if (parseInt(camden.NO2) == 7 || parseInt(camden.NO2) == 8 || parseInt(camden.NO2) ==9 || parseInt(camden.NO2) == 10) {
-        const imgsrc4 = document.getElementById("camden");
-        imgsrc4.src = "./public/londonmaps/camden_red.png";
-    }
-    //city
-    const imgsrccity = document.getElementById('city');
-    imgsrccity.src = "./public/londonmaps/city_white.png";
-    //croydon
-    croydon.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[7].Site[0].Species["@AirQualityIndex"];
-    croydon.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[7].Site[2].Species["@AirQualityIndex"];
-    croydon.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[7].Site[3].Species[1]["@AirQualityIndex"];
-    if (parseInt(croydon.NO2) == 1 || parseInt(croydon.NO2) == 2 || parseInt(croydon.NO2) ==3){
-        const imgsrc5 = document.getElementById("croydon");
-        imgsrc5.src = "./public/londonmaps/croydon_green.png";
-    } else if (parseInt(croydon.NO2) == 4 || parseInt(croydon.NO2) == 5 || parseInt(croydon.NO2) ==6) {
-        const imgsrc5 = document.getElementById("croydon");
-        imgsrc5.src = "./public/londonmaps/croydon_orange.png";
-    } else if (parseInt(croydon.NO2) == 7 || parseInt(croydon.NO2) == 8 || parseInt(croydon.NO2) ==9 || parseInt(croydon.NO2) == 10) {
-        const imgsrc5 = document.getElementById("croydon");
-        imgsrc5.src = "./public/londonmaps/croydon_red.png";
-    }
-    //ealing
-    ealing.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[8].Site[1].Species[0]["@AirQualityIndex"];
-    ealing.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[8].Site[2].Species[1]["@AirQualityIndex"];
-    if (parseInt(ealing.NO2) == 1 || parseInt(ealing.NO2) == 2 || parseInt(ealing.NO2) ==3){
-        const imgsrc6 = document.getElementById("ealing");
-        imgsrc6.src = "./public/londonmaps/ealing_green.png";
-    } else if (parseInt(ealing.NO2) == 4 || parseInt(ealing.NO2) == 5 || parseInt(ealing.NO2) ==6) {
-        const imgsrc6 = document.getElementById("ealing");
-        imgsrc6.src = "./public/londonmaps/ealing_orange.png";
-    } else if (parseInt(ealing.NO2) == 7 || parseInt(ealing.NO2) == 8 || parseInt(ealing.NO2) ==9 || parseInt(ealing.NO2) == 10) {
-        const imgsrc6 = document.getElementById("ealing");
-        imgsrc6.src = "./public/londonmaps/ealing_red.png";
-    }
-    //enfield
-    enfield.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[9].Site[0].Species["@AirQualityIndex"];
-    enfield.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[9].Site[2].Species[1]["@AirQualityIndex"];
-    if (parseInt(enfield.NO2) == 1 || parseInt(enfield.NO2) == 2 || parseInt(enfield.NO2) ==3){
-        const imgsrc7 = document.getElementById("enfield");
-        imgsrc7.src = "./public/londonmaps/enfield_green.png";
-    } else if (parseInt(enfield.NO2) == 4 || parseInt(enfield.NO2) == 5 || parseInt(enfield.NO2) ==6) {
-        const imgsrc7 = document.getElementById("enfield");
-        imgsrc7.src = "./public/londonmaps/enfield_orange.png";
-    } else if (parseInt(enfield.NO2) == 7 || parseInt(enfield.NO2) == 8 || parseInt(enfield.NO2) ==9 || parseInt(enfield.NO2) == 10) {
-        const imgsrc7 = document.getElementById("enfield");
-        imgsrc7.src = "./public/londonmaps/enfield_red.png";
-    }
-    //greenwich
-    greenwich.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[10].Site[2].Species[0]["@AirQualityIndex"];
-    greenwich.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[10].Site[2].Species[1]["@AirQualityIndex"];
-    greenwich.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[10].Site[2].Species[2]["@AirQualityIndex"];
-    greenwich.SO2 = apidata.HourlyAirQualityIndex.LocalAuthority[10].Site[7].Species[4]["@AirQualityIndex"];
-    greenwich.O3 = apidata.HourlyAirQualityIndex.LocalAuthority[10].Site[3].Species[1]["@AirQualityIndex"];
-    if (parseInt(greenwich.NO2) == 1 || parseInt(greenwich.NO2) == 2 || parseInt(greenwich.NO2) ==3){
-        const imgsrc8 = document.getElementById("greenwich");
-        imgsrc8.src = "./public/londonmaps/greenwich_green.png";
-    } else if (parseInt(greenwich.NO2) == 4 || parseInt(greenwich.NO2) == 5 || parseInt(greenwich.NO2) ==6) {
-        const imgsrc8 = document.getElementById("greenwich");
-        imgsrc8.src = "./public/londonmaps/greenwich_orange.png";
-    } else if (parseInt(greenwich.NO2) == 7 || parseInt(greenwich.NO2) == 8 || parseInt(greenwich.NO2) ==9 || parseInt(greenwich.NO2) == 10) {
-        const imgsrc8 = document.getElementById("greenwich");
-        imgsrc8.src = "./public/londonmaps/greenwich_red.png";
-    }
-    //hackney
-    hackney.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[11].Site.Species[0]["@AirQualityIndex"];
-    hackney.O3 = apidata.HourlyAirQualityIndex.LocalAuthority[11].Site.Species[1]["@AirQualityIndex"];
-    hackney.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[11].Site.Species[2]["@AirQualityIndex"];
-    hackney.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[11].Site.Species[3]["@AirQualityIndex"];
-    if (parseInt(hackney.NO2) == 1 || parseInt(hackney.NO2) == 2 || parseInt(hackney.NO2) ==3){
-        const imgsrc9 = document.getElementById("hackney");
-        imgsrc9.src = "./public/londonmaps/hackney_green.png";
-    } else if (parseInt(hackney.NO2) == 4 || parseInt(hackney.NO2) == 5 || parseInt(hackney.NO2) ==6) {
-        const imgsrc9 = document.getElementById("hackney");
-        imgsrc9.src = "./public/londonmaps/hackney_orange.png";
-    } else if (parseInt(hackney.NO2) == 7 || parseInt(hackney.NO2) == 8 || parseInt(hackney.NO2) ==9 || parseInt(hackney.NO2) == 10) {
-        const imgsrc9 = document.getElementById("hackney");
-        imgsrc9.src = "./public/londonmaps/hackney_red.png";
-    }
-    //hammersmith
-    const imgsrchammersmith = document.getElementById('hammersmith');
-    imgsrchammersmith.src = "./public/londonmaps/hammersmith_white.png";
-    //haringey
-    haringey.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[13].Site[1].Species[0]["@AirQualityIndex"];
-    haringey.O3 = apidata.HourlyAirQualityIndex.LocalAuthority[13].Site[1].Species[1]["@AirQualityIndex"];
-    if (parseInt(haringey.NO2) == 1 || parseInt(haringey.NO2) == 2 || parseInt(haringey.NO2) ==3){
-        const imgsrc10 = document.getElementById("haringey");
-        imgsrc10.src = "./public/londonmaps/Haringey_green.png";
-    } else if (parseInt(haringey.NO2) == 4 || parseInt(haringey.NO2) == 5 || parseInt(haringey.NO2) ==6) {
-        const imgsrc10 = document.getElementById("haringey");
-        imgsrc10.src = "./public/londonmaps/Haringey_orange.png";
-    } else if (parseInt(haringey.NO2) == 7 || parseInt(haringey.NO2) == 8 || parseInt(haringey.NO2) ==9 || parseInt(haringey.NO2) == 10) {
-        const imgsrc10 = document.getElementById("haringey");
-        imgsrc10.src = "./public/londonmaps/Haringey_red.png";
-    }
-    //harrow
-    const imgsrcharrow = document.getElementById('harrow');
-    imgsrcharrow.src = "./public/londonmaps/harrow_white.png";
-    //havering
-    havering.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[15].Site[1].Species[0]["@AirQualityIndex"];
-    havering.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[15].Site[1].Species[1]["@AirQualityIndex"];
-    havering.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[15].Site[0].Species[2]["@AirQualityIndex"];
-    if (parseInt(havering.NO2) == 1 || parseInt(havering.NO2) == 2 || parseInt(havering.NO2) ==3){
-        const imgsrc11 = document.getElementById("havering");
-        imgsrc11.src = "./public/londonmaps/Havering_green.png";
-    } else if (parseInt(havering.NO2) == 4 || parseInt(havering.NO2) == 5 || parseInt(havering.NO2) ==6) {
-        const imgsrc11 = document.getElementById("havering");
-        imgsrc11.src = "./public/londonmaps/Havering_orange.png";
-    } else if (parseInt(havering.NO2) == 7 || parseInt(havering.NO2) == 8 || parseInt(havering.NO2) ==9 || parseInt(havering.NO2) == 10) {
-        const imgsrc11 = document.getElementById("havering");
-        imgsrc11.src = "./public/londonmaps/Havering_red.png";
-    }
-    //hillingdon
-    hillingdon.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[16].Site[1].Species[0]["@AirQualityIndex"];
-    hillingdon.O3 = apidata.HourlyAirQualityIndex.LocalAuthority[16].Site[1].Species[1]["@AirQualityIndex"];
-    hillingdon.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[16].Site[1].Species[2]["@AirQualityIndex"];
-    hillingdon.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[16].Site[1].Species[3]["@AirQualityIndex"];
-    if (parseInt(hillingdon.NO2) == 1 || parseInt(hillingdon.NO2) == 2 || parseInt(hillingdon.NO2) ==3){
-        const imgsrc12 = document.getElementById("hillingdon");
-        imgsrc12.src = "./public/londonmaps/hillingdon_green.png";
-    } else if (parseInt(hillingdon.NO2) == 4 || parseInt(hillingdon.NO2) == 5 || parseInt(hillingdon.NO2) ==6) {
-        const imgsrc12 = document.getElementById("hillingdon");
-        imgsrc12.src = "./public/londonmaps/hillingdon_orange.png";
-    } else if (parseInt(hillingdon.NO2) == 7 || parseInt(hillingdon.NO2) == 8 || parseInt(hillingdon.NO2) ==9 || parseInt(hillingdon.NO2) == 10) {
-        const imgsrc12 = document.getElementById("hillingdon");
-        imgsrc12.src = "./public/londonmaps/hillingdon_red.png";
-    }
-    //hounslow
-    const imgsrchounslow = document.getElementById('hounslow');
-    imgsrchounslow.src = "./public/londonmaps/hounslow_white.png"
-    //islington
-    islington.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[18].Site[0].Species[0]["@AirQualityIndex"];
-    islington.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[18].Site[0].Species[1]["@AirQualityIndex"];
-    if (parseInt(islington.NO2) == 1 || parseInt(islington.NO2) == 2 || parseInt(islington.NO2) ==3){
-        const imgsrc13 = document.getElementById("islington");
-        imgsrc13.src = "./public/londonmaps/islington_green.png";
-    } else if (parseInt(islington.NO2) == 4 || parseInt(islington.NO2) == 5 || parseInt(islington.NO2) ==6) {
-        const imgsrc13 = document.getElementById("islington");
-        imgsrc13.src = "./public/londonmaps/islington_orange.png";
-    } else if (parseInt(islington.NO2) == 7 || parseInt(islington.NO2) == 8 || parseInt(islington.NO2) ==9 || parseInt(islington.NO2) == 10) {
-        const imgsrc13 = document.getElementById("islington");
-        imgsrc13.src = "./public/londonmaps/islington_red.png";
-    }
-    //kc
-    kc.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[19].Site[0].Species[0]["@AirQualityIndex"];
-    kc.O3 = apidata.HourlyAirQualityIndex.LocalAuthority[19].Site[0].Species[1]["@AirQualityIndex"];
-    kc.SO2 = apidata.HourlyAirQualityIndex.LocalAuthority[19].Site[0].Species[2]["@AirQualityIndex"];
-    kc.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[19].Site[1].Species[0]["@AirQualityIndex"];
-    kc.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[19].Site[1].Species[1]["@AirQualityIndex"];
-    if (parseInt(kc.NO2) == 1 || parseInt(kc.NO2) == 2 || parseInt(kc.NO2) ==3){
-        const imgsrc14 = document.getElementById("kc");
-        imgsrc14.src = "./public/londonmaps/kc_green.png";
-    } else if (parseInt(kc.NO2) == 4 || parseInt(kc.NO2) == 5 || parseInt(kc.NO2) ==6) {
-        const imgsrc14 = document.getElementById("kc");
-        imgsrc14.src = "./public/londonmaps/kc_orange.png";
-    } else if (parseInt(kc.NO2) == 7 || parseInt(kc.NO2) == 8 || parseInt(kc.NO2) ==9 || parseInt(kc.NO2) == 10) {
-        const imgsrc14 = document.getElementById("kc");
-        imgsrc14.src = "./public/londonmaps/kc_red.png";
-    }
-    //kingston
-    kingston.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[20].Site[0].Species[0]["@AirQualityIndex"];
-    kingston.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[20].Site[1].Species[1]["@AirQualityIndex"];
-    kingston.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[20].Site[0].Species[1]["@AirQualityIndex"];
-    if (parseInt(kingston.NO2) == 1 || parseInt(kingston.NO2) == 2 || parseInt(kingston.NO2) ==3){
-        const imgsrc15 = document.getElementById("kingston");
-        imgsrc15.src = "./public/londonmaps/kingston_green.png";
-    } else if (parseInt(kingston.NO2) == 4 || parseInt(kingston.NO2) == 5 || parseInt(kingston.NO2) ==6) {
-        const imgsrc15 = document.getElementById("kingston");
-        imgsrc15.src = "./public/londonmaps/kingston_orange.png";
-    } else if (parseInt(kingston.NO2) == 7 || parseInt(kingston.NO2) == 8 || parseInt(kingston.NO2) ==9 || parseInt(kingston.NO2) == 10) {
-        const imgsrc15 = document.getElementById("kingston");
-        imgsrc15.src = "./public/londonmaps/kingston_red.png";
-    }
-    //lambeth
-    lambeth.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[21].Site[0].Species[0]["@AirQualityIndex"];
-    lambeth.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[21].Site[0].Species[1]["@AirQualityIndex"];
-    lambeth.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[21].Site[0].Species[2]["@AirQualityIndex"];
-    lambeth.SO2 = apidata.HourlyAirQualityIndex.LocalAuthority[21].Site[1].Species[1]["@AirQualityIndex"];
-    if (parseInt(lambeth.NO2) == 1 || parseInt(lambeth.NO2) == 2 || parseInt(lambeth.NO2) ==3){
-        const imgsrc16 = document.getElementById("lambeth");
-        imgsrc16.src = "./public/londonmaps/lambeth_green.png";
-    } else if (parseInt(lambeth.NO2) == 4 || parseInt(lambeth.NO2) == 5 || parseInt(lambeth.NO2) ==6) {
-        const imgsrc16 = document.getElementById("lambeth");
-        imgsrc16.src = "./public/londonmaps/lambeth_orange.png";
-    } else if (parseInt(lambeth.NO2) == 7 || parseInt(lambeth.NO2) == 8 || parseInt(lambeth.NO2) ==9 || parseInt(lambeth.NO2) == 10) {
-        const imgsrc16 = document.getElementById("lambeth");
-        imgsrc16.src = "./public/londonmaps/lambeth_red.png";
-    }
-    //lewisham
-    lewisham.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[22].Site[0].Species[0]["@AirQualityIndex"];
-    lewisham.O3 = apidata.HourlyAirQualityIndex.LocalAuthority[22].Site[0].Species[1]["@AirQualityIndex"];
-    lewisham.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[22].Site[0].Species[2]["@AirQualityIndex"];
-    lewisham.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[22].Site[0].Species[3]["@AirQualityIndex"];
-    if (parseInt(lewisham.NO2) == 1 || parseInt(lewisham.NO2) == 2 || parseInt(lewisham.NO2) ==3){
-        const imgsrc17 = document.getElementById("lewisham");
-        imgsrc17.src = "./public/londonmaps/lewisham_green.png";
-    } else if (parseInt(lewisham.NO2) == 4 || parseInt(lewisham.NO2) == 5 || parseInt(lewisham.NO2) ==6) {
-        const imgsrc17 = document.getElementById("lewisham");
-        imgsrc17.src = "./public/londonmaps/lewisham_orange.png";
-    } else if (parseInt(lewisham.NO2) == 7 || parseInt(lewisham.NO2) == 8 || parseInt(lewisham.NO2) ==9 || parseInt(lewisham.NO2) == 10) {
-        const imgsrc17 = document.getElementById("lewisham");
-        imgsrc17.src = "./public/londonmaps/lewisham_red.png";
-    }
-    //merton
-    merton.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[23].Site[1].Species["@AirQualityIndex"];
-    merton.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[23].Site[0].Species["@AirQualityIndex"];
-    if (parseInt(merton.NO2) == 1 || parseInt(merton.NO2) == 2 || parseInt(merton.NO2) ==3){
-        const imgsrc18 = document.getElementById("merton");
-        imgsrc18.src = "./public/londonmaps/merton_green.png";
-    } else if (parseInt(merton.NO2) == 4 || parseInt(merton.NO2) == 5 || parseInt(merton.NO2) ==6) {
-        const imgsrc18 = document.getElementById("merton");
-        imgsrc18.src = "./public/londonmaps/merton_orange.png";
-    } else if (parseInt(merton.NO2) == 7 || parseInt(merton.NO2) == 8 || parseInt(merton.NO2) ==9 || parseInt(merton.NO2) == 10) {
-        const imgsrc18 = document.getElementById("merton");
-        imgsrc18.src = "./public/londonmaps/merton_red.png";
-    }
-    //newham
-    newham.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[24].Site[0].Species[0]["@AirQualityIndex"];
-    newham.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[24].Site[0].Species[1]["@AirQualityIndex"];
-    newham.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[24].Site[0].Species[2]["@AirQualityIndex"];
-    if (parseInt(newham.NO2) == 1 || parseInt(newham.NO2) == 2 || parseInt(newham.NO2) ==3){
-        const imgsrc19 = document.getElementById("newham");
-        imgsrc19.src = "./public/londonmaps/newham_green.png";
-    } else if (parseInt(newham.NO2) == 4 || parseInt(newham.NO2) == 5 || parseInt(newham.NO2) ==6) {
-        const imgsrc19 = document.getElementById("newham");
-        imgsrc19.src = "./public/londonmaps/newham_orange.png";
-    } else if (parseInt(newham.NO2) == 7 || parseInt(newham.NO2) == 8 || parseInt(newham.NO2) ==9 || parseInt(newham.NO2) == 10) {
-        const imgsrc19 = document.getElementById("newham");
-        imgsrc19.src = "./public/londonmaps/newham_red.png";
-    }
-    //redbridge
-    redbridge.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[25].Site[1].Species[0]["@AirQualityIndex"];
-    redbridge.O3 = apidata.HourlyAirQualityIndex.LocalAuthority[25].Site[1].Species[1]["@AirQualityIndex"];
-    redbridge.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[25].Site[1].Species[2]["@AirQualityIndex"];
-    redbridge.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[25].Site[1].Species[3]["@AirQualityIndex"];
-    if (parseInt(redbridge.NO2) == 1 || parseInt(redbridge.NO2) == 2 || parseInt(redbridge.NO2) ==3){
-        const imgsrc20 = document.getElementById("redbridge");
-        imgsrc20.src = "./public/londonmaps/redbridge_green.png";
-    } else if (parseInt(redbridge.NO2) == 4 || parseInt(redbridge.NO2) == 5 || parseInt(redbridge.NO2) ==6) {
-        const imgsrc20 = document.getElementById("redbridge");
-        imgsrc20.src = "./public/londonmaps/redbridge_orange.png";
-    } else if (parseInt(redbridge.NO2) == 7 || parseInt(redbridge.NO2) == 8 || parseInt(redbridge.NO2) ==9 || parseInt(redbridge.NO2) == 10) {
-        const imgsrc20 = document.getElementById("redbridge");
-        imgsrc20.src = "./public/londonmaps/redbridge_red.png";
-    }
-    //richmond
-    richmond.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[26].Site[0].Species[0]["@AirQualityIndex"];
-    richmond.O3 = apidata.HourlyAirQualityIndex.LocalAuthority[26].Site[1].Species[1]["@AirQualityIndex"];
-    richmond.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[26].Site[0].Species[1]["@AirQualityIndex"];
-    richmond.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[26].Site[2].Species[1]["@AirQualityIndex"];
-    if (parseInt(richmond.NO2) == 1 || parseInt(richmond.NO2) == 2 || parseInt(richmond.NO2) ==3){
-        const imgsrc21 = document.getElementById("richmond");
-        imgsrc21.src = "./public/londonmaps/richmond_green.png";
-    } else if (parseInt(richmond.NO2) == 4 || parseInt(richmond.NO2) == 5 || parseInt(richmond.NO2) ==6) {
-        const imgsrc21 = document.getElementById("richmond");
-        imgsrc21.src = "./public/londonmaps/richmond_orange.png";
-    } else if (parseInt(richmond.NO2) == 7 || parseInt(richmond.NO2) == 8 || parseInt(richmond.NO2) ==9 || parseInt(richmond.NO2) == 10) {
-        const imgsrc21 = document.getElementById("richmond");
-        imgsrc21.src = "./public/londonmaps/richmond_red.png";
-    }
-    //southwark
-    southwark.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[27].Site[1].Species[0]["@AirQualityIndex"];
-    southwark.O3 = apidata.HourlyAirQualityIndex.LocalAuthority[27].Site[1].Species[1]["@AirQualityIndex"];
-    southwark.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[27].Site[1].Species[2]["@AirQualityIndex"];
-    southwark.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[27].Site[1].Species[3]["@AirQualityIndex"];
-    if (parseInt(southwark.NO2) == 1 || parseInt(southwark.NO2) == 2 || parseInt(southwark.NO2) ==3){
-        const imgsrc22 = document.getElementById("southwark");
-        imgsrc22.src = "./public/londonmaps/southwark_green.png";
-    } else if (parseInt(southwark.NO2) == 4 || parseInt(southwark.NO2) == 5 || parseInt(southwark.NO2) ==6) {
-        const imgsrc22 = document.getElementById("southwark");
-        imgsrc22.src = "./public/londonmaps/southwark_orange.png";
-    } else if (parseInt(southwark.NO2) == 7 || parseInt(southwark.NO2) == 8 || parseInt(southwark.NO2) ==9 || parseInt(southwark.NO2) == 10) {
-        const imgsrc22 = document.getElementById("southwark");
-        imgsrc22.src = "./public/londonmaps/southwark_red.png";
-    }
-    //sutton
-    sutton.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[28].Site[0].Species[0]["@AirQualityIndex"];
-    sutton.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[28].Site[0].Species[1]["@AirQualityIndex"];
-    sutton.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[28].Site[1].Species[1]["@AirQualityIndex"];
-    if (parseInt(sutton.NO2) == 1 || parseInt(sutton.NO2) == 2 || parseInt(sutton.NO2) ==3){
-        const imgsrc23 = document.getElementById("sutton");
-        imgsrc23.src = "./public/londonmaps/sutton_green.png";
-    } else if (parseInt(sutton.NO2) == 4 || parseInt(sutton.NO2) == 5 || parseInt(sutton.NO2) ==6) {
-        const imgsrc23 = document.getElementById("sutton");
-        imgsrc23.src = "./public/londonmaps/sutton_orange.png";
-    } else if (parseInt(sutton.NO2) == 7 || parseInt(sutton.NO2) == 8 || parseInt(sutton.NO2) ==9 || parseInt(sutton.NO2) == 10) {
-        const imgsrc23 = document.getElementById("sutton");
-        imgsrc23.src = "./public/londonmaps/sutton_red.png";
-    }
-    //towerhamlet
-    towerhamlet.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[29].Site[0].Species[0]["@AirQualityIndex"];
-    towerhamlet.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[29].Site[0].Species[1]["@AirQualityIndex"];
-    towerhamlet.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[29].Site[0].Species[2]["@AirQualityIndex"];
-    if (parseInt(towerhamlet.NO2) == 1 || parseInt(towerhamlet.NO2) == 2 || parseInt(towerhamlet.NO2) ==3){
-        const imgsrc24 = document.getElementById("towerhamlet");
-        imgsrc24.src = "./public/londonmaps/towerhamlet_green.png";
-    } else if (parseInt(towerhamlet.NO2) == 4 || parseInt(towerhamlet.NO2) == 5 || parseInt(towerhamlet.NO2) ==6) {
-        const imgsrc24 = document.getElementById("towerhamlet");
-        imgsrc24.src = "./public/londonmaps/towerhamlet_orange.png";
-    } else if (parseInt(towerhamlet.NO2) == 7 || parseInt(towerhamlet.NO2) == 8 || parseInt(towerhamlet.NO2) ==9 || parseInt(towerhamlet.NO2) == 10) {
-        const imgsrc24 = document.getElementById("towerhamlet");
-        imgsrc24.src = "./public/londonmaps/towerhamlet_red.png";
-    }
-    //waltham
-    const imgsrcwaltham = document.getElementById('walthamforest');
-    imgsrcwaltham.src = "./public/londonmaps/walthamforest_white.png";
-    //wandsworth
-    wandsworth.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[31].Site[0].Species[0]["@AirQualityIndex"];
-    wandsworth.O3 = apidata.HourlyAirQualityIndex.LocalAuthority[31].Site[0].Species[1]["@AirQualityIndex"];
-    wandsworth.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[31].Site[1].Species[1]["@AirQualityIndex"];
-    if (parseInt(wandsworth.NO2) == 1 || parseInt(wandsworth.NO2) == 2 || parseInt(wandsworth.NO2) ==3){
-        const imgsrc25 = document.getElementById("wandsworth");
-        imgsrc25.src = "./public/londonmaps/wandsworth_green.png";
-    } else if (parseInt(wandsworth.NO2) == 4 || parseInt(wandsworth.NO2) == 5 || parseInt(wandsworth.NO2) ==6) {
-        const imgsrc25 = document.getElementById("wandsworth");
-        imgsrc25.src = "./public/londonmaps/wandsworth_orange.png";
-    } else if (parseInt(wandsworth.NO2) == 7 || parseInt(wandsworth.NO2) == 8 || parseInt(wandsworth.NO2) ==9 || parseInt(wandsworth.NO2) == 10) {
-        const imgsrc25 = document.getElementById("wandsworth");
-        imgsrc25.src = "./public/londonmaps/wandsworth_red.png";
-    }
-    //westminster
-    westminster.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[32].Site[0].Species[0]["@AirQualityIndex"];
-    westminster.O3 = apidata.HourlyAirQualityIndex.LocalAuthority[32].Site[0].Species[1]["@AirQualityIndex"];
-    westminster.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[32].Site[0].Species[2]["@AirQualityIndex"];
-    westminster.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[32].Site[0].Species[3]["@AirQualityIndex"];
-    if (parseInt(westminster.NO2) == 1 || parseInt(westminster.NO2) == 2 || parseInt(westminster.NO2) ==3){
-        const imgsrc26 = document.getElementById("westminster");
-        imgsrc26.src = "./public/londonmaps/westminster_green.png";
-    } else if (parseInt(westminster.NO2) == 4 || parseInt(westminster.NO2) == 5 || parseInt(westminster.NO2) ==6) {
-        const imgsrc26 = document.getElementById("westminster");
-        imgsrc26.src = "./public/londonmaps/westminster_orange.png";
-        } else if (parseInt(westminster.NO2) == 7 || parseInt(westminster.NO2) == 8 || parseInt(westminster.NO2) ==9 || parseInt(haringey.NO2) == 10) {
-        const imgsrc26 = document.getElementById("westminster");
-        imgsrc26.src = "./public/londonmaps/westminster_red.png";
-    }
-
-
-}
 
 //for SO2 data display
+function clear(){
+    //barking
+    const Barking = document.getElementById('barking');
+    Barking.src = "./public/londonmaps/Barking_white.png";
+    //barnet
+    const Barnet = document.getElementById('barnet');
+    Barnet.src = "./public/londonmaps/barnet_white.png"
+    //bexley
+    const Bexley = document.getElementById('bexley');
+    Bexley.src = "./public/londonmaps/bexley_white.png";
+    //brent
+    const Brent = document.getElementById('brent');
+    Brent.src = "./public/londonmaps/brent_white.png";
+    //bromley
+    const Bromley = document.getElementById('bromley');
+    Bromley.src = "./public/londonmaps/bromley_white.png";
+    //camden
+    const Camden = document.getElementById('camden');
+    Camden.src = "./public/londonmaps/camden_white.png";
+    //city
+    const City = document.getElementById('city');
+    City.src = "./public/londonmaps/city_white.png";
+    //croydon
+    const Croydon = document.getElementById('croydon');
+    Croydon.src = "./public/londonmaps/croydon_white.png";
+    //ealing
+    const Ealing = document.getElementById('ealing');
+    Ealing.src = "./public/londonmaps/ealing_white.png";
+    //enfield
+    const Enfield = document.getElementById('enfield');
+    Enfield.src = "./public/londonmaps/enfield_white.png";
+    //greenwich
+    const Greenwich = document.getElementById('greenwich');
+    Greenwich.src = "./public/londonmaps/greenwich_white.png";
+    //hackney
+    const Hackney = document.getElementById('hackney');
+    Hackney.src = "./public/londonmaps/hackney_white.png";
+    //hammersmith
+    const Hammersmith = document.getElementById('hammersmith');
+    Hammersmith.src = "./public/londonmaps/hammersmith_white.png";
+    //haringey
+    const Haringey = document.getElementById('haringey');
+    Haringey.src = "./public/londonmaps/Haringey_white.png";
+    //harrow
+    const Harrow = document.getElementById('harrow');
+    Harrow.src = "./public/londonmaps/harrow_white.png";
+    //havering
+    const Havering = document.getElementById('havering');
+    Havering.src = "./public/londonmaps/Havering_white.png";
+    //hillingdon
+    const Hillingdon = document.getElementById('hillingdon');
+    Hillingdon.src = "./public/londonmaps/hillingdon_white.png";
+    //hounslow
+    const Hounslow = document.getElementById('hounslow');
+    Hounslow.src = "./public/londonmaps/hounslow_white.png";
+    //islington
+    const Islington = document.getElementById('islington');
+    Islington.src = "./public/londonmaps/islington_white.png";
+    //kc
+    const KC = document.getElementById('kc');
+    KC.src = "./public/londonmaps/kc_white.png";
+    //kingston
+    const Kingston = document.getElementById('kingston');
+    Kingston.src = "./public/londonmaps/kingston_white.png";
+    //lambeth
+    const Lambeth = document.getElementById('lambeth');
+    Lambeth.src = "./public/londonmaps/lambeth_white.png";
+    //lewisham
+    const Lewisham = document.getElementById('lewisham');
+    Lewisham.src = "./public/londonmaps/lewisham_white.png";
+    //merton
+    const Merton = document.getElementById('merton');
+    Merton.src = "./public/londonmaps/merton_white.png";
+    //newham
+    const Newham = document.getElementById('newham');
+    Newham.src = "./public/londonmaps/newham_white.png";
+    //redbridge
+    const Redbridge = document.getElementById('redbridge');
+    Redbridge.src = "./public/londonmaps/redbridge_white.png";
+    //richmond
+    const Richmond = document.getElementById('richmond');
+    Richmond.src = "./public/londonmaps/richmond_white.png";
+    //southwark
+    const Southwark = document.getElementById('southwark');
+    Southwark.src = "./public/londonmaps/southwark_white.png";
+    //sutton
+    const Sutton = document.getElementById('sutton');
+    Sutton.src = "./public/londonmaps/sutton_white.png";
+    //towerhamlet
+    const Towerhamlet = document.getElementById('towerhamlet');
+    Towerhamlet.src = "./public/londonmaps/towerhamlet_white.png";
+    //waltham forest
+    const Waltham = document.getElementById('walthamforest');
+    Waltham.src = "./public/londonmaps/walthamforest_white.png";
+    //wandsworth
+    const Wandsworth = document.getElementById('wandsworth');
+    Wandsworth.src = "./public/londonmaps/wandsworth_white.png";
+    //westminster
+    const Westminster = document.getElementById('westminster');
+    Westminster.src = "./public/londonmaps/westminster_white.png";
+
+}
 async function setmapSO2() {
     const response = await fetch("https://api.erg.ic.ac.uk/AirQuality/Hourly/MonitoringIndex/GroupName=London/Json");
     const apidata = await response.json();
-    barking = barnet = bexley = brent = bromley = camden = city = croydon = ealing = enfield = greenwich = hackney = hammersmith = haringey = harrow = havering = hillingdon = hounslow = islington = kc = kingston = lambeth = lewisham = merton = newham = redbridge = richmond = southwark = sutton = towerhamlet = waltham = wandsworth = westminster = AQIdata;
+    clear();
     //barking
-    barking.SO2 = apidata.HourlyAirQualityIndex.LocalAuthority[0].Site[0].Species[1]["@AirQualityIndex"];
-    if (parseInt(barking.SO2) == 1 || parseInt(barking.SO2) == 2 || parseInt(barking.SO2) == 3) {
+    const barking = apidata.HourlyAirQualityIndex.LocalAuthority[0].Site[0].Species[1]["@AirQualityIndex"];
+    if (parseInt(barking) == 1 || parseInt(barking) == 2 || parseInt(barking) == 3) {
         const imgsrc = document.getElementById("barking");
         imgsrc.src = "./public/londonmaps/Barking_green.png";
-    } else if (parseInt(barking.SO2) == 4 || parseInt(barking.SO2) == 5 || parseInt(barking.SO2) == 6) {
+    } else if (parseInt(barking) == 4 || parseInt(barking) == 5 || parseInt(barking) == 6) {
         const imgsrc = document.getElementById("barking");
         imgsrc.src = "./public/londonmaps/Barking_orange.png";
-    } else if (parseInt(barking.SO2) == 7 || parseInt(barking.SO2) == 8 || parseInt(barking.SO2) == 9 || parseInt(barking.SO2) == 10) {
+    } else if (parseInt(barking) == 7 || parseInt(barking) == 8 || parseInt(barking) == 9 || parseInt(barking) == 10) {
         const imgsrc = document.getElementById("barking");
         imgsrc.src = "./public/londonmaps/Barking_red.png";
     }
@@ -436,14 +123,14 @@ async function setmapSO2() {
     const imgsrcbarnet = document.getElementById('barnet');
     imgsrcbarnet.src = "./public/londonmaps/barnet_white.png";
     //bexley
-    bexley.SO2 = apidata.HourlyAirQualityIndex.LocalAuthority[2].Site[2].Species[2]["@AirQualityIndex"];
-    if (parseInt(bexley.SO2) == 1 || parseInt(bexley.SO2) == 2 || parseInt(bexley.SO2) == 3) {
+    const bexley = apidata.HourlyAirQualityIndex.LocalAuthority[2].Site[2].Species[2]["@AirQualityIndex"];
+    if (parseInt(bexley) == 1 || parseInt(bexley) == 2 || parseInt(bexley) == 3) {
         const imgsrc1 = document.getElementById("bexley");
         imgsrc1.src = "./public/londonmaps/bexley_green.png";
-    } else if (parseInt(bexley.SO2) == 4 || parseInt(bexley.SO2) == 5 || parseInt(bexley.SO2) == 6) {
+    } else if (parseInt(bexley) == 4 || parseInt(bexley) == 5 || parseInt(bexley) == 6) {
         const imgsrc1 = document.getElementById("bexley");
         imgsrc1.src = "./public/londonmaps/bexley_orange.png";
-    } else if (parseInt(bexley.SO2) == 7 || parseInt(bexley.SO2) == 8 || parseInt(bexley.SO2) == 9 || parseInt(bexley.SO2) == 10) {
+    } else if (parseInt(bexley) == 7 || parseInt(bexley) == 8 || parseInt(bexley) == 9 || parseInt(bexley) == 10) {
         const imgsrc1 = document.getElementById("bexley");
         imgsrc1.src = "./public/londonmaps/bexley_red.png";
     }
@@ -454,14 +141,14 @@ async function setmapSO2() {
     const imgsrcbromley = document.getElementById('bromley');
     imgsrcbromley.src = "./public/londonmaps/bromley_white.png";
     //camden
-    camden.SO2 = apidata.HourlyAirQualityIndex.LocalAuthority[5].Site[0].Species[4]["@AirQualityIndex"];
-    if (parseInt(camden.SO2) == 1 || parseInt(camden.SO2) == 2 || parseInt(camden.SO2) == 3) {
+    const camden = apidata.HourlyAirQualityIndex.LocalAuthority[5].Site[0].Species[4]["@AirQualityIndex"];
+    if (parseInt(camden) == 1 || parseInt(camden) == 2 || parseInt(camden) == 3) {
         const imgsrc4 = document.getElementById("camden");
         imgsrc4.src = "./public/londonmaps/camden_green.png";
-    } else if (parseInt(camden.SO2) == 4 || parseInt(camden.SO2) == 5 || parseInt(camden.SO2) == 6) {
+    } else if (parseInt(camden) == 4 || parseInt(camden) == 5 || parseInt(camden) == 6) {
         const imgsrc4 = document.getElementById("camden");
         imgsrc4.src = "./public/londonmaps/camden_orange.png";
-    } else if (parseInt(camden.SO2) == 7 || parseInt(camden.SO2) == 8 || parseInt(camden.SO2) == 9 || parseInt(camden.SO2) == 10) {
+    } else if (parseInt(camden) == 7 || parseInt(camden) == 8 || parseInt(camden) == 9 || parseInt(camden) == 10) {
         const imgsrc4 = document.getElementById("camden");
         imgsrc4.src = "./public/londonmaps/camden_red.png";
     }
@@ -470,7 +157,7 @@ async function setmapSO2() {
     imgsrccity.src = "./public/londonmaps/city_white.png";
     //croydon
     const imgsrccroydon = document.getElementById('croydon');
-    imgsrcbcroydon.src = "./public/londonmaps/croydon_white.png";
+    imgsrccroydon.src = "./public/londonmaps/croydon_white.png";
     //ealing
     const imgsrcealing = document.getElementById('ealing');
     imgsrcealing.src = "./public/londonmaps/ealing_white.png";
@@ -478,14 +165,14 @@ async function setmapSO2() {
     const imgsrcenfield = document.getElementById('enfield');
     imgsrcenfield.src = "./public/londonmaps/enfield_white.png";
     //greenwich
-    greenwich.SO2 = apidata.HourlyAirQualityIndex.LocalAuthority[10].Site[7].Species[4]["@AirQualityIndex"];
-    if (parseInt(greenwich.SO2) == 1 || parseInt(greenwich.SO2) == 2 || parseInt(greenwich.SO2) == 3) {
+    const greenwich = apidata.HourlyAirQualityIndex.LocalAuthority[10].Site[7].Species[4]["@AirQualityIndex"];
+    if (parseInt(greenwich) == 1 || parseInt(greenwich) == 2 || parseInt(greenwich) == 3) {
         const imgsrc8 = document.getElementById("greenwich");
         imgsrc8.src = "./public/londonmaps/greenwich_green.png";
-    } else if (parseInt(greenwich.SO2) == 4 || parseInt(greenwich.SO2) == 5 || parseInt(greenwich.SO2) == 6) {
+    } else if (parseInt(greenwich) == 4 || parseInt(greenwich) == 5 || parseInt(greenwich) == 6) {
         const imgsrc8 = document.getElementById("greenwich");
         imgsrc8.src = "./public/londonmaps/greenwich_orange.png";
-    } else if (parseInt(greenwich.SO2) == 7 || parseInt(greenwich.SO2) == 8 || parseInt(greenwich.SO2) == 9 || parseInt(greenwich.SO2) == 10) {
+    } else if (parseInt(greenwich) == 7 || parseInt(greenwich) == 8 || parseInt(greenwich) == 9 || parseInt(greenwich) == 10) {
         const imgsrc8 = document.getElementById("greenwich");
         imgsrc8.src = "./public/londonmaps/greenwich_red.png";
     }
@@ -514,29 +201,29 @@ async function setmapSO2() {
     const imgsrcislington = document.getElementById('islington');
     imgsrcislington.src = "./public/londonmaps/islington_white.png";
     //kc
-    kc.SO2 = apidata.HourlyAirQualityIndex.LocalAuthority[19].Site[0].Species[2]["@AirQualityIndex"];
-    if (parseInt(kc.SO2) == 1 || parseInt(kc.SO2) == 2 || parseInt(kc.SO2) == 3) {
+    const kc = apidata.HourlyAirQualityIndex.LocalAuthority[19].Site[0].Species[2]["@AirQualityIndex"];
+    if (parseInt(kc) == 1 || parseInt(kc) == 2 || parseInt(kc) == 3) {
         const imgsrc14 = document.getElementById("kc");
         imgsrc14.src = "./public/londonmaps/kc_green.png";
-    } else if (parseInt(kc.SO2) == 4 || parseInt(kc.SO2) == 5 || parseInt(kc.SO2) == 6) {
+    } else if (parseInt(kc) == 4 || parseInt(kc) == 5 || parseInt(kc) == 6) {
         const imgsrc14 = document.getElementById("kc");
         imgsrc14.src = "./public/londonmaps/kc_orange.png";
-    } else if (parseInt(kc.SO2) == 7 || parseInt(kc.SO2) == 8 || parseInt(kc.SO2) == 9 || parseInt(kc.SO2) == 10) {
+    } else if (parseInt(kc) == 7 || parseInt(kc) == 8 || parseInt(kc) == 9 || parseInt(kc) == 10) {
         const imgsrc14 = document.getElementById("kc");
         imgsrc14.src = "./public/londonmaps/kc_red.png";
     }
     //kingston
     const imgsrckingston = document.getElementById('kingston');
-    imgsrckingston.src = "./public/londonmaps/barnet_white.png";
+    imgsrckingston.src = "./public/londonmaps/kingston_white.png";
     //lambeth
-    lambeth.SO2 = apidata.HourlyAirQualityIndex.LocalAuthority[21].Site[1].Species[1]["@AirQualityIndex"];
-    if (parseInt(lambeth.SO2) == 1 || parseInt(lambeth.SO2) == 2 || parseInt(lambeth.SO2) == 3) {
+    const lambeth = apidata.HourlyAirQualityIndex.LocalAuthority[21].Site[1].Species[1]["@AirQualityIndex"];
+    if (parseInt(lambeth) == 1 || parseInt(lambeth) == 2 || parseInt(lambeth) == 3) {
         const imgsrc16 = document.getElementById("lambeth");
         imgsrc16.src = "./public/londonmaps/lambeth_green.png";
-    } else if (parseInt(lambeth.SO2) == 4 || parseInt(lambeth.SO2) == 5 || parseInt(lambeth.SO2) == 6) {
+    } else if (parseInt(lambeth) == 4 || parseInt(lambeth) == 5 || parseInt(lambeth) == 6) {
         const imgsrc16 = document.getElementById("lambeth");
         imgsrc16.src = "./public/londonmaps/lambeth_orange.png";
-    } else if (parseInt(lambeth.SO2) == 7 || parseInt(lambeth.SO2) == 8 || parseInt(lambeth.SO2) == 9 || parseInt(lambeth.SO2) == 10) {
+    } else if (parseInt(lambeth) == 7 || parseInt(lambeth) == 8 || parseInt(lambeth) == 9 || parseInt(lambeth) == 10) {
         const imgsrc16 = document.getElementById("lambeth");
         imgsrc16.src = "./public/londonmaps/lambeth_red.png";
     }
@@ -578,16 +265,16 @@ async function setmapSO2() {
 async function setmapNO2(){
     const response = await fetch("https://api.erg.ic.ac.uk/AirQuality/Hourly/MonitoringIndex/GroupName=London/Json");
     const apidata = await response.json();
-    barking=barnet=bexley=brent=bromley=camden=city=croydon=ealing=enfield=greenwich=hackney=hammersmith=haringey=harrow=havering=hillingdon=hounslow=islington=kc=kingston=lambeth=lewisham=merton=newham=redbridge=richmond=southwark=sutton=towerhamlet=waltham=wandsworth=westminster=AQIdata;
+    clear();
     //barking
-    barking.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[0].Site[0].Species[0]["@AirQualityIndex"];
-    if (parseInt(barking.NO2) == 1 || parseInt(barking.NO2) == 2 || parseInt(barking.NO2) ==3){
+    const barkingNO2 = apidata.HourlyAirQualityIndex.LocalAuthority[0].Site[0].Species[0]["@AirQualityIndex"];
+    if (parseInt(barkingNO2) == 1 || parseInt(barkingNO2) == 2 || parseInt(barkingNO2) ==3){
         const imgsrc = document.getElementById("barking");
         imgsrc.src = "./public/londonmaps/Barking_green.png";
-    } else if (parseInt(barking.NO2) == 4 || parseInt(barking.NO2) == 5 || parseInt(barking.NO2) ==6) {
+    } else if (parseInt(barkingNO2) == 4 || parseInt(barkingNO2) == 5 || parseInt(barkingNO2) ==6) {
         const imgsrc = document.getElementById("barking");
         imgsrc.src = "./public/londonmaps/Barking_orange.png";
-    } else if (parseInt(barking.NO2) == 7 || parseInt(barking.NO2) == 8 || parseInt(barking.NO2) ==9 || parseInt(barking.NO2) == 10) {
+    } else if (parseInt(barkingNO2) == 7 || parseInt(barkingNO2) == 8 || parseInt(barkingNO2) ==9 || parseInt(barkingNO2) == 10) {
         const imgsrc = document.getElementById("barking");
         imgsrc.src = "./public/londonmaps/Barking_red.png";
     }
@@ -595,50 +282,50 @@ async function setmapNO2(){
     const imgsrcbarnet = document.getElementById('barnet');
     imgsrcbarnet.src = "./public/londonmaps/barnet_white.png";
     //bexley
-    bexley.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[2].Site[0].Species[0]["@AirQualityIndex"];
-    if (parseInt(bexley.NO2) == 1 || parseInt(bexley.NO2) == 2 || parseInt(bexley.NO2) ==3){
+    const bexleyNO2 = apidata.HourlyAirQualityIndex.LocalAuthority[2].Site[0].Species[0]["@AirQualityIndex"];
+    if (parseInt(bexleyNO2) == 1 || parseInt(bexleyNO2) == 2 || parseInt(bexleyNO2) ==3){
         const imgsrc1 = document.getElementById("bexley");
         imgsrc1.src = "./public/londonmaps/bexley_green.png";
-    } else if (parseInt(bexley.NO2) == 4 || parseInt(bexley.NO2) == 5 || parseInt(bexley.NO2) ==6) {
+    } else if (parseInt(bexleyNO2) == 4 || parseInt(bexleyNO2) == 5 || parseInt(bexleyNO2) ==6) {
         const imgsrc1 = document.getElementById("bexley");
         imgsrc1.src = "./public/londonmaps/bexley_orange.png";
-    } else if (parseInt(bexley.NO2) == 7 || parseInt(bexley.NO2) == 8 || parseInt(bexley.NO2) ==9 || parseInt(bexley.NO2) == 10) {
+    } else if (parseInt(bexleyNO2) == 7 || parseInt(bexleyNO2) == 8 || parseInt(bexleyNO2) ==9 || parseInt(bexleyNO2) == 10) {
         const imgsrc1 = document.getElementById("bexley");
         imgsrc1.src = "./public/londonmaps/bexley_red.png";
     }
     //brent
-    brent.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[3].Site[1].Species[0]["@AirQualityIndex"];
-    if (parseInt(brent.NO2) == 1 || parseInt(brent.NO2) == 2 || parseInt(brent.NO2) ==3){
+    const brentNO2 = apidata.HourlyAirQualityIndex.LocalAuthority[3].Site[1].Species[0]["@AirQualityIndex"];
+    if (parseInt(brentNO2) == 1 || parseInt(brentNO2) == 2 || parseInt(brentNO2) ==3){
         const imgsrc2 = document.getElementById("brent");
         imgsrc2.src = "./public/londonmaps/brent_green.png";
-    } else if (parseInt(brent.NO2) == 4 || parseInt(brent.NO2) == 5 || parseInt(brent.NO2) ==6) {
+    } else if (parseInt(brentNO2) == 4 || parseInt(brentNO2) == 5 || parseInt(brentNO2) ==6) {
         const imgsrc2 = document.getElementById("brent");
         imgsrc2.src = "./public/londonmaps/brent_orange.png";
-    } else if (parseInt(brent.NO2) == 7 || parseInt(brent.NO2) == 8 || parseInt(brent.NO2) ==9 || parseInt(brent.NO2) == 10) {
+    } else if (parseInt(brentNO2) == 7 || parseInt(brentNO2) == 8 || parseInt(brentNO2) ==9 || parseInt(brentNO2) == 10) {
         const imgsrc2 = document.getElementById("brent");
         imgsrc2.src = "./public/londonmaps/brent_red.png";
     }
     //bromley
-    bromley.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[4].Site.Species[0]["@AirQualityIndex"];
-    if (parseInt(bromley.NO2) == 1 || parseInt(bromley.NO2) == 2 || parseInt(bromley.NO2) ==3){
+    const bromleyNO2 = apidata.HourlyAirQualityIndex.LocalAuthority[4].Site.Species[0]["@AirQualityIndex"];
+    if (parseInt(bromleyNO2) == 1 || parseInt(bromleyNO2) == 2 || parseInt(bromleyNO2) ==3){
         const imgsrc3 = document.getElementById("bromley");
         imgsrc3.src = "./public/londonmaps/bromley_green.png";
-    } else if (parseInt(bromley.NO2) == 4 || parseInt(bromley.NO2) == 5 || parseInt(bromley.NO2) ==6) {
+    } else if (parseInt(bromleyNO2) == 4 || parseInt(bromleyNO2) == 5 || parseInt(bromleyNO2) ==6) {
         const imgsrc3 = document.getElementById("bromley");
         imgsrc3.src = "./public/londonmaps/bromley_orange.png";
-    } else if (parseInt(bromley.NO2) == 7 || parseInt(bromley.NO2) == 8 || parseInt(bromley.NO2) ==9 || parseInt(bromley.NO2) == 10) {
+    } else if (parseInt(bromleyNO2) == 7 || parseInt(bromleyNO2) == 8 || parseInt(bromleyNO2) ==9 || parseInt(bromleyNO2) == 10) {
         const imgsrc3 = document.getElementById("bromley");
         imgsrc3.src = "./public/londonmaps/bromley_red.png";
     }
     //camden
-    camden.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[5].Site[0].Species[0]["@AirQualityIndex"];
-    if (parseInt(camden.NO2) == 1 || parseInt(camden.NO2) == 2 || parseInt(camden.NO2) ==3){
+    const camdenNO2 = apidata.HourlyAirQualityIndex.LocalAuthority[5].Site[0].Species[0]["@AirQualityIndex"];
+    if (parseInt(camdenNO2) == 1 || parseInt(camdenNO2) == 2 || parseInt(camdenNO2) ==3){
         const imgsrc4 = document.getElementById("camden");
         imgsrc4.src = "./public/londonmaps/camden_green.png";
-    } else if (parseInt(camden.NO2) == 4 || parseInt(camden.NO2) == 5 || parseInt(camden.NO2) ==6) {
+    } else if (parseInt(camdenNO2) == 4 || parseInt(camdenNO2) == 5 || parseInt(camdenNO2) ==6) {
         const imgsrc4 = document.getElementById("camden");
         imgsrc4.src = "./public/londonmaps/camden_orange.png";
-    } else if (parseInt(camden.NO2) == 7 || parseInt(camden.NO2) == 8 || parseInt(camden.NO2) ==9 || parseInt(camden.NO2) == 10) {
+    } else if (parseInt(camdenNO2) == 7 || parseInt(camdenNO2) == 8 || parseInt(camdenNO2) ==9 || parseInt(camdenNO2) == 10) {
         const imgsrc4 = document.getElementById("camden");
         imgsrc4.src = "./public/londonmaps/camden_red.png";
     }
@@ -646,62 +333,62 @@ async function setmapNO2(){
     const imgsrccity = document.getElementById('city');
     imgsrccity.src = "./public/londonmaps/city_white.png";
     //croydon
-    croydon.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[7].Site[0].Species["@AirQualityIndex"];
-    if (parseInt(croydon.NO2) == 1 || parseInt(croydon.NO2) == 2 || parseInt(croydon.NO2) ==3){
+    const croydonNO2 = apidata.HourlyAirQualityIndex.LocalAuthority[7].Site[0].Species["@AirQualityIndex"];
+    if (parseInt(croydonNO2) == 1 || parseInt(croydonNO2) == 2 || parseInt(croydonNO2) ==3){
         const imgsrc5 = document.getElementById("croydon");
         imgsrc5.src = "./public/londonmaps/croydon_green.png";
-    } else if (parseInt(croydon.NO2) == 4 || parseInt(croydon.NO2) == 5 || parseInt(croydon.NO2) ==6) {
+    } else if (parseInt(croydonNO2) == 4 || parseInt(croydonNO2) == 5 || parseInt(croydonNO2) ==6) {
         const imgsrc5 = document.getElementById("croydon");
         imgsrc5.src = "./public/londonmaps/croydon_orange.png";
-    } else if (parseInt(croydon.NO2) == 7 || parseInt(croydon.NO2) == 8 || parseInt(croydon.NO2) ==9 || parseInt(croydon.NO2) == 10) {
+    } else if (parseInt(croydonNO2) == 7 || parseInt(croydonNO2) == 8 || parseInt(croydonNO2) ==9 || parseInt(croydonNO2) == 10) {
         const imgsrc5 = document.getElementById("croydon");
         imgsrc5.src = "./public/londonmaps/croydon_red.png";
     }
     //ealing
-    ealing.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[8].Site[1].Species[0]["@AirQualityIndex"];
-    if (parseInt(ealing.NO2) == 1 || parseInt(ealing.NO2) == 2 || parseInt(ealing.NO2) ==3){
+    const ealingNO2 = apidata.HourlyAirQualityIndex.LocalAuthority[8].Site[1].Species[0]["@AirQualityIndex"];
+    if (parseInt(ealingNO2) == 1 || parseInt(ealingNO2) == 2 || parseInt(ealingNO2) ==3){
         const imgsrc6 = document.getElementById("ealing");
         imgsrc6.src = "./public/londonmaps/ealing_green.png";
-    } else if (parseInt(ealing.NO2) == 4 || parseInt(ealing.NO2) == 5 || parseInt(ealing.NO2) ==6) {
+    } else if (parseInt(ealingNO2) == 4 || parseInt(ealingNO2) == 5 || parseInt(ealingNO2) ==6) {
         const imgsrc6 = document.getElementById("ealing");
         imgsrc6.src = "./public/londonmaps/ealing_orange.png";
-    } else if (parseInt(ealing.NO2) == 7 || parseInt(ealing.NO2) == 8 || parseInt(ealing.NO2) ==9 || parseInt(ealing.NO2) == 10) {
+    } else if (parseInt(ealingNO2) == 7 || parseInt(ealingNO2) == 8 || parseInt(ealingNO2) ==9 || parseInt(ealingNO2) == 10) {
         const imgsrc6 = document.getElementById("ealing");
         imgsrc6.src = "./public/londonmaps/ealing_red.png";
     }
     //enfield
-    enfield.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[9].Site[0].Species["@AirQualityIndex"];
-    if (parseInt(enfield.NO2) == 1 || parseInt(enfield.NO2) == 2 || parseInt(enfield.NO2) ==3){
+    const enfieldNO2 = apidata.HourlyAirQualityIndex.LocalAuthority[9].Site[0].Species["@AirQualityIndex"];
+    if (parseInt(enfieldNO2) == 1 || parseInt(enfieldNO2) == 2 || parseInt(enfieldNO2) ==3){
         const imgsrc7 = document.getElementById("enfield");
         imgsrc7.src = "./public/londonmaps/enfield_green.png";
-    } else if (parseInt(enfield.NO2) == 4 || parseInt(enfield.NO2) == 5 || parseInt(enfield.NO2) ==6) {
+    } else if (parseInt(enfieldNO2) == 4 || parseInt(enfieldNO2) == 5 || parseInt(enfieldNO2) ==6) {
         const imgsrc7 = document.getElementById("enfield");
         imgsrc7.src = "./public/londonmaps/enfield_orange.png";
-    } else if (parseInt(enfield.NO2) == 7 || parseInt(enfield.NO2) == 8 || parseInt(enfield.NO2) ==9 || parseInt(enfield.NO2) == 10) {
+    } else if (parseInt(enfieldNO2) == 7 || parseInt(enfieldNO2) == 8 || parseInt(enfieldNO2) ==9 || parseInt(enfieldNO2) == 10) {
         const imgsrc7 = document.getElementById("enfield");
         imgsrc7.src = "./public/londonmaps/enfield_red.png";
     }
     //greenwich
-    greenwich.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[10].Site[2].Species[0]["@AirQualityIndex"];
-    if (parseInt(greenwich.NO2) == 1 || parseInt(greenwich.NO2) == 2 || parseInt(greenwich.NO2) ==3){
+    const greenwichNO2 = apidata.HourlyAirQualityIndex.LocalAuthority[10].Site[2].Species[0]["@AirQualityIndex"];
+    if (parseInt(greenwichNO2) == 1 || parseInt(greenwichNO2) == 2 || parseInt(greenwichNO2) ==3){
         const imgsrc8 = document.getElementById("greenwich");
         imgsrc8.src = "./public/londonmaps/greenwich_green.png";
-    } else if (parseInt(greenwich.NO2) == 4 || parseInt(greenwich.NO2) == 5 || parseInt(greenwich.NO2) ==6) {
+    } else if (parseInt(greenwichNO2) == 4 || parseInt(greenwichNO2) == 5 || parseInt(greenwichNO2) ==6) {
         const imgsrc8 = document.getElementById("greenwich");
         imgsrc8.src = "./public/londonmaps/greenwich_orange.png";
-    } else if (parseInt(greenwich.NO2) == 7 || parseInt(greenwich.NO2) == 8 || parseInt(greenwich.NO2) ==9 || parseInt(greenwich.NO2) == 10) {
+    } else if (parseInt(greenwichNO2) == 7 || parseInt(greenwichNO2) == 8 || parseInt(greenwichNO2) ==9 || parseInt(greenwichNO2) == 10) {
         const imgsrc8 = document.getElementById("greenwich");
         imgsrc8.src = "./public/londonmaps/greenwich_red.png";
     }
     //hackney
-    hackney.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[11].Site.Species[0]["@AirQualityIndex"];
-    if (parseInt(hackney.NO2) == 1 || parseInt(hackney.NO2) == 2 || parseInt(hackney.NO2) ==3){
+    const hackneyNO2 = apidata.HourlyAirQualityIndex.LocalAuthority[11].Site.Species[0]["@AirQualityIndex"];
+    if (parseInt(hackneyNO2) == 1 || parseInt(hackneyNO2) == 2 || parseInt(hackneyNO2) ==3){
         const imgsrc9 = document.getElementById("hackney");
         imgsrc9.src = "./public/londonmaps/hackney_green.png";
-    } else if (parseInt(hackney.NO2) == 4 || parseInt(hackney.NO2) == 5 || parseInt(hackney.NO2) ==6) {
+    } else if (parseInt(hackneyNO2) == 4 || parseInt(hackneyNO2) == 5 || parseInt(hackneyNO2) ==6) {
         const imgsrc9 = document.getElementById("hackney");
         imgsrc9.src = "./public/londonmaps/hackney_orange.png";
-    } else if (parseInt(hackney.NO2) == 7 || parseInt(hackney.NO2) == 8 || parseInt(hackney.NO2) ==9 || parseInt(hackney.NO2) == 10) {
+    } else if (parseInt(hackneyNO2) == 7 || parseInt(hackneyNO2) == 8 || parseInt(hackneyNO2) ==9 || parseInt(hackneyNO2) == 10) {
         const imgsrc9 = document.getElementById("hackney");
         imgsrc9.src = "./public/londonmaps/hackney_red.png";
     }
@@ -709,14 +396,14 @@ async function setmapNO2(){
     const imgsrchammersmith = document.getElementById('hammersmith');
     imgsrchammersmith.src = "./public/londonmaps/hammersmith_white.png";
     //haringey
-    haringey.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[13].Site[1].Species[0]["@AirQualityIndex"];
-    if (parseInt(haringey.NO2) == 1 || parseInt(haringey.NO2) == 2 || parseInt(haringey.NO2) ==3){
+    const haringeyNO2 = apidata.HourlyAirQualityIndex.LocalAuthority[13].Site[1].Species[0]["@AirQualityIndex"];
+    if (parseInt(haringeyNO2) == 1 || parseInt(haringeyNO2) == 2 || parseInt(haringeyNO2) ==3){
         const imgsrc10 = document.getElementById("haringey");
         imgsrc10.src = "./public/londonmaps/Haringey_green.png";
-    } else if (parseInt(haringey.NO2) == 4 || parseInt(haringey.NO2) == 5 || parseInt(haringey.NO2) ==6) {
+    } else if (parseInt(haringeyNO2) == 4 || parseInt(haringeyNO2) == 5 || parseInt(haringeyNO2) ==6) {
         const imgsrc10 = document.getElementById("haringey");
         imgsrc10.src = "./public/londonmaps/Haringey_orange.png";
-    } else if (parseInt(haringey.NO2) == 7 || parseInt(haringey.NO2) == 8 || parseInt(haringey.NO2) ==9 || parseInt(haringey.NO2) == 10) {
+    } else if (parseInt(haringeyNO2) == 7 || parseInt(haringeyNO2) == 8 || parseInt(haringeyNO2) ==9 || parseInt(haringeyNO2) == 10) {
         const imgsrc10 = document.getElementById("haringey");
         imgsrc10.src = "./public/londonmaps/Haringey_red.png";
     }
@@ -724,26 +411,26 @@ async function setmapNO2(){
     const imgsrcharrow = document.getElementById('harrow');
     imgsrcharrow.src = "./public/londonmaps/harrow_white.png";
     //havering
-    havering.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[15].Site[1].Species[0]["@AirQualityIndex"];
-    if (parseInt(havering.NO2) == 1 || parseInt(havering.NO2) == 2 || parseInt(havering.NO2) ==3){
+    const haveringNO2 = apidata.HourlyAirQualityIndex.LocalAuthority[15].Site[1].Species[0]["@AirQualityIndex"];
+    if (parseInt(haveringNO2) == 1 || parseInt(haveringNO2) == 2 || parseInt(haveringNO2) ==3){
         const imgsrc11 = document.getElementById("havering");
         imgsrc11.src = "./public/londonmaps/Havering_green.png";
-    } else if (parseInt(havering.NO2) == 4 || parseInt(havering.NO2) == 5 || parseInt(havering.NO2) ==6) {
+    } else if (parseInt(haveringNO2) == 4 || parseInt(haveringNO2) == 5 || parseInt(haveringNO2) ==6) {
         const imgsrc11 = document.getElementById("havering");
         imgsrc11.src = "./public/londonmaps/Havering_orange.png";
-    } else if (parseInt(havering.NO2) == 7 || parseInt(havering.NO2) == 8 || parseInt(havering.NO2) ==9 || parseInt(havering.NO2) == 10) {
+    } else if (parseInt(haveringNO2) == 7 || parseInt(haveringNO2) == 8 || parseInt(haveringNO2) ==9 || parseInt(haveringNO2) == 10) {
         const imgsrc11 = document.getElementById("havering");
         imgsrc11.src = "./public/londonmaps/Havering_red.png";
     }
     //hillingdon
-    hillingdon.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[16].Site[1].Species[0]["@AirQualityIndex"];
-    if (parseInt(hillingdon.NO2) == 1 || parseInt(hillingdon.NO2) == 2 || parseInt(hillingdon.NO2) ==3){
+    const hillingdonNO2 = apidata.HourlyAirQualityIndex.LocalAuthority[16].Site[1].Species[0]["@AirQualityIndex"];
+    if (parseInt(hillingdonNO2) == 1 || parseInt(hillingdonNO2) == 2 || parseInt(hillingdonNO2) ==3){
         const imgsrc12 = document.getElementById("hillingdon");
         imgsrc12.src = "./public/londonmaps/hillingdon_green.png";
-    } else if (parseInt(hillingdon.NO2) == 4 || parseInt(hillingdon.NO2) == 5 || parseInt(hillingdon.NO2) ==6) {
+    } else if (parseInt(hillingdonNO2) == 4 || parseInt(hillingdonNO2) == 5 || parseInt(hillingdonNO2) ==6) {
         const imgsrc12 = document.getElementById("hillingdon");
         imgsrc12.src = "./public/londonmaps/hillingdon_orange.png";
-    } else if (parseInt(hillingdon.NO2) == 7 || parseInt(hillingdon.NO2) == 8 || parseInt(hillingdon.NO2) ==9 || parseInt(hillingdon.NO2) == 10) {
+    } else if (parseInt(hillingdonNO2) == 7 || parseInt(hillingdonNO2) == 8 || parseInt(hillingdonNO2) ==9 || parseInt(hillingdonNO2) == 10) {
         const imgsrc12 = document.getElementById("hillingdon");
         imgsrc12.src = "./public/londonmaps/hillingdon_red.png";
     }
@@ -751,146 +438,146 @@ async function setmapNO2(){
     const imgsrchounslow = document.getElementById('hounslow');
     imgsrchounslow.src = "./public/londonmaps/hounslow_white.png"
     //islington
-    islington.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[18].Site[0].Species[0]["@AirQualityIndex"];
-    if (parseInt(islington.NO2) == 1 || parseInt(islington.NO2) == 2 || parseInt(islington.NO2) ==3){
+    const islingtonNO2 = apidata.HourlyAirQualityIndex.LocalAuthority[18].Site[0].Species[0]["@AirQualityIndex"];
+    if (parseInt(islingtonNO2) == 1 || parseInt(islingtonNO2) == 2 || parseInt(islingtonNO2) ==3){
         const imgsrc13 = document.getElementById("islington");
         imgsrc13.src = "./public/londonmaps/islington_green.png";
-    } else if (parseInt(islington.NO2) == 4 || parseInt(islington.NO2) == 5 || parseInt(islington.NO2) ==6) {
+    } else if (parseInt(islingtonNO2) == 4 || parseInt(islingtonNO2) == 5 || parseInt(islingtonNO2) ==6) {
         const imgsrc13 = document.getElementById("islington");
         imgsrc13.src = "./public/londonmaps/islington_orange.png";
-    } else if (parseInt(islington.NO2) == 7 || parseInt(islington.NO2) == 8 || parseInt(islington.NO2) ==9 || parseInt(islington.NO2) == 10) {
+    } else if (parseInt(islingtonNO2) == 7 || parseInt(islingtonNO2) == 8 || parseInt(islingtonNO2) ==9 || parseInt(islingtonNO2) == 10) {
         const imgsrc13 = document.getElementById("islington");
         imgsrc13.src = "./public/londonmaps/islington_red.png";
     }
     //kc
-    kc.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[19].Site[0].Species[0]["@AirQualityIndex"];
-    if (parseInt(kc.NO2) == 1 || parseInt(kc.NO2) == 2 || parseInt(kc.NO2) ==3){
+    const kcNO2 = apidata.HourlyAirQualityIndex.LocalAuthority[19].Site[0].Species[0]["@AirQualityIndex"];
+    if (parseInt(kcNO2) == 1 || parseInt(kcNO2) == 2 || parseInt(kcNO2) ==3){
         const imgsrc14 = document.getElementById("kc");
         imgsrc14.src = "./public/londonmaps/kc_green.png";
-    } else if (parseInt(kc.NO2) == 4 || parseInt(kc.NO2) == 5 || parseInt(kc.NO2) ==6) {
+    } else if (parseInt(kcNO2) == 4 || parseInt(kcNO2) == 5 || parseInt(kcNO2) ==6) {
         const imgsrc14 = document.getElementById("kc");
         imgsrc14.src = "./public/londonmaps/kc_orange.png";
-    } else if (parseInt(kc.NO2) == 7 || parseInt(kc.NO2) == 8 || parseInt(kc.NO2) ==9 || parseInt(kc.NO2) == 10) {
+    } else if (parseInt(kcNO2) == 7 || parseInt(kcNO2) == 8 || parseInt(kcNO2) ==9 || parseInt(kcNO2) == 10) {
         const imgsrc14 = document.getElementById("kc");
         imgsrc14.src = "./public/londonmaps/kc_red.png";
     }
     //kingston
-    kingston.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[20].Site[0].Species[0]["@AirQualityIndex"];
-    if (parseInt(kingston.NO2) == 1 || parseInt(kingston.NO2) == 2 || parseInt(kingston.NO2) ==3){
+    const kingstonNO2 = apidata.HourlyAirQualityIndex.LocalAuthority[20].Site[0].Species[0]["@AirQualityIndex"];
+    if (parseInt(kingstonNO2) == 1 || parseInt(kingstonNO2) == 2 || parseInt(kingstonNO2) ==3){
         const imgsrc15 = document.getElementById("kingston");
         imgsrc15.src = "./public/londonmaps/kingston_green.png";
-    } else if (parseInt(kingston.NO2) == 4 || parseInt(kingston.NO2) == 5 || parseInt(kingston.NO2) ==6) {
+    } else if (parseInt(kingstonNO2) == 4 || parseInt(kingstonNO2) == 5 || parseInt(kingstonNO2) ==6) {
         const imgsrc15 = document.getElementById("kingston");
         imgsrc15.src = "./public/londonmaps/kingston_orange.png";
-    } else if (parseInt(kingston.NO2) == 7 || parseInt(kingston.NO2) == 8 || parseInt(kingston.NO2) ==9 || parseInt(kingston.NO2) == 10) {
+    } else if (parseInt(kingstonNO2) == 7 || parseInt(kingstonNO2) == 8 || parseInt(kingstonNO2) ==9 || parseInt(kingstonNO2) == 10) {
         const imgsrc15 = document.getElementById("kingston");
         imgsrc15.src = "./public/londonmaps/kingston_red.png";
     }
     //lambeth
-    lambeth.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[21].Site[0].Species[0]["@AirQualityIndex"];
-    if (parseInt(lambeth.NO2) == 1 || parseInt(lambeth.NO2) == 2 || parseInt(lambeth.NO2) ==3){
+    const lambethNO2 = apidata.HourlyAirQualityIndex.LocalAuthority[21].Site[0].Species[0]["@AirQualityIndex"];
+    if (parseInt(lambethNO2) == 1 || parseInt(lambethNO2) == 2 || parseInt(lambethNO2) ==3){
         const imgsrc16 = document.getElementById("lambeth");
         imgsrc16.src = "./public/londonmaps/lambeth_green.png";
-    } else if (parseInt(lambeth.NO2) == 4 || parseInt(lambeth.NO2) == 5 || parseInt(lambeth.NO2) ==6) {
+    } else if (parseInt(lambethNO2) == 4 || parseInt(lambethNO2) == 5 || parseInt(lambethNO2) ==6) {
         const imgsrc16 = document.getElementById("lambeth");
         imgsrc16.src = "./public/londonmaps/lambeth_orange.png";
-    } else if (parseInt(lambeth.NO2) == 7 || parseInt(lambeth.NO2) == 8 || parseInt(lambeth.NO2) ==9 || parseInt(lambeth.NO2) == 10) {
+    } else if (parseInt(lambethNO2) == 7 || parseInt(lambethNO2) == 8 || parseInt(lambethNO2) ==9 || parseInt(lambethNO2) == 10) {
         const imgsrc16 = document.getElementById("lambeth");
         imgsrc16.src = "./public/londonmaps/lambeth_red.png";
     }
     //lewisham
-    lewisham.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[22].Site[0].Species[0]["@AirQualityIndex"];
-    if (parseInt(lewisham.NO2) == 1 || parseInt(lewisham.NO2) == 2 || parseInt(lewisham.NO2) ==3){
+    const lewishamNO2 = apidata.HourlyAirQualityIndex.LocalAuthority[22].Site[0].Species[0]["@AirQualityIndex"];
+    if (parseInt(lewishamNO2) == 1 || parseInt(lewishamNO2) == 2 || parseInt(lewishamNO2) ==3){
         const imgsrc17 = document.getElementById("lewisham");
         imgsrc17.src = "./public/londonmaps/lewisham_green.png";
-    } else if (parseInt(lewisham.NO2) == 4 || parseInt(lewisham.NO2) == 5 || parseInt(lewisham.NO2) ==6) {
+    } else if (parseInt(lewishamNO2) == 4 || parseInt(lewishamNO2) == 5 || parseInt(lewishamNO2) ==6) {
         const imgsrc17 = document.getElementById("lewisham");
         imgsrc17.src = "./public/londonmaps/lewisham_orange.png";
-    } else if (parseInt(lewisham.NO2) == 7 || parseInt(lewisham.NO2) == 8 || parseInt(lewisham.NO2) ==9 || parseInt(lewisham.NO2) == 10) {
+    } else if (parseInt(lewishamNO2) == 7 || parseInt(lewishamNO2) == 8 || parseInt(lewishamNO2) ==9 || parseInt(lewishamNO2) == 10) {
         const imgsrc17 = document.getElementById("lewisham");
         imgsrc17.src = "./public/londonmaps/lewisham_red.png";
     }
     //merton
-    merton.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[23].Site[1].Species["@AirQualityIndex"];
-    if (parseInt(merton.NO2) == 1 || parseInt(merton.NO2) == 2 || parseInt(merton.NO2) ==3){
+    const mertonNO2 = apidata.HourlyAirQualityIndex.LocalAuthority[23].Site[1].Species["@AirQualityIndex"];
+    if (parseInt(mertonNO2) == 1 || parseInt(mertonNO2) == 2 || parseInt(mertonNO2) ==3){
         const imgsrc18 = document.getElementById("merton");
         imgsrc18.src = "./public/londonmaps/merton_green.png";
-    } else if (parseInt(merton.NO2) == 4 || parseInt(merton.NO2) == 5 || parseInt(merton.NO2) ==6) {
+    } else if (parseInt(mertonNO2) == 4 || parseInt(mertonNO2) == 5 || parseInt(mertonNO2) ==6) {
         const imgsrc18 = document.getElementById("merton");
         imgsrc18.src = "./public/londonmaps/merton_orange.png";
-    } else if (parseInt(merton.NO2) == 7 || parseInt(merton.NO2) == 8 || parseInt(merton.NO2) ==9 || parseInt(merton.NO2) == 10) {
+    } else if (parseInt(mertonNO2) == 7 || parseInt(mertonNO2) == 8 || parseInt(mertonNO2) ==9 || parseInt(mertonNO2) == 10) {
         const imgsrc18 = document.getElementById("merton");
         imgsrc18.src = "./public/londonmaps/merton_red.png";
     }
     //newham
-    newham.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[24].Site[0].Species[0]["@AirQualityIndex"];
-    if (parseInt(newham.NO2) == 1 || parseInt(newham.NO2) == 2 || parseInt(newham.NO2) ==3){
+    const newhamNO2 = apidata.HourlyAirQualityIndex.LocalAuthority[24].Site[0].Species[0]["@AirQualityIndex"];
+    if (parseInt(newhamNO2) == 1 || parseInt(newhamNO2) == 2 || parseInt(newhamNO2) ==3){
         const imgsrc19 = document.getElementById("newham");
         imgsrc19.src = "./public/londonmaps/newham_green.png";
-    } else if (parseInt(newham.NO2) == 4 || parseInt(newham.NO2) == 5 || parseInt(newham.NO2) ==6) {
+    } else if (parseInt(newhamNO2) == 4 || parseInt(newhamNO2) == 5 || parseInt(newhamNO2) ==6) {
         const imgsrc19 = document.getElementById("newham");
         imgsrc19.src = "./public/londonmaps/newham_orange.png";
-    } else if (parseInt(newham.NO2) == 7 || parseInt(newham.NO2) == 8 || parseInt(newham.NO2) ==9 || parseInt(newham.NO2) == 10) {
+    } else if (parseInt(newhamNO2) == 7 || parseInt(newhamNO2) == 8 || parseInt(newhamNO2) ==9 || parseInt(newhamNO2) == 10) {
         const imgsrc19 = document.getElementById("newham");
         imgsrc19.src = "./public/londonmaps/newham_red.png";
     }
     //redbridge
-    redbridge.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[25].Site[1].Species[0]["@AirQualityIndex"];
-    if (parseInt(redbridge.NO2) == 1 || parseInt(redbridge.NO2) == 2 || parseInt(redbridge.NO2) ==3){
+    const redbridgeNO2 = apidata.HourlyAirQualityIndex.LocalAuthority[25].Site[1].Species[0]["@AirQualityIndex"];
+    if (parseInt(redbridgeNO2) == 1 || parseInt(redbridgeNO2) == 2 || parseInt(redbridgeNO2) ==3){
         const imgsrc20 = document.getElementById("redbridge");
         imgsrc20.src = "./public/londonmaps/redbridge_green.png";
-    } else if (parseInt(redbridge.NO2) == 4 || parseInt(redbridge.NO2) == 5 || parseInt(redbridge.NO2) ==6) {
+    } else if (parseInt(redbridgeNO2) == 4 || parseInt(redbridgeNO2) == 5 || parseInt(redbridgeNO2) ==6) {
         const imgsrc20 = document.getElementById("redbridge");
         imgsrc20.src = "./public/londonmaps/redbridge_orange.png";
-    } else if (parseInt(redbridge.NO2) == 7 || parseInt(redbridge.NO2) == 8 || parseInt(redbridge.NO2) ==9 || parseInt(redbridge.NO2) == 10) {
+    } else if (parseInt(redbridgeNO2) == 7 || parseInt(redbridgeNO2) == 8 || parseInt(redbridgeNO2) ==9 || parseInt(redbridgeNO2) == 10) {
         const imgsrc20 = document.getElementById("redbridge");
         imgsrc20.src = "./public/londonmaps/redbridge_red.png";
     }
     //richmond
-    richmond.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[26].Site[0].Species[0]["@AirQualityIndex"];
-    if (parseInt(richmond.NO2) == 1 || parseInt(richmond.NO2) == 2 || parseInt(richmond.NO2) ==3){
+    const richmondNO2 = apidata.HourlyAirQualityIndex.LocalAuthority[26].Site[0].Species[0]["@AirQualityIndex"];
+    if (parseInt(richmondNO2) == 1 || parseInt(richmondNO2) == 2 || parseInt(richmondNO2) ==3){
         const imgsrc21 = document.getElementById("richmond");
         imgsrc21.src = "./public/londonmaps/richmond_green.png";
-    } else if (parseInt(richmond.NO2) == 4 || parseInt(richmond.NO2) == 5 || parseInt(richmond.NO2) ==6) {
+    } else if (parseInt(richmondNO2) == 4 || parseInt(richmondNO2) == 5 || parseInt(richmondNO2) ==6) {
         const imgsrc21 = document.getElementById("richmond");
         imgsrc21.src = "./public/londonmaps/richmond_orange.png";
-    } else if (parseInt(richmond.NO2) == 7 || parseInt(richmond.NO2) == 8 || parseInt(richmond.NO2) ==9 || parseInt(richmond.NO2) == 10) {
+    } else if (parseInt(richmondNO2) == 7 || parseInt(richmondNO2) == 8 || parseInt(richmondNO2) ==9 || parseInt(richmondNO2) == 10) {
         const imgsrc21 = document.getElementById("richmond");
         imgsrc21.src = "./public/londonmaps/richmond_red.png";
     }
     //southwark
-    southwark.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[27].Site[1].Species[0]["@AirQualityIndex"];
-    if (parseInt(southwark.NO2) == 1 || parseInt(southwark.NO2) == 2 || parseInt(southwark.NO2) ==3){
+    const southwarkNO2 = apidata.HourlyAirQualityIndex.LocalAuthority[27].Site[1].Species[0]["@AirQualityIndex"];
+    if (parseInt(southwarkNO2) == 1 || parseInt(southwarkNO2) == 2 || parseInt(southwarkNO2) ==3){
         const imgsrc22 = document.getElementById("southwark");
         imgsrc22.src = "./public/londonmaps/southwark_green.png";
-    } else if (parseInt(southwark.NO2) == 4 || parseInt(southwark.NO2) == 5 || parseInt(southwark.NO2) ==6) {
+    } else if (parseInt(southwarkNO2) == 4 || parseInt(southwarkNO2) == 5 || parseInt(southwarkNO2) ==6) {
         const imgsrc22 = document.getElementById("southwark");
         imgsrc22.src = "./public/londonmaps/southwark_orange.png";
-    } else if (parseInt(southwark.NO2) == 7 || parseInt(southwark.NO2) == 8 || parseInt(southwark.NO2) ==9 || parseInt(southwark.NO2) == 10) {
+    } else if (parseInt(southwarkNO2) == 7 || parseInt(southwarkNO2) == 8 || parseInt(southwarkNO2) ==9 || parseInt(southwarkNO2) == 10) {
         const imgsrc22 = document.getElementById("southwark");
         imgsrc22.src = "./public/londonmaps/southwark_red.png";
     }
     //sutton
-    sutton.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[28].Site[0].Species[0]["@AirQualityIndex"];
-    if (parseInt(sutton.NO2) == 1 || parseInt(sutton.NO2) == 2 || parseInt(sutton.NO2) ==3){
+    const suttonNO2 = apidata.HourlyAirQualityIndex.LocalAuthority[28].Site[0].Species[0]["@AirQualityIndex"];
+    if (parseInt(suttonNO2) == 1 || parseInt(suttonNO2) == 2 || parseInt(suttonNO2) ==3){
         const imgsrc23 = document.getElementById("sutton");
         imgsrc23.src = "./public/londonmaps/sutton_green.png";
-    } else if (parseInt(sutton.NO2) == 4 || parseInt(sutton.NO2) == 5 || parseInt(sutton.NO2) ==6) {
+    } else if (parseInt(suttonNO2) == 4 || parseInt(suttonNO2) == 5 || parseInt(suttonNO2) ==6) {
         const imgsrc23 = document.getElementById("sutton");
         imgsrc23.src = "./public/londonmaps/sutton_orange.png";
-    } else if (parseInt(sutton.NO2) == 7 || parseInt(sutton.NO2) == 8 || parseInt(sutton.NO2) ==9 || parseInt(sutton.NO2) == 10) {
+    } else if (parseInt(suttonNO2) == 7 || parseInt(suttonNO2) == 8 || parseInt(suttonNO2) ==9 || parseInt(suttonNO2) == 10) {
         const imgsrc23 = document.getElementById("sutton");
         imgsrc23.src = "./public/londonmaps/sutton_red.png";
     }
     //towerhamlet
-    towerhamlet.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[29].Site[0].Species[0]["@AirQualityIndex"];
-    if (parseInt(towerhamlet.NO2) == 1 || parseInt(towerhamlet.NO2) == 2 || parseInt(towerhamlet.NO2) ==3){
+    const towerhamletNO2 = apidata.HourlyAirQualityIndex.LocalAuthority[29].Site[0].Species[0]["@AirQualityIndex"];
+    if (parseInt(towerhamletNO2) == 1 || parseInt(towerhamletNO2) == 2 || parseInt(towerhamletNO2) ==3){
         const imgsrc24 = document.getElementById("towerhamlet");
         imgsrc24.src = "./public/londonmaps/towerhamlet_green.png";
-    } else if (parseInt(towerhamlet.NO2) == 4 || parseInt(towerhamlet.NO2) == 5 || parseInt(towerhamlet.NO2) ==6) {
+    } else if (parseInt(towerhamletNO2) == 4 || parseInt(towerhamletNO2) == 5 || parseInt(towerhamletNO2) ==6) {
         const imgsrc24 = document.getElementById("towerhamlet");
         imgsrc24.src = "./public/londonmaps/towerhamlet_orange.png";
-    } else if (parseInt(towerhamlet.NO2) == 7 || parseInt(towerhamlet.NO2) == 8 || parseInt(towerhamlet.NO2) ==9 || parseInt(towerhamlet.NO2) == 10) {
+    } else if (parseInt(towerhamletNO2) == 7 || parseInt(towerhamletNO2) == 8 || parseInt(towerhamletNO2) ==9 || parseInt(towerhamletNO2) == 10) {
         const imgsrc24 = document.getElementById("towerhamlet");
         imgsrc24.src = "./public/londonmaps/towerhamlet_red.png";
     }
@@ -898,26 +585,26 @@ async function setmapNO2(){
     const imgsrcwaltham = document.getElementById('walthamforest');
     imgsrcwaltham.src = "./public/londonmaps/walthamforest_white.png";
     //wandsworth
-    wandsworth.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[31].Site[0].Species[0]["@AirQualityIndex"];
-    if (parseInt(wandsworth.NO2) == 1 || parseInt(wandsworth.NO2) == 2 || parseInt(wandsworth.NO2) ==3){
+    const wandsworthNO2 = apidata.HourlyAirQualityIndex.LocalAuthority[31].Site[0].Species[0]["@AirQualityIndex"];
+    if (parseInt(wandsworthNO2) == 1 || parseInt(wandsworthNO2) == 2 || parseInt(wandsworthNO2) ==3){
         const imgsrc25 = document.getElementById("wandsworth");
         imgsrc25.src = "./public/londonmaps/wandsworth_green.png";
-    } else if (parseInt(wandsworth.NO2) == 4 || parseInt(wandsworth.NO2) == 5 || parseInt(wandsworth.NO2) ==6) {
+    } else if (parseInt(wandsworthNO2) == 4 || parseInt(wandsworthNO2) == 5 || parseInt(wandsworthNO2) ==6) {
         const imgsrc25 = document.getElementById("wandsworth");
         imgsrc25.src = "./public/londonmaps/wandsworth_orange.png";
-    } else if (parseInt(wandsworth.NO2) == 7 || parseInt(wandsworth.NO2) == 8 || parseInt(wandsworth.NO2) ==9 || parseInt(wandsworth.NO2) == 10) {
+    } else if (parseInt(wandsworthNO2) == 7 || parseInt(wandsworthNO2) == 8 || parseInt(wandsworthNO2) ==9 || parseInt(wandsworthNO2) == 10) {
         const imgsrc25 = document.getElementById("wandsworth");
         imgsrc25.src = "./public/londonmaps/wandsworth_red.png";
     }
     //westminster
-    westminster.NO2 = apidata.HourlyAirQualityIndex.LocalAuthority[32].Site[0].Species[0]["@AirQualityIndex"];
-    if (parseInt(westminster.NO2) == 1 || parseInt(westminster.NO2) == 2 || parseInt(westminster.NO2) ==3){
+    const westminsterNO2 = apidata.HourlyAirQualityIndex.LocalAuthority[32].Site[0].Species[0]["@AirQualityIndex"];
+    if (parseInt(westminsterNO2) == 1 || parseInt(westminsterNO2) == 2 || parseInt(westminsterNO2) ==3){
         const imgsrc26 = document.getElementById("westminster");
         imgsrc26.src = "./public/londonmaps/westminster_green.png";
-    } else if (parseInt(westminster.NO2) == 4 || parseInt(westminster.NO2) == 5 || parseInt(westminster.NO2) ==6) {
+    } else if (parseInt(westminsterNO2) == 4 || parseInt(westminsterNO2) == 5 || parseInt(westminsterNO2) ==6) {
         const imgsrc26 = document.getElementById("westminster");
         imgsrc26.src = "./public/londonmaps/westminster_orange.png";
-    } else if (parseInt(westminster.NO2) == 7 || parseInt(westminster.NO2) == 8 || parseInt(westminster.NO2) ==9 || parseInt(haringey.NO2) == 10) {
+    } else if (parseInt(westminsterNO2) == 7 || parseInt(westminsterNO2) == 8 || parseInt(westminsterNO2) ==9 || parseInt(haringeyNO2) == 10) {
         const imgsrc26 = document.getElementById("westminster");
         imgsrc26.src = "./public/londonmaps/westminster_red.png";
     }
@@ -929,7 +616,7 @@ async function setmapNO2(){
 async function setmapO3(){
     const response = await fetch("https://api.erg.ic.ac.uk/AirQuality/Hourly/MonitoringIndex/GroupName=London/Json");
     const apidata = await response.json();
-    barking=barnet=bexley=brent=bromley=camden=city=croydon=ealing=enfield=greenwich=hackney=hammersmith=haringey=harrow=havering=hillingdon=hounslow=islington=kc=kingston=lambeth=lewisham=merton=newham=redbridge=richmond=southwark=sutton=towerhamlet=waltham=wandsworth=westminster=AQIdata;
+    clear();
     //barking
     const imgsrcbarking = document.getElementById('barking');
     imgsrcbarking.src = "./public/londonmaps/Barking_white.png";
@@ -937,26 +624,26 @@ async function setmapO3(){
     const imgsrcbarnet = document.getElementById('barnet');
     imgsrcbarnet.src = "./public/londonmaps/barnet_white.png";
     //bexley
-    bexley.O3 = apidata.HourlyAirQualityIndex.LocalAuthority[2].Site[0].Species[1]["@AirQualityIndex"];
-    if (parseInt(bexley.O3) == 1 || parseInt(bexley.O3) == 2 || parseInt(bexley.O3) ==3){
+    const bexleyO3 = apidata.HourlyAirQualityIndex.LocalAuthority[2].Site[0].Species[1]["@AirQualityIndex"];
+    if (parseInt(bexleyO3) == 1 || parseInt(bexleyO3) == 2 || parseInt(bexleyO3) ==3){
         const imgsrc1 = document.getElementById("bexley");
         imgsrc1.src = "./public/londonmaps/bexley_green.png";
-    } else if (parseInt(bexley.O3) == 4 || parseInt(bexley.O3) == 5 || parseInt(bexley.O3) ==6) {
+    } else if (parseInt(bexleyO3) == 4 || parseInt(bexleyO3) == 5 || parseInt(bexleyO3) ==6) {
         const imgsrc1 = document.getElementById("bexley");
         imgsrc1.src = "./public/londonmaps/bexley_orange.png";
-    } else if (parseInt(bexley.O3) == 7 || parseInt(bexley.O3) == 8 || parseInt(bexley.O3) ==9 || parseInt(bexley.O3) == 10) {
+    } else if (parseInt(bexleyO3) == 7 || parseInt(bexleyO3) == 8 || parseInt(bexleyO3) ==9 || parseInt(bexleyO3) == 10) {
         const imgsrc1 = document.getElementById("bexley");
         imgsrc1.src = "./public/londonmaps/bexley_red.png";
     }
     //brent
-    brent.O3 = apidata.HourlyAirQualityIndex.LocalAuthority[3].Site[0].Species[1]["@AirQualityIndex"];
-    if (parseInt(brent.O3) == 1 || parseInt(brent.O3) == 2 || parseInt(brent.O3) ==3){
+    const brentO3 = apidata.HourlyAirQualityIndex.LocalAuthority[3].Site[0].Species[1]["@AirQualityIndex"];
+    if (parseInt(brentO3) == 1 || parseInt(brentO3) == 2 || parseInt(brentO3) ==3){
         const imgsrc2 = document.getElementById("brent");
         imgsrc2.src = "./public/londonmaps/brent_green.png";
-    } else if (parseInt(brent.O3) == 4 || parseInt(brent.O3) == 5 || parseInt(brent.O3) ==6) {
+    } else if (parseInt(brentO3) == 4 || parseInt(brentO3) == 5 || parseInt(brentO3) ==6) {
         const imgsrc2 = document.getElementById("brent");
         imgsrc2.src = "./public/londonmaps/brent_orange.png";
-    } else if (parseInt(brent.O3) == 7 || parseInt(brent.O3) == 8 || parseInt(brent.O3) ==9 || parseInt(brent.O3) == 10) {
+    } else if (parseInt(brentO3) == 7 || parseInt(brentO3) == 8 || parseInt(brentO3) ==9 || parseInt(brentO3) == 10) {
         const imgsrc2 = document.getElementById("brent");
         imgsrc2.src = "./public/londonmaps/brent_red.png";
     }
@@ -964,14 +651,14 @@ async function setmapO3(){
     const imgsrcbromley = document.getElementById('bromley');
     imgsrcbromley.src = "./public/londonmaps/bromley_white.png";
     //camden
-    camden.O3 = apidata.HourlyAirQualityIndex.LocalAuthority[5].Site[0].Species[1]["@AirQualityIndex"];
-    if (parseInt(camden.O3) == 1 || parseInt(camden.O3) == 2 || parseInt(camden.O3) ==3){
+    const camdenO3 = apidata.HourlyAirQualityIndex.LocalAuthority[5].Site[0].Species[1]["@AirQualityIndex"];
+    if (parseInt(camdenO3) == 1 || parseInt(camdenO3) == 2 || parseInt(camdenO3) ==3){
         const imgsrc4 = document.getElementById("camden");
         imgsrc4.src = "./public/londonmaps/camden_green.png";
-    } else if (parseInt(camden.O3) == 4 || parseInt(camden.O3) == 5 || parseInt(camden.O3) ==6) {
+    } else if (parseInt(camdenO3) == 4 || parseInt(camdenO3) == 5 || parseInt(camdenO3) ==6) {
         const imgsrc4 = document.getElementById("camden");
         imgsrc4.src = "./public/londonmaps/camden_orange.png";
-    } else if (parseInt(camden.O3) == 7 || parseInt(camden.O3) == 8 || parseInt(camden.O3) ==9 || parseInt(camden.O3) == 10) {
+    } else if (parseInt(camdenO3) == 7 || parseInt(camdenO3) == 8 || parseInt(camdenO3) ==9 || parseInt(camdenO3) == 10) {
         const imgsrc4 = document.getElementById("camden");
         imgsrc4.src = "./public/londonmaps/camden_red.png";
     }
@@ -988,26 +675,26 @@ async function setmapO3(){
     const imgsrcenfield = document.getElementById('enfield');
     imgsrcenfield.src = "./public/londonmaps/enfield_white.png";
     //greenwich
-    greenwich.O3 = apidata.HourlyAirQualityIndex.LocalAuthority[10].Site[3].Species[1]["@AirQualityIndex"];
-    if (parseInt(greenwich.O3) == 1 || parseInt(greenwich.O3) == 2 || parseInt(greenwich.O3) ==3){
+    const greenwichO3 = apidata.HourlyAirQualityIndex.LocalAuthority[10].Site[3].Species[1]["@AirQualityIndex"];
+    if (parseInt(greenwichO3) == 1 || parseInt(greenwichO3) == 2 || parseInt(greenwichO3) ==3){
         const imgsrc8 = document.getElementById("greenwich");
         imgsrc8.src = "./public/londonmaps/greenwich_green.png";
-    } else if (parseInt(greenwich.O3) == 4 || parseInt(greenwich.O3) == 5 || parseInt(greenwich.O3) ==6) {
+    } else if (parseInt(greenwichO3) == 4 || parseInt(greenwichO3) == 5 || parseInt(greenwichO3) ==6) {
         const imgsrc8 = document.getElementById("greenwich");
         imgsrc8.src = "./public/londonmaps/greenwich_orange.png";
-    } else if (parseInt(greenwich.O3) == 7 || parseInt(greenwich.O3) == 8 || parseInt(greenwich.O3) ==9 || parseInt(greenwich.O3) == 10) {
+    } else if (parseInt(greenwichO3) == 7 || parseInt(greenwichO3) == 8 || parseInt(greenwichO3) ==9 || parseInt(greenwichO3) == 10) {
         const imgsrc8 = document.getElementById("greenwich");
         imgsrc8.src = "./public/londonmaps/greenwich_red.png";
     }
     //hackney
-    hackney.O3 = apidata.HourlyAirQualityIndex.LocalAuthority[11].Site.Species[1]["@AirQualityIndex"];
-    if (parseInt(hackney.O3) == 1 || parseInt(hackney.O3) == 2 || parseInt(hackney.O3) ==3){
+    const hackneyO3 = apidata.HourlyAirQualityIndex.LocalAuthority[11].Site.Species[1]["@AirQualityIndex"];
+    if (parseInt(hackneyO3) == 1 || parseInt(hackneyO3) == 2 || parseInt(hackneyO3) ==3){
         const imgsrc9 = document.getElementById("hackney");
         imgsrc9.src = "./public/londonmaps/hackney_green.png";
-    } else if (parseInt(hackney.O3) == 4 || parseInt(hackney.O3) == 5 || parseInt(hackney.O3) ==6) {
+    } else if (parseInt(hackneyO3) == 4 || parseInt(hackneyO3) == 5 || parseInt(hackneyO3) ==6) {
         const imgsrc9 = document.getElementById("hackney");
         imgsrc9.src = "./public/londonmaps/hackney_orange.png";
-    } else if (parseInt(hackney.O3) == 7 || parseInt(hackney.O3) == 8 || parseInt(hackney.O3) ==9 || parseInt(hackney.O3) == 10) {
+    } else if (parseInt(hackneyO3) == 7 || parseInt(hackneyO3) == 8 || parseInt(hackneyO3) ==9 || parseInt(hackneyO3) == 10) {
         const imgsrc9 = document.getElementById("hackney");
         imgsrc9.src = "./public/londonmaps/hackney_red.png";
     }
@@ -1015,14 +702,14 @@ async function setmapO3(){
     const imgsrchammersmith = document.getElementById('hammersmith');
     imgsrchammersmith.src = "./public/londonmaps/hammersmith_white.png";
     //haringey
-    haringey.O3 = apidata.HourlyAirQualityIndex.LocalAuthority[13].Site[1].Species[1]["@AirQualityIndex"];
-    if (parseInt(haringey.O3) == 1 || parseInt(haringey.O3) == 2 || parseInt(haringey.O3) ==3){
+    const haringeyO3 = apidata.HourlyAirQualityIndex.LocalAuthority[13].Site[1].Species[1]["@AirQualityIndex"];
+    if (parseInt(haringeyO3) == 1 || parseInt(haringeyO3) == 2 || parseInt(haringeyO3) ==3){
         const imgsrc10 = document.getElementById("haringey");
         imgsrc10.src = "./public/londonmaps/Haringey_green.png";
-    } else if (parseInt(haringey.O3) == 4 || parseInt(haringey.O3) == 5 || parseInt(haringey.O3) ==6) {
+    } else if (parseInt(haringeyO3) == 4 || parseInt(haringeyO3) == 5 || parseInt(haringeyO3) ==6) {
         const imgsrc10 = document.getElementById("haringey");
         imgsrc10.src = "./public/londonmaps/Haringey_orange.png";
-    } else if (parseInt(haringey.O3) == 7 || parseInt(haringey.O3) == 8 || parseInt(haringey.O3) ==9 || parseInt(haringey.O3) == 10) {
+    } else if (parseInt(haringeyO3) == 7 || parseInt(haringeyO3) == 8 || parseInt(haringeyO3) ==9 || parseInt(haringeyO3) == 10) {
         const imgsrc10 = document.getElementById("haringey");
         imgsrc10.src = "./public/londonmaps/Haringey_red.png";
     }
@@ -1033,14 +720,14 @@ async function setmapO3(){
     const imgsrchavering = document.getElementById('havering');
     imgsrchavering.src = "./public/londonmaps/Havering_white.png";
     //hillingdon
-    hillingdon.O3 = apidata.HourlyAirQualityIndex.LocalAuthority[16].Site[1].Species[1]["@AirQualityIndex"];
-    if (parseInt(hillingdon.O3) == 1 || parseInt(hillingdon.O3) == 2 || parseInt(hillingdon.O3) ==3){
+    const hillingdonO3 = apidata.HourlyAirQualityIndex.LocalAuthority[16].Site[1].Species[1]["@AirQualityIndex"];
+    if (parseInt(hillingdonO3) == 1 || parseInt(hillingdonO3) == 2 || parseInt(hillingdonO3) ==3){
         const imgsrc12 = document.getElementById("hillingdon");
         imgsrc12.src = "./public/londonmaps/hillingdon_green.png";
-    } else if (parseInt(hillingdon.O3) == 4 || parseInt(hillingdon.O3) == 5 || parseInt(hillingdon.O3) ==6) {
+    } else if (parseInt(hillingdonO3) == 4 || parseInt(hillingdonO3) == 5 || parseInt(hillingdonO3) ==6) {
         const imgsrc12 = document.getElementById("hillingdon");
         imgsrc12.src = "./public/londonmaps/hillingdon_orange.png";
-    } else if (parseInt(hillingdon.O3) == 7 || parseInt(hillingdon.O3) == 8 || parseInt(hillingdon.O3) ==9 || parseInt(hillingdon.O3) == 10) {
+    } else if (parseInt(hillingdonO3) == 7 || parseInt(hillingdonO3) == 8 || parseInt(hillingdonO3) ==9 || parseInt(hillingdonO3) == 10) {
         const imgsrc12 = document.getElementById("hillingdon");
         imgsrc12.src = "./public/londonmaps/hillingdon_red.png";
     }
@@ -1051,14 +738,14 @@ async function setmapO3(){
     const imgsrcislington = document.getElementById('islington');
     imgsrcislington.src = "./public/londonmaps/islington_white.png";
     //kc
-    kc.O3 = apidata.HourlyAirQualityIndex.LocalAuthority[19].Site[0].Species[1]["@AirQualityIndex"];
-    if (parseInt(kc.O3) == 1 || parseInt(kc.O3) == 2 || parseInt(kc.O3) ==3){
+    const kcO3 = apidata.HourlyAirQualityIndex.LocalAuthority[19].Site[0].Species[1]["@AirQualityIndex"];
+    if (parseInt(kcO3) == 1 || parseInt(kcO3) == 2 || parseInt(kcO3) ==3){
         const imgsrc14 = document.getElementById("kc");
         imgsrc14.src = "./public/londonmaps/kc_green.png";
-    } else if (parseInt(kc.O3) == 4 || parseInt(kc.O3) == 5 || parseInt(kc.O3) ==6) {
+    } else if (parseInt(kcO3) == 4 || parseInt(kcO3) == 5 || parseInt(kcO3) ==6) {
         const imgsrc14 = document.getElementById("kc");
         imgsrc14.src = "./public/londonmaps/kc_orange.png";
-    } else if (parseInt(kc.O3) == 7 || parseInt(kc.O3) == 8 || parseInt(kc.O3) ==9 || parseInt(kc.O3) == 10) {
+    } else if (parseInt(kcO3) == 7 || parseInt(kcO3) == 8 || parseInt(kcO3) ==9 || parseInt(kcO3) == 10) {
         const imgsrc14 = document.getElementById("kc");
         imgsrc14.src = "./public/londonmaps/kc_red.png";
     }
@@ -1069,14 +756,14 @@ async function setmapO3(){
     const imgsrclambeth = document.getElementById('lambeth');
     imgsrclambeth.src = "./public/londonmaps/lambeth_white.png";
     //lewisham
-    lewisham.O3 = apidata.HourlyAirQualityIndex.LocalAuthority[22].Site[0].Species[1]["@AirQualityIndex"];
-    if (parseInt(lewisham.O3) == 1 || parseInt(lewisham.O3) == 2 || parseInt(lewisham.O3) ==3){
+    const lewishamO3 = apidata.HourlyAirQualityIndex.LocalAuthority[22].Site[0].Species[1]["@AirQualityIndex"];
+    if (parseInt(lewishamO3) == 1 || parseInt(lewishamO3) == 2 || parseInt(lewishamO3) ==3){
         const imgsrc17 = document.getElementById("lewisham");
         imgsrc17.src = "./public/londonmaps/lewisham_green.png";
-    } else if (parseInt(lewisham.O3) == 4 || parseInt(lewisham.O3) == 5 || parseInt(lewisham.O3) ==6) {
+    } else if (parseInt(lewishamO3) == 4 || parseInt(lewishamO3) == 5 || parseInt(lewishamO3) ==6) {
         const imgsrc17 = document.getElementById("lewisham");
         imgsrc17.src = "./public/londonmaps/lewisham_orange.png";
-    } else if (parseInt(lewisham.O3) == 7 || parseInt(lewisham.O3) == 8 || parseInt(lewisham.O3) ==9 || parseInt(lewisham.O3) == 10) {
+    } else if (parseInt(lewishamO3) == 7 || parseInt(lewishamO3) == 8 || parseInt(lewishamO3) ==9 || parseInt(lewishamO3) == 10) {
         const imgsrc17 = document.getElementById("lewisham");
         imgsrc17.src = "./public/londonmaps/lewisham_red.png";
     }
@@ -1087,38 +774,38 @@ async function setmapO3(){
     const imgsrcnewham = document.getElementById('newham');
     imgsrcnewham.src = "./public/londonmaps/newham_white.png";
     //redbridge
-    redbridge.O3 = apidata.HourlyAirQualityIndex.LocalAuthority[25].Site[1].Species[1]["@AirQualityIndex"];
-    if (parseInt(redbridge.O3) == 1 || parseInt(redbridge.O3) == 2 || parseInt(redbridge.O3) ==3){
+    const redbridgeO3 = apidata.HourlyAirQualityIndex.LocalAuthority[25].Site[1].Species[1]["@AirQualityIndex"];
+    if (parseInt(redbridgeO3) == 1 || parseInt(redbridgeO3) == 2 || parseInt(redbridgeO3) ==3){
         const imgsrc20 = document.getElementById("redbridge");
         imgsrc20.src = "./public/londonmaps/redbridge_green.png";
-    } else if (parseInt(redbridge.O3) == 4 || parseInt(redbridge.O3) == 5 || parseInt(redbridge.O3) ==6) {
+    } else if (parseInt(redbridgeO3) == 4 || parseInt(redbridgeO3) == 5 || parseInt(redbridgeO3) ==6) {
         const imgsrc20 = document.getElementById("redbridge");
         imgsrc20.src = "./public/londonmaps/redbridge_orange.png";
-    } else if (parseInt(redbridge.O3) == 7 || parseInt(redbridge.O3) == 8 || parseInt(redbridge.O3) ==9 || parseInt(redbridge.O3) == 10) {
+    } else if (parseInt(redbridgeO3) == 7 || parseInt(redbridgeO3) == 8 || parseInt(redbridgeO3) ==9 || parseInt(redbridgeO3) == 10) {
         const imgsrc20 = document.getElementById("redbridge");
         imgsrc20.src = "./public/londonmaps/redbridge_red.png";
     }
     //richmond
-    richmond.O3 = apidata.HourlyAirQualityIndex.LocalAuthority[26].Site[1].Species[1]["@AirQualityIndex"];
-    if (parseInt(richmond.O3) == 1 || parseInt(richmond.O3) == 2 || parseInt(richmond.O3) ==3){
+    const richmondO3 = apidata.HourlyAirQualityIndex.LocalAuthority[26].Site[1].Species[1]["@AirQualityIndex"];
+    if (parseInt(richmondO3) == 1 || parseInt(richmondO3) == 2 || parseInt(richmondO3) ==3){
         const imgsrc21 = document.getElementById("richmond");
         imgsrc21.src = "./public/londonmaps/richmond_green.png";
-    } else if (parseInt(richmond.O3) == 4 || parseInt(richmond.O3) == 5 || parseInt(richmond.O3) ==6) {
+    } else if (parseInt(richmondO3) == 4 || parseInt(richmondO3) == 5 || parseInt(richmondO3) ==6) {
         const imgsrc21 = document.getElementById("richmond");
         imgsrc21.src = "./public/londonmaps/richmond_orange.png";
-    } else if (parseInt(richmond.O3) == 7 || parseInt(richmond.O3) == 8 || parseInt(richmond.O3) ==9 || parseInt(richmond.O3) == 10) {
+    } else if (parseInt(richmondO3) == 7 || parseInt(richmondO3) == 8 || parseInt(richmondO3) ==9 || parseInt(richmondO3) == 10) {
         const imgsrc21 = document.getElementById("richmond");
         imgsrc21.src = "./public/londonmaps/richmond_red.png";
     }
     //southwark
-    southwark.O3 = apidata.HourlyAirQualityIndex.LocalAuthority[27].Site[1].Species[1]["@AirQualityIndex"];
-    if (parseInt(southwark.O3) == 1 || parseInt(southwark.O3) == 2 || parseInt(southwark.O3) ==3){
+    const southwarkO3 = apidata.HourlyAirQualityIndex.LocalAuthority[27].Site[1].Species[1]["@AirQualityIndex"];
+    if (parseInt(southwarkO3) == 1 || parseInt(southwarkO3) == 2 || parseInt(southwarkO3) ==3){
         const imgsrc22 = document.getElementById("southwark");
         imgsrc22.src = "./public/londonmaps/southwark_green.png";
-    } else if (parseInt(southwark.O3) == 4 || parseInt(southwark.O3) == 5 || parseInt(southwark.O3) ==6) {
+    } else if (parseInt(southwarkO3) == 4 || parseInt(southwarkO3) == 5 || parseInt(southwarkO3) ==6) {
         const imgsrc22 = document.getElementById("southwark");
         imgsrc22.src = "./public/londonmaps/southwark_orange.png";
-    } else if (parseInt(southwark.O3) == 7 || parseInt(southwark.O3) == 8 || parseInt(southwark.O3) ==9 || parseInt(southwark.O3) == 10) {
+    } else if (parseInt(southwarkO3) == 7 || parseInt(southwarkO3) == 8 || parseInt(southwarkO3) ==9 || parseInt(southwarkO3) == 10) {
         const imgsrc22 = document.getElementById("southwark");
         imgsrc22.src = "./public/londonmaps/southwark_red.png";
     }
@@ -1132,26 +819,26 @@ async function setmapO3(){
     const imgsrcwaltham = document.getElementById('walthamforest');
     imgsrcwaltham.src = "./public/londonmaps/walthamforest_white.png";
     //wandsworth
-    wandsworth.O3 = apidata.HourlyAirQualityIndex.LocalAuthority[31].Site[0].Species[1]["@AirQualityIndex"];
-    if (parseInt(wandsworth.O3) == 1 || parseInt(wandsworth.O3) == 2 || parseInt(wandsworth.O3) ==3){
+    const wandsworthO3 = apidata.HourlyAirQualityIndex.LocalAuthority[31].Site[0].Species[1]["@AirQualityIndex"];
+    if (parseInt(wandsworthO3) == 1 || parseInt(wandsworthO3) == 2 || parseInt(wandsworthO3) ==3){
         const imgsrc25 = document.getElementById("wandsworth");
         imgsrc25.src = "./public/londonmaps/wandsworth_green.png";
-    } else if (parseInt(wandsworth.O3) == 4 || parseInt(wandsworth.O3) == 5 || parseInt(wandsworth.O3) ==6) {
+    } else if (parseInt(wandsworthO3) == 4 || parseInt(wandsworthO3) == 5 || parseInt(wandsworthO3) ==6) {
         const imgsrc25 = document.getElementById("wandsworth");
         imgsrc25.src = "./public/londonmaps/wandsworth_orange.png";
-    } else if (parseInt(wandsworth.O3) == 7 || parseInt(wandsworth.O3) == 8 || parseInt(wandsworth.O3) ==9 || parseInt(wandsworth.O3) == 10) {
+    } else if (parseInt(wandsworthO3) == 7 || parseInt(wandsworthO3) == 8 || parseInt(wandsworthO3) ==9 || parseInt(wandsworthO3) == 10) {
         const imgsrc25 = document.getElementById("wandsworth");
         imgsrc25.src = "./public/londonmaps/wandsworth_red.png";
     }
     //westminster
-    westminster.O3 = apidata.HourlyAirQualityIndex.LocalAuthority[32].Site[0].Species[1]["@AirQualityIndex"];
-    if (parseInt(westminster.O3) == 1 || parseInt(westminster.O3) == 2 || parseInt(westminster.O3) ==3){
+    const westminsterO3 = apidata.HourlyAirQualityIndex.LocalAuthority[32].Site[0].Species[1]["@AirQualityIndex"];
+    if (parseInt(westminsterO3) == 1 || parseInt(westminsterO3) == 2 || parseInt(westminsterO3) ==3){
         const imgsrc26 = document.getElementById("westminster");
         imgsrc26.src = "./public/londonmaps/westminster_green.png";
-    } else if (parseInt(westminster.O3) == 4 || parseInt(westminster.O3) == 5 || parseInt(westminster.O3) ==6) {
+    } else if (parseInt(westminsterO3) == 4 || parseInt(westminsterO3) == 5 || parseInt(westminsterO3) ==6) {
         const imgsrc26 = document.getElementById("westminster");
         imgsrc26.src = "./public/londonmaps/westminster_orange.png";
-    } else if (parseInt(westminster.O3) == 7 || parseInt(westminster.O3) == 8 || parseInt(westminster.O3) ==9 || parseInt(haringey.O3) == 10) {
+    } else if (parseInt(westminsterO3) == 7 || parseInt(westminsterO3) == 8 || parseInt(westminsterO3) ==9 || parseInt(haringeyO3) == 10) {
         const imgsrc26 = document.getElementById("westminster");
         imgsrc26.src = "./public/londonmaps/westminster_red.png";
     }
@@ -1163,16 +850,16 @@ async function setmapO3(){
 async function setmapPM10(){
     const response = await fetch("https://api.erg.ic.ac.uk/AirQuality/Hourly/MonitoringIndex/GroupName=London/Json");
     const apidata = await response.json();
-    barking=barnet=bexley=brent=bromley=camden=city=croydon=ealing=enfield=greenwich=hackney=hammersmith=haringey=harrow=havering=hillingdon=hounslow=islington=kc=kingston=lambeth=lewisham=merton=newham=redbridge=richmond=southwark=sutton=towerhamlet=waltham=wandsworth=westminster=AQIdata;
+    clear();
     //barking
-    barking.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[0].Site[1].Species[1]["@AirQualityIndex"];
-    if (parseInt(barking.PM10) == 1 || parseInt(barking.PM10) == 2 || parseInt(barking.PM10) ==3){
+    const barkingPM10 = apidata.HourlyAirQualityIndex.LocalAuthority[0].Site[1].Species[1]["@AirQualityIndex"];
+    if (parseInt(barkingPM10) == 1 || parseInt(barkingPM10) == 2 || parseInt(barkingPM10) ==3){
         const imgsrc = document.getElementById("barking");
         imgsrc.src = "./public/londonmaps/Barking_green.png";
-    } else if (parseInt(barking.PM10) == 4 || parseInt(barking.PM10) == 5 || parseInt(barking.PM10) ==6) {
+    } else if (parseInt(barkingPM10) == 4 || parseInt(barkingPM10) == 5 || parseInt(barkingPM10) ==6) {
         const imgsrc = document.getElementById("barking");
         imgsrc.src = "./public/londonmaps/Barking_orange.png";
-    } else if (parseInt(barking.PM10) == 7 || parseInt(barking.PM10) == 8 || parseInt(barking.PM10) ==9 || parseInt(barking.PM10) == 10) {
+    } else if (parseInt(barkingPM10) == 7 || parseInt(barkingPM10) == 8 || parseInt(barkingPM10) ==9 || parseInt(barkingPM10) == 10) {
         const imgsrc = document.getElementById("barking");
         imgsrc.src = "./public/londonmaps/Barking_red.png";
     }
@@ -1180,50 +867,50 @@ async function setmapPM10(){
     const imgsrcbarnet = document.getElementById('barnet');
     imgsrcbarnet.src = "./public/londonmaps/barnet_white.png";
     //bexley
-    bexley.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[2].Site[0].Species[2]["@AirQualityIndex"];
-    if (parseInt(bexley.PM10) == 1 || parseInt(bexley.PM10) == 2 || parseInt(bexley.PM10) ==3){
+    const bexleyPM10 = apidata.HourlyAirQualityIndex.LocalAuthority[2].Site[0].Species[2]["@AirQualityIndex"];
+    if (parseInt(bexleyPM10) == 1 || parseInt(bexleyPM10) == 2 || parseInt(bexleyPM10) ==3){
         const imgsrc1 = document.getElementById("bexley");
         imgsrc1.src = "./public/londonmaps/bexley_green.png";
-    } else if (parseInt(bexley.PM10) == 4 || parseInt(bexley.PM10) == 5 || parseInt(bexley.PM10) ==6) {
+    } else if (parseInt(bexleyPM10) == 4 || parseInt(bexleyPM10) == 5 || parseInt(bexleyPM10) ==6) {
         const imgsrc1 = document.getElementById("bexley");
         imgsrc1.src = "./public/londonmaps/bexley_orange.png";
-    } else if (parseInt(bexley.P    ) == 7 || parseInt(bexley.PM10) == 8 || parseInt(bexley.PM10) ==9 || parseInt(bexley.PM10) == 10) {
+    } else if (parseInt(bexleyPM10) == 7 || parseInt(bexleyPM10) == 8 || parseInt(bexleyPM10) ==9 || parseInt(bexleyPM10) == 10) {
         const imgsrc1 = document.getElementById("bexley");
         imgsrc1.src = "./public/londonmaps/bexley_red.png";
     }
     //brent
-    brent.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[3].Site[0].Species[2]["@AirQualityIndex"];
-    if (parseInt(brent.PM10) == 1 || parseInt(brent.PM10) == 2 || parseInt(brent.PM10) ==3){
+    const brentPM10 = apidata.HourlyAirQualityIndex.LocalAuthority[3].Site[0].Species[2]["@AirQualityIndex"];
+    if (parseInt(brentPM10) == 1 || parseInt(brentPM10) == 2 || parseInt(brentPM10) ==3){
         const imgsrc2 = document.getElementById("brent");
         imgsrc2.src = "./public/londonmaps/brent_green.png";
-    } else if (parseInt(brent.PM10) == 4 || parseInt(brent.PM10) == 5 || parseInt(brent.PM10) ==6) {
+    } else if (parseInt(brentPM10) == 4 || parseInt(brentPM10) == 5 || parseInt(brentPM10) ==6) {
         const imgsrc2 = document.getElementById("brent");
         imgsrc2.src = "./public/londonmaps/brent_orange.png";
-    } else if (parseInt(brent.PM10) == 7 || parseInt(brent.PM10) == 8 || parseInt(brent.PM10) ==9 || parseInt(brent.PM10) == 10) {
+    } else if (parseInt(brentPM10) == 7 || parseInt(brentPM10) == 8 || parseInt(brentPM10) ==9 || parseInt(brentPM10) == 10) {
         const imgsrc2 = document.getElementById("brent");
         imgsrc2.src = "./public/londonmaps/brent_red.png";
     }
     //bromley
-    bromley.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[4].Site.Species[1]["@AirQualityIndex"];
-    if (parseInt(bromley.PM10) == 1 || parseInt(bromley.PM10) == 2 || parseInt(bromley.PM10) ==3){
+    const bromleyPM10 = apidata.HourlyAirQualityIndex.LocalAuthority[4].Site.Species[1]["@AirQualityIndex"];
+    if (parseInt(bromleyPM10) == 1 || parseInt(bromleyPM10) == 2 || parseInt(bromleyPM10) ==3){
         const imgsrc3 = document.getElementById("bromley");
         imgsrc3.src = "./public/londonmaps/bromley_green.png";
-    } else if (parseInt(bromley.PM10) == 4 || parseInt(bromley.PM10) == 5 || parseInt(bromley.PM10) ==6) {
+    } else if (parseInt(bromleyPM10) == 4 || parseInt(bromleyPM10) == 5 || parseInt(bromleyPM10) ==6) {
         const imgsrc3 = document.getElementById("bromley");
         imgsrc3.src = "./public/londonmaps/bromley_orange.png";
-    } else if (parseInt(bromley.PM10) == 7 || parseInt(bromley.PM10) == 8 || parseInt(bromley.PM10) ==9 || parseInt(bromley.PM10) == 10) {
+    } else if (parseInt(bromleyPM10) == 7 || parseInt(bromleyPM10) == 8 || parseInt(bromleyPM10) ==9 || parseInt(bromleyPM10) == 10) {
         const imgsrc3 = document.getElementById("bromley");
         imgsrc3.src = "./public/londonmaps/bromley_red.png";
     }
     //camden
-    camden.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[5].Site[0].Species[2]["@AirQualityIndex"];
-    if (parseInt(camden.PM10) == 1 || parseInt(camden.PM10) == 2 || parseInt(camden.PM10) ==3){
+    const camdenPM10 = apidata.HourlyAirQualityIndex.LocalAuthority[5].Site[0].Species[2]["@AirQualityIndex"];
+    if (parseInt(camdenPM10) == 1 || parseInt(camdenPM10) == 2 || parseInt(camdenPM10) ==3){
         const imgsrc4 = document.getElementById("camden");
         imgsrc4.src = "./public/londonmaps/camden_green.png";
-    } else if (parseInt(camden.PM10) == 4 || parseInt(camden.PM10) == 5 || parseInt(camden.PM10) ==6) {
+    } else if (parseInt(camdenPM10) == 4 || parseInt(camdenPM10) == 5 || parseInt(camdenPM10) ==6) {
         const imgsrc4 = document.getElementById("camden");
         imgsrc4.src = "./public/londonmaps/camden_orange.png";
-    } else if (parseInt(camden.PM10) == 7 || parseInt(camden.PM10) == 8 || parseInt(camden.PM10) ==9 || parseInt(camden.PM10) == 10) {
+    } else if (parseInt(camdenPM10) == 7 || parseInt(camdenPM10) == 8 || parseInt(camdenPM10) ==9 || parseInt(camdenPM10) == 10) {
         const imgsrc4 = document.getElementById("camden");
         imgsrc4.src = "./public/londonmaps/camden_red.png";
     }
@@ -1231,62 +918,62 @@ async function setmapPM10(){
     const imgsrccity = document.getElementById('city');
     imgsrccity.src = "./public/londonmaps/city_white.png";
     //croydon
-    croydon.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[7].Site[3].Species[1]["@AirQualityIndex"];
-    if (parseInt(croydon.PM10) == 1 || parseInt(croydon.PM10) == 2 || parseInt(croydon.PM10) ==3){
+    const croydonPM10 = apidata.HourlyAirQualityIndex.LocalAuthority[7].Site[3].Species[1]["@AirQualityIndex"];
+    if (parseInt(croydonPM10) == 1 || parseInt(croydonPM10) == 2 || parseInt(croydonPM10) ==3){
         const imgsrc5 = document.getElementById("croydon");
         imgsrc5.src = "./public/londonmaps/croydon_green.png";
-    } else if (parseInt(croydon.PM10) == 4 || parseInt(croydon.PM10) == 5 || parseInt(croydon.PM10) ==6) {
+    } else if (parseInt(croydonPM10) == 4 || parseInt(croydonPM10) == 5 || parseInt(croydonPM10) ==6) {
         const imgsrc5 = document.getElementById("croydon");
         imgsrc5.src = "./public/londonmaps/croydon_orange.png";
-    } else if (parseInt(croydon.PM10) == 7 || parseInt(croydon.PM10) == 8 || parseInt(croydon.PM10) ==9 || parseInt(croydon.PM10) == 10) {
+    } else if (parseInt(croydonPM10) == 7 || parseInt(croydonPM10) == 8 || parseInt(croydonPM10) ==9 || parseInt(croydonPM10) == 10) {
         const imgsrc5 = document.getElementById("croydon");
         imgsrc5.src = "./public/londonmaps/croydon_red.png";
     }
     //ealing
-    ealing.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[8].Site[2].Species[1]["@AirQualityIndex"];
-    if (parseInt(ealing.PM10) == 1 || parseInt(ealing.PM10) == 2 || parseInt(ealing.PM10) ==3){
+    const ealingPM10 = apidata.HourlyAirQualityIndex.LocalAuthority[8].Site[2].Species[1]["@AirQualityIndex"];
+    if (parseInt(ealingPM10) == 1 || parseInt(ealingPM10) == 2 || parseInt(ealingPM10) ==3){
         const imgsrc6 = document.getElementById("ealing");
         imgsrc6.src = "./public/londonmaps/ealing_green.png";
-    } else if (parseInt(ealing.PM10) == 4 || parseInt(ealing.PM10) == 5 || parseInt(ealing.PM10) ==6) {
+    } else if (parseInt(ealingPM10) == 4 || parseInt(ealingPM10) == 5 || parseInt(ealingPM10) ==6) {
         const imgsrc6 = document.getElementById("ealing");
         imgsrc6.src = "./public/londonmaps/ealing_orange.png";
-    } else if (parseInt(ealing.PM10) == 7 || parseInt(ealing.PM10) == 8 || parseInt(ealing.PM10) ==9 || parseInt(ealing.PM10) == 10) {
+    } else if (parseInt(ealingPM10) == 7 || parseInt(ealingPM10) == 8 || parseInt(ealingPM10) ==9 || parseInt(ealingPM10) == 10) {
         const imgsrc6 = document.getElementById("ealing");
         imgsrc6.src = "./public/londonmaps/ealing_red.png";
     }
     //enfield
-    enfield.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[9].Site[2].Species[1]["@AirQualityIndex"];
-    if (parseInt(enfield.PM10) == 1 || parseInt(enfield.PM10) == 2 || parseInt(enfield.PM10) ==3){
+    const enfieldPM10 = apidata.HourlyAirQualityIndex.LocalAuthority[9].Site[2].Species[1]["@AirQualityIndex"];
+    if (parseInt(enfieldPM10) == 1 || parseInt(enfieldPM10) == 2 || parseInt(enfieldPM10) ==3){
         const imgsrc7 = document.getElementById("enfield");
         imgsrc7.src = "./public/londonmaps/enfield_green.png";
-    } else if (parseInt(enfield.PM10) == 4 || parseInt(enfield.PM10) == 5 || parseInt(enfield.PM10) ==6) {
+    } else if (parseInt(enfieldPM10) == 4 || parseInt(enfieldPM10) == 5 || parseInt(enfieldPM10) ==6) {
         const imgsrc7 = document.getElementById("enfield");
         imgsrc7.src = "./public/londonmaps/enfield_orange.png";
-    } else if (parseInt(enfield.PM10) == 7 || parseInt(enfield.PM10) == 8 || parseInt(enfield.PM10) ==9 || parseInt(enfield.PM10) == 10) {
+    } else if (parseInt(enfieldPM10) == 7 || parseInt(enfieldPM10) == 8 || parseInt(enfieldPM10) ==9 || parseInt(enfieldPM10) == 10) {
         const imgsrc7 = document.getElementById("enfield");
         imgsrc7.src = "./public/londonmaps/enfield_red.png";
     }
     //greenwich
-    greenwich.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[10].Site[2].Species[1]["@AirQualityIndex"];
-    if (parseInt(greenwich.PM10) == 1 || parseInt(greenwich.PM10) == 2 || parseInt(greenwich.PM10) ==3){
+    const greenwichPM10 = apidata.HourlyAirQualityIndex.LocalAuthority[10].Site[2].Species[1]["@AirQualityIndex"];
+    if (parseInt(greenwichPM10) == 1 || parseInt(greenwichPM10) == 2 || parseInt(greenwichPM10) ==3){
         const imgsrc8 = document.getElementById("greenwich");
         imgsrc8.src = "./public/londonmaps/greenwich_green.png";
-    } else if (parseInt(greenwich.PM10) == 4 || parseInt(greenwich.PM10) == 5 || parseInt(greenwich.PM10) ==6) {
+    } else if (parseInt(greenwichPM10) == 4 || parseInt(greenwichPM10) == 5 || parseInt(greenwichPM10) ==6) {
         const imgsrc8 = document.getElementById("greenwich");
         imgsrc8.src = "./public/londonmaps/greenwich_orange.png";
-    } else if (parseInt(greenwich.PM10) == 7 || parseInt(greenwich.PM10) == 8 || parseInt(greenwich.PM10) ==9 || parseInt(greenwich.PM10) == 10) {
+    } else if (parseInt(greenwichPM10) == 7 || parseInt(greenwichPM10) == 8 || parseInt(greenwichPM10) ==9 || parseInt(greenwichPM10) == 10) {
         const imgsrc8 = document.getElementById("greenwich");
         imgsrc8.src = "./public/londonmaps/greenwich_red.png";
     }
     //hackney
-    hackney.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[11].Site.Species[2]["@AirQualityIndex"];
-    if (parseInt(hackney.PM10) == 1 || parseInt(hackney.PM10) == 2 || parseInt(hackney.PM10) ==3){
+    const hackneyPM10 = apidata.HourlyAirQualityIndex.LocalAuthority[11].Site.Species[2]["@AirQualityIndex"];
+    if (parseInt(hackneyPM10) == 1 || parseInt(hackneyPM10) == 2 || parseInt(hackneyPM10) ==3){
         const imgsrc9 = document.getElementById("hackney");
         imgsrc9.src = "./public/londonmaps/hackney_green.png";
-    } else if (parseInt(hackney.PM10) == 4 || parseInt(hackney.PM10) == 5 || parseInt(hackney.PM10) ==6) {
+    } else if (parseInt(hackneyPM10) == 4 || parseInt(hackneyPM10) == 5 || parseInt(hackneyPM10) ==6) {
         const imgsrc9 = document.getElementById("hackney");
         imgsrc9.src = "./public/londonmaps/hackney_orange.png";
-    } else if (parseInt(hackney.PM10) == 7 || parseInt(hackney.PM10) == 8 || parseInt(hackney.PM10) ==9 || parseInt(hackney.PM10) == 10) {
+    } else if (parseInt(hackneyPM10) == 7 || parseInt(hackneyPM10) == 8 || parseInt(hackneyPM10) ==9 || parseInt(hackneyPM10) == 10) {
         const imgsrc9 = document.getElementById("hackney");
         imgsrc9.src = "./public/londonmaps/hackney_red.png";
     }
@@ -1300,26 +987,26 @@ async function setmapPM10(){
     const imgsrcharrow = document.getElementById('harrow');
     imgsrcharrow.src = "./public/londonmaps/harrow_white.png";
     //havering
-    havering.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[15].Site[1].Species[1]["@AirQualityIndex"];
-    if (parseInt(havering.PM10) == 1 || parseInt(havering.PM10) == 2 || parseInt(havering.PM10) ==3){
+    const haveringPM10 = apidata.HourlyAirQualityIndex.LocalAuthority[15].Site[1].Species[1]["@AirQualityIndex"];
+    if (parseInt(haveringPM10) == 1 || parseInt(haveringPM10) == 2 || parseInt(haveringPM10) ==3){
         const imgsrc11 = document.getElementById("havering");
         imgsrc11.src = "./public/londonmaps/Havering_green.png";
-    } else if (parseInt(havering.PM10) == 4 || parseInt(havering.PM10) == 5 || parseInt(havering.PM10) ==6) {
+    } else if (parseInt(haveringPM10) == 4 || parseInt(haveringPM10) == 5 || parseInt(haveringPM10) ==6) {
         const imgsrc11 = document.getElementById("havering");
         imgsrc11.src = "./public/londonmaps/Havering_orange.png";
-    } else if (parseInt(havering.PM10) == 7 || parseInt(havering.PM10) == 8 || parseInt(havering.PM10) ==9 || parseInt(havering.PM10) == 10) {
+    } else if (parseInt(haveringPM10) == 7 || parseInt(haveringPM10) == 8 || parseInt(haveringPM10) ==9 || parseInt(haveringPM10) == 10) {
         const imgsrc11 = document.getElementById("havering");
         imgsrc11.src = "./public/londonmaps/Havering_red.png";
     }
     //hillingdon
-    hillingdon.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[16].Site[1].Species[2]["@AirQualityIndex"];
-    if (parseInt(hillingdon.PM10) == 1 || parseInt(hillingdon.PM10) == 2 || parseInt(hillingdon.PM10) ==3){
+    const hillingdonPM10 = apidata.HourlyAirQualityIndex.LocalAuthority[16].Site[1].Species[2]["@AirQualityIndex"];
+    if (parseInt(hillingdonPM10) == 1 || parseInt(hillingdonPM10) == 2 || parseInt(hillingdonPM10) ==3){
         const imgsrc12 = document.getElementById("hillingdon");
         imgsrc12.src = "./public/londonmaps/hillingdon_green.png";
-    } else if (parseInt(hillingdon.PM10) == 4 || parseInt(hillingdon.PM10) == 5 || parseInt(hillingdon.PM10) ==6) {
+    } else if (parseInt(hillingdonPM10) == 4 || parseInt(hillingdonPM10) == 5 || parseInt(hillingdonPM10) ==6) {
         const imgsrc12 = document.getElementById("hillingdon");
         imgsrc12.src = "./public/londonmaps/hillingdon_orange.png";
-    } else if (parseInt(hillingdon.PM10) == 7 || parseInt(hillingdon.PM10) == 8 || parseInt(hillingdon.PM10) ==9 || parseInt(hillingdon.PM10) == 10) {
+    } else if (parseInt(hillingdonPM10) == 7 || parseInt(hillingdonPM10) == 8 || parseInt(hillingdonPM10) ==9 || parseInt(hillingdonPM10) == 10) {
         const imgsrc12 = document.getElementById("hillingdon");
         imgsrc12.src = "./public/londonmaps/hillingdon_red.png";
     }
@@ -1327,146 +1014,146 @@ async function setmapPM10(){
     const imgsrchounslow = document.getElementById('hounslow');
     imgsrchounslow.src = "./public/londonmaps/hounslow_white.png"
     //islington
-    islington.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[18].Site[0].Species[1]["@AirQualityIndex"];
-    if (parseInt(islington.PM10) == 1 || parseInt(islington.PM10) == 2 || parseInt(islington.PM10) ==3){
+    const islingtonPM10 = apidata.HourlyAirQualityIndex.LocalAuthority[18].Site[0].Species[1]["@AirQualityIndex"];
+    if (parseInt(islingtonPM10) == 1 || parseInt(islingtonPM10) == 2 || parseInt(islingtonPM10) ==3){
         const imgsrc13 = document.getElementById("islington");
         imgsrc13.src = "./public/londonmaps/islington_green.png";
-    } else if (parseInt(islington.PM10) == 4 || parseInt(islington.PM10) == 5 || parseInt(islington.PM10) ==6) {
+    } else if (parseInt(islingtonPM10) == 4 || parseInt(islingtonPM10) == 5 || parseInt(islingtonPM10) ==6) {
         const imgsrc13 = document.getElementById("islington");
         imgsrc13.src = "./public/londonmaps/islington_orange.png";
-    } else if (parseInt(islington.PM10) == 7 || parseInt(islington.PM10) == 8 || parseInt(islington.PM10) ==9 || parseInt(islington.PM10) == 10) {
+    } else if (parseInt(islingtonPM10) == 7 || parseInt(islingtonPM10) == 8 || parseInt(islingtonPM10) ==9 || parseInt(islingtonPM10) == 10) {
         const imgsrc13 = document.getElementById("islington");
         imgsrc13.src = "./public/londonmaps/islington_red.png";
     }
     //kc
-    kc.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[19].Site[1].Species[0]["@AirQualityIndex"];
-    if (parseInt(kc.PM10) == 1 || parseInt(kc.PM10) == 2 || parseInt(kc.PM10) ==3){
+    const kcPM10 = apidata.HourlyAirQualityIndex.LocalAuthority[19].Site[1].Species[0]["@AirQualityIndex"];
+    if (parseInt(kcPM10) == 1 || parseInt(kcPM10) == 2 || parseInt(kcPM10) ==3){
         const imgsrc14 = document.getElementById("kc");
         imgsrc14.src = "./public/londonmaps/kc_green.png";
-    } else if (parseInt(kc.PM10) == 4 || parseInt(kc.PM10) == 5 || parseInt(kc.PM10) ==6) {
+    } else if (parseInt(kcPM10) == 4 || parseInt(kcPM10) == 5 || parseInt(kcPM10) ==6) {
         const imgsrc14 = document.getElementById("kc");
         imgsrc14.src = "./public/londonmaps/kc_orange.png";
-    } else if (parseInt(kc.PM10) == 7 || parseInt(kc.PM10) == 8 || parseInt(kc.PM10) ==9 || parseInt(kc.PM10) == 10) {
+    } else if (parseInt(kcPM10) == 7 || parseInt(kcPM10) == 8 || parseInt(kcPM10) ==9 || parseInt(kcPM10) == 10) {
         const imgsrc14 = document.getElementById("kc");
         imgsrc14.src = "./public/londonmaps/kc_red.png";
     }
     //kingston
-    kingston.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[20].Site[1].Species[1]["@AirQualityIndex"];
-    if (parseInt(kingston.PM10) == 1 || parseInt(kingston.PM10) == 2 || parseInt(kingston.PM10) ==3){
+    const kingstonPM10 = apidata.HourlyAirQualityIndex.LocalAuthority[20].Site[1].Species[1]["@AirQualityIndex"];
+    if (parseInt(kingstonPM10) == 1 || parseInt(kingstonPM10) == 2 || parseInt(kingstonPM10) ==3){
         const imgsrc15 = document.getElementById("kingston");
         imgsrc15.src = "./public/londonmaps/kingston_green.png";
-    } else if (parseInt(kingston.PM10) == 4 || parseInt(kingston.PM10) == 5 || parseInt(kingston.PM10) ==6) {
+    } else if (parseInt(kingstonPM10) == 4 || parseInt(kingstonPM10) == 5 || parseInt(kingstonPM10) ==6) {
         const imgsrc15 = document.getElementById("kingston");
         imgsrc15.src = "./public/londonmaps/kingston_orange.png";
-    } else if (parseInt(kingston.PM10) == 7 || parseInt(kingston.PM10) == 8 || parseInt(kingston.PM10) ==9 || parseInt(kingston.PM10) == 10) {
+    } else if (parseInt(kingstonPM10) == 7 || parseInt(kingstonPM10) == 8 || parseInt(kingstonPM10) ==9 || parseInt(kingstonPM10) == 10) {
         const imgsrc15 = document.getElementById("kingston");
         imgsrc15.src = "./public/londonmaps/kingston_red.png";
     }
     //lambeth
-    lambeth.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[21].Site[0].Species[1]["@AirQualityIndex"];
-    if (parseInt(lambeth.PM10) == 1 || parseInt(lambeth.PM10) == 2 || parseInt(lambeth.PM10) ==3){
+    const lambethPM10 = apidata.HourlyAirQualityIndex.LocalAuthority[21].Site[0].Species[1]["@AirQualityIndex"];
+    if (parseInt(lambethPM10) == 1 || parseInt(lambethPM10) == 2 || parseInt(lambethPM10) ==3){
         const imgsrc16 = document.getElementById("lambeth");
         imgsrc16.src = "./public/londonmaps/lambeth_green.png";
-    } else if (parseInt(lambeth.PM10) == 4 || parseInt(lambeth.PM10) == 5 || parseInt(lambeth.PM10) ==6) {
+    } else if (parseInt(lambethPM10) == 4 || parseInt(lambethPM10) == 5 || parseInt(lambethPM10) ==6) {
         const imgsrc16 = document.getElementById("lambeth");
         imgsrc16.src = "./public/londonmaps/lambeth_orange.png";
-    } else if (parseInt(lambeth.PM10) == 7 || parseInt(lambeth.PM10) == 8 || parseInt(lambeth.PM10) ==9 || parseInt(lambeth.PM10) == 10) {
+    } else if (parseInt(lambethPM10) == 7 || parseInt(lambethPM10) == 8 || parseInt(lambethPM10) ==9 || parseInt(lambethPM10) == 10) {
         const imgsrc16 = document.getElementById("lambeth");
         imgsrc16.src = "./public/londonmaps/lambeth_red.png";
     }
     //lewisham
-    lewisham.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[22].Site[0].Species[2]["@AirQualityIndex"];
-    if (parseInt(lewisham.PM10) == 1 || parseInt(lewisham.PM10) == 2 || parseInt(lewisham.PM10) ==3){
+    const lewishamPM10 = apidata.HourlyAirQualityIndex.LocalAuthority[22].Site[0].Species[2]["@AirQualityIndex"];
+    if (parseInt(lewishamPM10) == 1 || parseInt(lewishamPM10) == 2 || parseInt(lewishamPM10) ==3){
         const imgsrc17 = document.getElementById("lewisham");
         imgsrc17.src = "./public/londonmaps/lewisham_green.png";
-    } else if (parseInt(lewisham.PM10) == 4 || parseInt(lewisham.PM10) == 5 || parseInt(lewisham.PM10) ==6) {
+    } else if (parseInt(lewishamPM10) == 4 || parseInt(lewishamPM10) == 5 || parseInt(lewishamPM10) ==6) {
         const imgsrc17 = document.getElementById("lewisham");
         imgsrc17.src = "./public/londonmaps/lewisham_orange.png";
-    } else if (parseInt(lewisham.PM10) == 7 || parseInt(lewisham.PM10) == 8 || parseInt(lewisham.PM10) ==9 || parseInt(lewisham.PM10) == 10) {
+    } else if (parseInt(lewishamPM10) == 7 || parseInt(lewishamPM10) == 8 || parseInt(lewishamPM10) ==9 || parseInt(lewishamPM10) == 10) {
         const imgsrc17 = document.getElementById("lewisham");
         imgsrc17.src = "./public/londonmaps/lewisham_red.png";
     }
     //merton
-    merton.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[23].Site[0].Species["@AirQualityIndex"];
-    if (parseInt(merton.PM10) == 1 || parseInt(merton.PM10) == 2 || parseInt(merton.PM10) ==3){
+    const mertonPM10 = apidata.HourlyAirQualityIndex.LocalAuthority[23].Site[0].Species["@AirQualityIndex"];
+    if (parseInt(mertonPM10) == 1 || parseInt(mertonPM10) == 2 || parseInt(mertonPM10) ==3){
         const imgsrc18 = document.getElementById("merton");
         imgsrc18.src = "./public/londonmaps/merton_green.png";
-    } else if (parseInt(merton.PM10) == 4 || parseInt(merton.PM10) == 5 || parseInt(merton.PM10) ==6) {
+    } else if (parseInt(mertonPM10) == 4 || parseInt(mertonPM10) == 5 || parseInt(mertonPM10) ==6) {
         const imgsrc18 = document.getElementById("merton");
         imgsrc18.src = "./public/londonmaps/merton_orange.png";
-    } else if (parseInt(merton.PM10) == 7 || parseInt(merton.PM10) == 8 || parseInt(merton.PM10) ==9 || parseInt(merton.PM10) == 10) {
+    } else if (parseInt(mertonPM10) == 7 || parseInt(mertonPM10) == 8 || parseInt(mertonPM10) ==9 || parseInt(mertonPM10) == 10) {
         const imgsrc18 = document.getElementById("merton");
         imgsrc18.src = "./public/londonmaps/merton_red.png";
     }
     //newham
-    newham.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[24].Site[0].Species[1]["@AirQualityIndex"];
-    if (parseInt(newham.PM10) == 1 || parseInt(newham.PM10) == 2 || parseInt(newham.PM10) ==3){
+    const newhamPM10 = apidata.HourlyAirQualityIndex.LocalAuthority[24].Site[0].Species[1]["@AirQualityIndex"];
+    if (parseInt(newhamPM10) == 1 || parseInt(newhamPM10) == 2 || parseInt(newhamPM10) ==3){
         const imgsrc19 = document.getElementById("newham");
         imgsrc19.src = "./public/londonmaps/newham_green.png";
-    } else if (parseInt(newham.PM10) == 4 || parseInt(newham.PM10) == 5 || parseInt(newham.PM10) ==6) {
+    } else if (parseInt(newhamPM10) == 4 || parseInt(newhamPM10) == 5 || parseInt(newhamPM10) ==6) {
         const imgsrc19 = document.getElementById("newham");
         imgsrc19.src = "./public/londonmaps/newham_orange.png";
-    } else if (parseInt(newham.PM10) == 7 || parseInt(newham.PM10) == 8 || parseInt(newham.PM10) ==9 || parseInt(newham.PM10) == 10) {
+    } else if (parseInt(newhamPM10) == 7 || parseInt(newhamPM10) == 8 || parseInt(newhamPM10) ==9 || parseInt(newhamPM10) == 10) {
         const imgsrc19 = document.getElementById("newham");
         imgsrc19.src = "./public/londonmaps/newham_red.png";
     }
     //redbridge
-    redbridge.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[25].Site[1].Species[2]["@AirQualityIndex"];
-    if (parseInt(redbridge.PM10) == 1 || parseInt(redbridge.PM10) == 2 || parseInt(redbridge.PM10) ==3){
+    const redbridgePM10 = apidata.HourlyAirQualityIndex.LocalAuthority[25].Site[1].Species[2]["@AirQualityIndex"];
+    if (parseInt(redbridgePM10) == 1 || parseInt(redbridgePM10) == 2 || parseInt(redbridgePM10) ==3){
         const imgsrc20 = document.getElementById("redbridge");
         imgsrc20.src = "./public/londonmaps/redbridge_green.png";
-    } else if (parseInt(redbridge.PM10) == 4 || parseInt(redbridge.PM10) == 5 || parseInt(redbridge.PM10) ==6) {
+    } else if (parseInt(redbridgePM10) == 4 || parseInt(redbridgePM10) == 5 || parseInt(redbridgePM10) ==6) {
         const imgsrc20 = document.getElementById("redbridge");
         imgsrc20.src = "./public/londonmaps/redbridge_orange.png";
-    } else if (parseInt(redbridge.PM10) == 7 || parseInt(redbridge.PM10) == 8 || parseInt(redbridge.PM10) ==9 || parseInt(redbridge.PM10) == 10) {
+    } else if (parseInt(redbridgePM10) == 7 || parseInt(redbridgePM10) == 8 || parseInt(redbridgePM10) ==9 || parseInt(redbridgePM10) == 10) {
         const imgsrc20 = document.getElementById("redbridge");
         imgsrc20.src = "./public/londonmaps/redbridge_red.png";
     }
     //richmond
-    richmond.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[26].Site[0].Species[1]["@AirQualityIndex"];
-    if (parseInt(richmond.PM10) == 1 || parseInt(richmond.PM10) == 2 || parseInt(richmond.PM10) ==3){
+    const richmondPM10 = apidata.HourlyAirQualityIndex.LocalAuthority[26].Site[0].Species[1]["@AirQualityIndex"];
+    if (parseInt(richmondPM10) == 1 || parseInt(richmondPM10) == 2 || parseInt(richmondPM10) ==3){
         const imgsrc21 = document.getElementById("richmond");
         imgsrc21.src = "./public/londonmaps/richmond_green.png";
-    } else if (parseInt(richmond.PM10) == 4 || parseInt(richmond.PM10) == 5 || parseInt(richmond.PM10) ==6) {
+    } else if (parseInt(richmondPM10) == 4 || parseInt(richmondPM10) == 5 || parseInt(richmondPM10) ==6) {
         const imgsrc21 = document.getElementById("richmond");
         imgsrc21.src = "./public/londonmaps/richmond_orange.png";
-    } else if (parseInt(richmond.PM10) == 7 || parseInt(richmond.PM10) == 8 || parseInt(richmond.PM10) ==9 || parseInt(richmond.PM10) == 10) {
+    } else if (parseInt(richmondPM10) == 7 || parseInt(richmondPM10) == 8 || parseInt(richmondPM10) ==9 || parseInt(richmondPM10) == 10) {
         const imgsrc21 = document.getElementById("richmond");
         imgsrc21.src = "./public/londonmaps/richmond_red.png";
     }
     //southwark
-    southwark.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[27].Site[1].Species[2]["@AirQualityIndex"];
-    if (parseInt(southwark.PM10) == 1 || parseInt(southwark.PM10) == 2 || parseInt(southwark.PM10) ==3){
+    const southwarkPM10 = apidata.HourlyAirQualityIndex.LocalAuthority[27].Site[1].Species[2]["@AirQualityIndex"];
+    if (parseInt(southwarkPM10) == 1 || parseInt(southwarkPM10) == 2 || parseInt(southwarkPM10) ==3){
         const imgsrc22 = document.getElementById("southwark");
         imgsrc22.src = "./public/londonmaps/southwark_green.png";
-    } else if (parseInt(southwark.PM10) == 4 || parseInt(southwark.PM10) == 5 || parseInt(southwark.PM10) ==6) {
+    } else if (parseInt(southwarkPM10) == 4 || parseInt(southwarkPM10) == 5 || parseInt(southwarkPM10) ==6) {
         const imgsrc22 = document.getElementById("southwark");
         imgsrc22.src = "./public/londonmaps/southwark_orange.png";
-    } else if (parseInt(southwark.PM10) == 7 || parseInt(southwark.PM10) == 8 || parseInt(southwark.PM10) ==9 || parseInt(southwark.PM10) == 10) {
+    } else if (parseInt(southwarkPM10) == 7 || parseInt(southwarkPM10) == 8 || parseInt(southwarkPM10) ==9 || parseInt(southwarkPM10) == 10) {
         const imgsrc22 = document.getElementById("southwark");
         imgsrc22.src = "./public/londonmaps/southwark_red.png";
     }
     //sutton
-    sutton.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[28].Site[0].Species[1]["@AirQualityIndex"];
-    if (parseInt(sutton.PM10) == 1 || parseInt(sutton.PM10) == 2 || parseInt(sutton.PM10) ==3){
+    const suttonPM10 = apidata.HourlyAirQualityIndex.LocalAuthority[28].Site[0].Species[1]["@AirQualityIndex"];
+    if (parseInt(suttonPM10) == 1 || parseInt(suttonPM10) == 2 || parseInt(suttonPM10) ==3){
         const imgsrc23 = document.getElementById("sutton");
         imgsrc23.src = "./public/londonmaps/sutton_green.png";
-    } else if (parseInt(sutton.PM10) == 4 || parseInt(sutton.PM10) == 5 || parseInt(sutton.PM10) ==6) {
+    } else if (parseInt(suttonPM10) == 4 || parseInt(suttonPM10) == 5 || parseInt(suttonPM10) ==6) {
         const imgsrc23 = document.getElementById("sutton");
         imgsrc23.src = "./public/londonmaps/sutton_orange.png";
-    } else if (parseInt(sutton.PM10) == 7 || parseInt(sutton.PM10) == 8 || parseInt(sutton.PM10) ==9 || parseInt(sutton.PM10) == 10) {
+    } else if (parseInt(suttonPM10) == 7 || parseInt(suttonPM10) == 8 || parseInt(suttonPM10) ==9 || parseInt(suttonPM10) == 10) {
         const imgsrc23 = document.getElementById("sutton");
         imgsrc23.src = "./public/londonmaps/sutton_red.png";
     }
     //towerhamlet
-    towerhamlet.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[29].Site[0].Species[1]["@AirQualityIndex"];
-    if (parseInt(towerhamlet.PM10) == 1 || parseInt(towerhamlet.PM10) == 2 || parseInt(towerhamlet.PM10) ==3){
+    const towerhamletPM10 = apidata.HourlyAirQualityIndex.LocalAuthority[29].Site[0].Species[1]["@AirQualityIndex"];
+    if (parseInt(towerhamletPM10) == 1 || parseInt(towerhamletPM10) == 2 || parseInt(towerhamletPM10) ==3){
         const imgsrc24 = document.getElementById("towerhamlet");
         imgsrc24.src = "./public/londonmaps/towerhamlet_green.png";
-    } else if (parseInt(towerhamlet.PM10) == 4 || parseInt(towerhamlet.PM10) == 5 || parseInt(towerhamlet.PM10) ==6) {
+    } else if (parseInt(towerhamletPM10) == 4 || parseInt(towerhamletPM10) == 5 || parseInt(towerhamletPM10) ==6) {
         const imgsrc24 = document.getElementById("towerhamlet");
         imgsrc24.src = "./public/londonmaps/towerhamlet_orange.png";
-    } else if (parseInt(towerhamlet.PM10) == 7 || parseInt(towerhamlet.PM10) == 8 || parseInt(towerhamlet.PM10) ==9 || parseInt(towerhamlet.PM10) == 10) {
+    } else if (parseInt(towerhamletPM10) == 7 || parseInt(towerhamletPM10) == 8 || parseInt(towerhamletPM10) ==9 || parseInt(towerhamletPM10) == 10) {
         const imgsrc24 = document.getElementById("towerhamlet");
         imgsrc24.src = "./public/londonmaps/towerhamlet_red.png";
     }
@@ -1474,26 +1161,26 @@ async function setmapPM10(){
     const imgsrcwaltham = document.getElementById('walthamforest');
     imgsrcwaltham.src = "./public/londonmaps/walthamforest_white.png";
     //wandsworth
-    wandsworth.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[31].Site[1].Species[1]["@AirQualityIndex"];
-    if (parseInt(wandsworth.PM10) == 1 || parseInt(wandsworth.PM10) == 2 || parseInt(wandsworth.PM10) ==3){
+    const wandsworthPM10 = apidata.HourlyAirQualityIndex.LocalAuthority[31].Site[1].Species[1]["@AirQualityIndex"];
+    if (parseInt(wandsworthPM10) == 1 || parseInt(wandsworthPM10) == 2 || parseInt(wandsworthPM10) ==3){
         const imgsrc25 = document.getElementById("wandsworth");
         imgsrc25.src = "./public/londonmaps/wandsworth_green.png";
-    } else if (parseInt(wandsworth.PM10) == 4 || parseInt(wandsworth.PM10) == 5 || parseInt(wandsworth.PM10) ==6) {
+    } else if (parseInt(wandsworthPM10) == 4 || parseInt(wandsworthPM10) == 5 || parseInt(wandsworthPM10) ==6) {
         const imgsrc25 = document.getElementById("wandsworth");
         imgsrc25.src = "./public/londonmaps/wandsworth_orange.png";
-    } else if (parseInt(wandsworth.PM10) == 7 || parseInt(wandsworth.PM10) == 8 || parseInt(wandsworth.PM10) ==9 || parseInt(wandsworth.PM10) == 10) {
+    } else if (parseInt(wandsworthPM10) == 7 || parseInt(wandsworthPM10) == 8 || parseInt(wandsworthPM10) ==9 || parseInt(wandsworthPM10) == 10) {
         const imgsrc25 = document.getElementById("wandsworth");
         imgsrc25.src = "./public/londonmaps/wandsworth_red.png";
     }
     //westminster
-    westminster.PM10 = apidata.HourlyAirQualityIndex.LocalAuthority[32].Site[0].Species[2]["@AirQualityIndex"];
-    if (parseInt(westminster.PM10) == 1 || parseInt(westminster.PM10) == 2 || parseInt(westminster.PM10) ==3){
+    const westminsterPM10 = apidata.HourlyAirQualityIndex.LocalAuthority[32].Site[0].Species[2]["@AirQualityIndex"];
+    if (parseInt(westminsterPM10) == 1 || parseInt(westminsterPM10) == 2 || parseInt(westminsterPM10) ==3){
         const imgsrc26 = document.getElementById("westminster");
         imgsrc26.src = "./public/londonmaps/westminster_green.png";
-    } else if (parseInt(westminster.PM10) == 4 || parseInt(westminster.PM10) == 5 || parseInt(westminster.PM10) ==6) {
+    } else if (parseInt(westminsterPM10) == 4 || parseInt(westminsterPM10) == 5 || parseInt(westminsterPM10) ==6) {
         const imgsrc26 = document.getElementById("westminster");
         imgsrc26.src = "./public/londonmaps/westminster_orange.png";
-    } else if (parseInt(westminster.PM10) == 7 || parseInt(westminster.PM10) == 8 || parseInt(westminster.PM10) ==9 || parseInt(haringey.PM10) == 10) {
+    } else if (parseInt(westminsterPM10) == 7 || parseInt(westminsterPM10) == 8 || parseInt(westminsterPM10) ==9 || parseInt(westminsterPM10) == 10) {
         const imgsrc26 = document.getElementById("westminster");
         imgsrc26.src = "./public/londonmaps/westminster_red.png";
     }
@@ -1506,7 +1193,7 @@ async function setmapPM10(){
 async function setmapPM25(){
     const response = await fetch("https://api.erg.ic.ac.uk/AirQuality/Hourly/MonitoringIndex/GroupName=London/Json");
     const apidata = await response.json();
-    barking=barnet=bexley=brent=bromley=camden=city=croydon=ealing=enfield=greenwich=hackney=hammersmith=haringey=harrow=havering=hillingdon=hounslow=islington=kc=kingston=lambeth=lewisham=merton=newham=redbridge=richmond=southwark=sutton=towerhamlet=waltham=wandsworth=westminster=AQIdata;
+    clear();
     //barking
     const imgsrcbarking = document.getElementById('barking');
     imgsrcbarking.src = "./public/londonmaps/Barking_white.png";
@@ -1514,50 +1201,50 @@ async function setmapPM25(){
     const imgsrcbarnet = document.getElementById('barnet');
     imgsrcbarnet.src = "./public/londonmaps/barnet_white.png";
     //bexley
-    bexley.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[2].Site[0].Species[3]["@AirQualityIndex"];
-    if (parseInt(bexley.PM25) == 1 || parseInt(bexley.PM25) == 2 || parseInt(bexley.PM25) ==3){
+    const bexleyPM25 = apidata.HourlyAirQualityIndex.LocalAuthority[2].Site[0].Species[3]["@AirQualityIndex"];
+    if (parseInt(bexleyPM25) == 1 || parseInt(bexleyPM25) == 2 || parseInt(bexleyPM25) ==3){
         const imgsrc1 = document.getElementById("bexley");
         imgsrc1.src = "./public/londonmaps/bexley_green.png";
-    } else if (parseInt(bexley.PM25) == 4 || parseInt(bexley.PM25) == 5 || parseInt(bexley.PM25) ==6) {
+    } else if (parseInt(bexleyPM25) == 4 || parseInt(bexleyPM25) == 5 || parseInt(bexleyPM25) ==6) {
         const imgsrc1 = document.getElementById("bexley");
         imgsrc1.src = "./public/londonmaps/bexley_orange.png";
-    } else if (parseInt(bexley.PM25) == 7 || parseInt(bexley.PM25) == 8 || parseInt(bexley.PM25) ==9 || parseInt(bexley.PM25) == 10) {
+    } else if (parseInt(bexleyPM25) == 7 || parseInt(bexleyPM25) == 8 || parseInt(bexleyPM25) ==9 || parseInt(bexleyPM25) == 10) {
         const imgsrc1 = document.getElementById("bexley");
         imgsrc1.src = "./public/londonmaps/bexley_red.png";
     }
     //brent
-    brent.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[3].Site[0].Species[3]["@AirQualityIndex"];
-    if (parseInt(brent.PM25) == 1 || parseInt(brent.PM25) == 2 || parseInt(brent.PM25) ==3){
+    const brentPM25 = apidata.HourlyAirQualityIndex.LocalAuthority[3].Site[0].Species[3]["@AirQualityIndex"];
+    if (parseInt(brentPM25) == 1 || parseInt(brentPM25) == 2 || parseInt(brentPM25) ==3){
         const imgsrc2 = document.getElementById("brent");
         imgsrc2.src = "./public/londonmaps/brent_green.png";
-    } else if (parseInt(brent.PM25) == 4 || parseInt(brent.PM25) == 5 || parseInt(brent.PM25) ==6) {
+    } else if (parseInt(brentPM25) == 4 || parseInt(brentPM25) == 5 || parseInt(brentPM25) ==6) {
         const imgsrc2 = document.getElementById("brent");
         imgsrc2.src = "./public/londonmaps/brent_orange.png";
-    } else if (parseInt(brent.PM25) == 7 || parseInt(brent.PM25) == 8 || parseInt(brent.PM25) ==9 || parseInt(brent.PM25) == 10) {
+    } else if (parseInt(brentPM25) == 7 || parseInt(brentPM25) == 8 || parseInt(brentPM25) ==9 || parseInt(brentPM25) == 10) {
         const imgsrc2 = document.getElementById("brent");
         imgsrc2.src = "./public/londonmaps/brent_red.png";
     }
     //bromley
-    bromley.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[4].Site.Species[2]["@AirQualityIndex"];
-    if (parseInt(bromley.PM25) == 1 || parseInt(bromley.PM25) == 2 || parseInt(bromley.PM25) ==3){
+    const bromleyPM25 = apidata.HourlyAirQualityIndex.LocalAuthority[4].Site.Species[2]["@AirQualityIndex"];
+    if (parseInt(bromleyPM25) == 1 || parseInt(bromleyPM25) == 2 || parseInt(bromleyPM25) ==3){
         const imgsrc3 = document.getElementById("bromley");
         imgsrc3.src = "./public/londonmaps/bromley_green.png";
-    } else if (parseInt(bromley.PM25) == 4 || parseInt(bromley.PM25) == 5 || parseInt(bromley.PM25) ==6) {
+    } else if (parseInt(bromleyPM25) == 4 || parseInt(bromleyPM25) == 5 || parseInt(bromleyPM25) ==6) {
         const imgsrc3 = document.getElementById("bromley");
         imgsrc3.src = "./public/londonmaps/bromley_orange.png";
-    } else if (parseInt(bromley.PM25) == 7 || parseInt(bromley.PM25) == 8 || parseInt(bromley.PM25) ==9 || parseInt(bromley.PM25) == 10) {
+    } else if (parseInt(bromleyPM25) == 7 || parseInt(bromleyPM25) == 8 || parseInt(bromleyPM25) ==9 || parseInt(bromleyPM25) == 10) {
         const imgsrc3 = document.getElementById("bromley");
         imgsrc3.src = "./public/londonmaps/bromley_red.png";
     }
     //camden
-    camden.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[5].Site[0].Species[3]["@AirQualityIndex"];
-    if (parseInt(camden.PM25) == 1 || parseInt(camden.PM25) == 2 || parseInt(camden.PM25) ==3){
+    const camdenPM25 = apidata.HourlyAirQualityIndex.LocalAuthority[5].Site[0].Species[3]["@AirQualityIndex"];
+    if (parseInt(camdenPM25) == 1 || parseInt(camdenPM25) == 2 || parseInt(camdenPM25) ==3){
         const imgsrc4 = document.getElementById("camden");
         imgsrc4.src = "./public/londonmaps/camden_green.png";
-    } else if (parseInt(camden.PM25) == 4 || parseInt(camden.PM25) == 5 || parseInt(camden.PM25) ==6) {
+    } else if (parseInt(camdenPM25) == 4 || parseInt(camdenPM25) == 5 || parseInt(camdenPM25) ==6) {
         const imgsrc4 = document.getElementById("camden");
         imgsrc4.src = "./public/londonmaps/camden_orange.png";
-    } else if (parseInt(camden.PM25) == 7 || parseInt(camden.PM25) == 8 || parseInt(camden.PM25) ==9 || parseInt(camden.PM25) == 10) {
+    } else if (parseInt(camdenPM25) == 7 || parseInt(camdenPM25) == 8 || parseInt(camdenPM25) ==9 || parseInt(camdenPM25) == 10) {
         const imgsrc4 = document.getElementById("camden");
         imgsrc4.src = "./public/londonmaps/camden_red.png";
     }
@@ -1565,14 +1252,14 @@ async function setmapPM25(){
     const imgsrccity = document.getElementById('city');
     imgsrccity.src = "./public/londonmaps/city_white.png";
     //croydon
-    croydon.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[7].Site[2].Species["@AirQualityIndex"];
-    if (parseInt(croydon.PM25) == 1 || parseInt(croydon.PM25) == 2 || parseInt(croydon.PM25) ==3){
+    const croydonPM25 = apidata.HourlyAirQualityIndex.LocalAuthority[7].Site[2].Species["@AirQualityIndex"];
+    if (parseInt(croydonPM25) == 1 || parseInt(croydonPM25) == 2 || parseInt(croydonPM25) ==3){
         const imgsrc5 = document.getElementById("croydon");
         imgsrc5.src = "./public/londonmaps/croydon_green.png";
-    } else if (parseInt(croydon.PM25) == 4 || parseInt(croydon.PM25) == 5 || parseInt(croydon.PM25) ==6) {
+    } else if (parseInt(croydonPM25) == 4 || parseInt(croydonPM25) == 5 || parseInt(croydonPM25) ==6) {
         const imgsrc5 = document.getElementById("croydon");
         imgsrc5.src = "./public/londonmaps/croydon_orange.png";
-    } else if (parseInt(croydon.PM25) == 7 || parseInt(croydon.PM25) == 8 || parseInt(croydon.PM25) ==9 || parseInt(croydon.PM25) == 10) {
+    } else if (parseInt(croydonPM25) == 7 || parseInt(croydonPM25) == 8 || parseInt(croydonPM25) ==9 || parseInt(croydonPM25) == 10) {
         const imgsrc5 = document.getElementById("croydon");
         imgsrc5.src = "./public/londonmaps/croydon_red.png";
     }
@@ -1583,26 +1270,26 @@ async function setmapPM25(){
     const imgsrcenfield = document.getElementById('enfield');
     imgsrcenfield.src = "./public/londonmaps/enfield_white.png";
     //greenwich
-    greenwich.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[10].Site[2].Species[2]["@AirQualityIndex"];
-    if (parseInt(greenwich.PM25) == 1 || parseInt(greenwich.PM25) == 2 || parseInt(greenwich.PM25) ==3){
+    const greenwichPM25 = apidata.HourlyAirQualityIndex.LocalAuthority[10].Site[2].Species[2]["@AirQualityIndex"];
+    if (parseInt(greenwichPM25) == 1 || parseInt(greenwichPM25) == 2 || parseInt(greenwichPM25) ==3){
         const imgsrc8 = document.getElementById("greenwich");
         imgsrc8.src = "./public/londonmaps/greenwich_green.png";
-    } else if (parseInt(greenwich.PM25) == 4 || parseInt(greenwich.PM25) == 5 || parseInt(greenwich.PM25) ==6) {
+    } else if (parseInt(greenwichPM25) == 4 || parseInt(greenwichPM25) == 5 || parseInt(greenwichPM25) ==6) {
         const imgsrc8 = document.getElementById("greenwich");
         imgsrc8.src = "./public/londonmaps/greenwich_orange.png";
-    } else if (parseInt(greenwich.PM25) == 7 || parseInt(greenwich.PM25) == 8 || parseInt(greenwich.PM25) ==9 || parseInt(greenwich.PM25) == 10) {
+    } else if (parseInt(greenwichPM25) == 7 || parseInt(greenwichPM25) == 8 || parseInt(greenwichPM25) ==9 || parseInt(greenwichPM25) == 10) {
         const imgsrc8 = document.getElementById("greenwich");
         imgsrc8.src = "./public/londonmaps/greenwich_red.png";
     }
     //hackney
-    hackney.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[11].Site.Species[3]["@AirQualityIndex"];
-    if (parseInt(hackney.PM25) == 1 || parseInt(hackney.PM25) == 2 || parseInt(hackney.PM25) ==3){
+    const hackneyPM25 = apidata.HourlyAirQualityIndex.LocalAuthority[11].Site.Species[3]["@AirQualityIndex"];
+    if (parseInt(hackneyPM25) == 1 || parseInt(hackneyPM25) == 2 || parseInt(hackneyPM25) ==3){
         const imgsrc9 = document.getElementById("hackney");
         imgsrc9.src = "./public/londonmaps/hackney_green.png";
-    } else if (parseInt(hackney.PM25) == 4 || parseInt(hackney.PM25) == 5 || parseInt(hackney.PM25) ==6) {
+    } else if (parseInt(hackneyPM25) == 4 || parseInt(hackneyPM25) == 5 || parseInt(hackneyPM25) ==6) {
         const imgsrc9 = document.getElementById("hackney");
         imgsrc9.src = "./public/londonmaps/hackney_orange.png";
-    } else if (parseInt(hackney.PM25) == 7 || parseInt(hackney.PM25) == 8 || parseInt(hackney.PM25) ==9 || parseInt(hackney.PM25) == 10) {
+    } else if (parseInt(hackneyPM25) == 7 || parseInt(hackneyPM25) == 8 || parseInt(hackneyPM25) ==9 || parseInt(hackneyPM25) == 10) {
         const imgsrc9 = document.getElementById("hackney");
         imgsrc9.src = "./public/londonmaps/hackney_red.png";
     }
@@ -1616,26 +1303,26 @@ async function setmapPM25(){
     const imgsrcharrow = document.getElementById('harrow');
     imgsrcharrow.src = "./public/londonmaps/harrow_white.png";
     //havering
-    havering.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[15].Site[0].Species[2]["@AirQualityIndex"];
-    if (parseInt(havering.PM25) == 1 || parseInt(havering.PM25) == 2 || parseInt(havering.PM25) ==3){
+    const haveringPM25 = apidata.HourlyAirQualityIndex.LocalAuthority[15].Site[0].Species[2]["@AirQualityIndex"];
+    if (parseInt(haveringPM25) == 1 || parseInt(haveringPM25) == 2 || parseInt(haveringPM25) ==3){
         const imgsrc11 = document.getElementById("havering");
         imgsrc11.src = "./public/londonmaps/Havering_green.png";
-    } else if (parseInt(havering.PM25) == 4 || parseInt(havering.PM25) == 5 || parseInt(havering.PM25) ==6) {
+    } else if (parseInt(haveringPM25) == 4 || parseInt(haveringPM25) == 5 || parseInt(haveringPM25) ==6) {
         const imgsrc11 = document.getElementById("havering");
         imgsrc11.src = "./public/londonmaps/Havering_orange.png";
-    } else if (parseInt(havering.PM25) == 7 || parseInt(havering.PM25) == 8 || parseInt(havering.PM25) ==9 || parseInt(havering.PM25) == 10) {
+    } else if (parseInt(haveringPM25) == 7 || parseInt(haveringPM25) == 8 || parseInt(haveringPM25) ==9 || parseInt(haveringPM25) == 10) {
         const imgsrc11 = document.getElementById("havering");
         imgsrc11.src = "./public/londonmaps/Havering_red.png";
     }
     //hillingdon
-    hillingdon.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[16].Site[1].Species[3]["@AirQualityIndex"];
-    if (parseInt(hillingdon.PM25) == 1 || parseInt(hillingdon.PM25) == 2 || parseInt(hillingdon.PM25) ==3){
+    const hillingdonPM25 = apidata.HourlyAirQualityIndex.LocalAuthority[16].Site[1].Species[3]["@AirQualityIndex"];
+    if (parseInt(hillingdonPM25) == 1 || parseInt(hillingdonPM25) == 2 || parseInt(hillingdonPM25) ==3){
         const imgsrc12 = document.getElementById("hillingdon");
         imgsrc12.src = "./public/londonmaps/hillingdon_green.png";
-    } else if (parseInt(hillingdon.PM25) == 4 || parseInt(hillingdon.PM25) == 5 || parseInt(hillingdon.PM25) ==6) {
+    } else if (parseInt(hillingdonPM25) == 4 || parseInt(hillingdonPM25) == 5 || parseInt(hillingdonPM25) ==6) {
         const imgsrc12 = document.getElementById("hillingdon");
         imgsrc12.src = "./public/londonmaps/hillingdon_orange.png";
-    } else if (parseInt(hillingdon.PM25) == 7 || parseInt(hillingdon.PM25) == 8 || parseInt(hillingdon.PM25) ==9 || parseInt(hillingdon.PM25) == 10) {
+    } else if (parseInt(hillingdonPM25) == 7 || parseInt(hillingdonPM25) == 8 || parseInt(hillingdonPM25) ==9 || parseInt(hillingdonPM25) == 10) {
         const imgsrc12 = document.getElementById("hillingdon");
         imgsrc12.src = "./public/londonmaps/hillingdon_red.png";
     }
@@ -1646,50 +1333,50 @@ async function setmapPM25(){
     const imgsrcislington = document.getElementById('islington');
     imgsrcislington.src = "./public/londonmaps/islington_white.png";
     //kc
-    kc.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[19].Site[1].Species[1]["@AirQualityIndex"];
-    if (parseInt(kc.PM25) == 1 || parseInt(kc.PM25) == 2 || parseInt(kc.PM25) ==3){
+    const kcPM25 = apidata.HourlyAirQualityIndex.LocalAuthority[19].Site[1].Species[1]["@AirQualityIndex"];
+    if (parseInt(kcPM25) == 1 || parseInt(kcPM25) == 2 || parseInt(kcPM25) ==3){
         const imgsrc14 = document.getElementById("kc");
         imgsrc14.src = "./public/londonmaps/kc_green.png";
-    } else if (parseInt(kc.PM25) == 4 || parseInt(kc.PM25) == 5 || parseInt(kc.PM25) ==6) {
+    } else if (parseInt(kcPM25) == 4 || parseInt(kcPM25) == 5 || parseInt(kcPM25) ==6) {
         const imgsrc14 = document.getElementById("kc");
         imgsrc14.src = "./public/londonmaps/kc_orange.png";
-    } else if (parseInt(kc.PM25) == 7 || parseInt(kc.PM25) == 8 || parseInt(kc.PM25) ==9 || parseInt(kc.PM25) == 10) {
+    } else if (parseInt(kcPM25) == 7 || parseInt(kcPM25) == 8 || parseInt(kcPM25) ==9 || parseInt(kcPM25) == 10) {
         const imgsrc14 = document.getElementById("kc");
         imgsrc14.src = "./public/londonmaps/kc_red.png";
     }
     //kingston
-    kingston.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[20].Site[0].Species[1]["@AirQualityIndex"];
-    if (parseInt(kingston.PM25) == 1 || parseInt(kingston.PM25) == 2 || parseInt(kingston.PM25) ==3){
+    const kingstonPM25 = apidata.HourlyAirQualityIndex.LocalAuthority[20].Site[0].Species[1]["@AirQualityIndex"];
+    if (parseInt(kingstonPM25) == 1 || parseInt(kingstonPM25) == 2 || parseInt(kingstonPM25) ==3){
         const imgsrc15 = document.getElementById("kingston");
         imgsrc15.src = "./public/londonmaps/kingston_green.png";
-    } else if (parseInt(kingston.PM25) == 4 || parseInt(kingston.PM25) == 5 || parseInt(kingston.PM25) ==6) {
+    } else if (parseInt(kingstonPM25) == 4 || parseInt(kingstonPM25) == 5 || parseInt(kingstonPM25) ==6) {
         const imgsrc15 = document.getElementById("kingston");
         imgsrc15.src = "./public/londonmaps/kingston_orange.png";
-    } else if (parseInt(kingston.PM25) == 7 || parseInt(kingston.PM25) == 8 || parseInt(kingston.PM25) ==9 || parseInt(kingston.PM25) == 10) {
+    } else if (parseInt(kingstonPM25) == 7 || parseInt(kingstonPM25) == 8 || parseInt(kingstonPM25) ==9 || parseInt(kingstonPM25) == 10) {
         const imgsrc15 = document.getElementById("kingston");
         imgsrc15.src = "./public/londonmaps/kingston_red.png";
     }
     //lambeth
-    lambeth.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[21].Site[0].Species[2]["@AirQualityIndex"];
-    if (parseInt(lambeth.PM25) == 1 || parseInt(lambeth.PM25) == 2 || parseInt(lambeth.PM25) ==3){
+    const lambethPM25 = apidata.HourlyAirQualityIndex.LocalAuthority[21].Site[0].Species[2]["@AirQualityIndex"];
+    if (parseInt(lambethPM25) == 1 || parseInt(lambethPM25) == 2 || parseInt(lambethPM25) ==3){
         const imgsrc16 = document.getElementById("lambeth");
         imgsrc16.src = "./public/londonmaps/lambeth_green.png";
-    } else if (parseInt(lambeth.PM25) == 4 || parseInt(lambeth.PM25) == 5 || parseInt(lambeth.PM25) ==6) {
+    } else if (parseInt(lambethPM25) == 4 || parseInt(lambethPM25) == 5 || parseInt(lambethPM25) ==6) {
         const imgsrc16 = document.getElementById("lambeth");
         imgsrc16.src = "./public/londonmaps/lambeth_orange.png";
-    } else if (parseInt(lambeth.PM25) == 7 || parseInt(lambeth.PM25) == 8 || parseInt(lambeth.PM25) ==9 || parseInt(lambeth.PM25) == 10) {
+    } else if (parseInt(lambethPM25) == 7 || parseInt(lambethPM25) == 8 || parseInt(lambethPM25) ==9 || parseInt(lambethPM25) == 10) {
         const imgsrc16 = document.getElementById("lambeth");
         imgsrc16.src = "./public/londonmaps/lambeth_red.png";
     }
     //lewisham
-    lewisham.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[22].Site[0].Species[3]["@AirQualityIndex"];
-    if (parseInt(lewisham.PM25) == 1 || parseInt(lewisham.PM25) == 2 || parseInt(lewisham.PM25) ==3){
+    const lewishamPM25 = apidata.HourlyAirQualityIndex.LocalAuthority[22].Site[0].Species[3]["@AirQualityIndex"];
+    if (parseInt(lewishamPM25) == 1 || parseInt(lewishamPM25) == 2 || parseInt(lewishamPM25) ==3){
         const imgsrc17 = document.getElementById("lewisham");
         imgsrc17.src = "./public/londonmaps/lewisham_green.png";
-    } else if (parseInt(lewisham.PM25) == 4 || parseInt(lewisham.PM25) == 5 || parseInt(lewisham.PM25) ==6) {
+    } else if (parseInt(lewishamPM25) == 4 || parseInt(lewishamPM25) == 5 || parseInt(lewishamPM25) ==6) {
         const imgsrc17 = document.getElementById("lewisham");
         imgsrc17.src = "./public/londonmaps/lewisham_orange.png";
-    } else if (parseInt(lewisham.PM25) == 7 || parseInt(lewisham.PM25) == 8 || parseInt(lewisham.PM25) ==9 || parseInt(lewisham.PM25) == 10) {
+    } else if (parseInt(lewishamPM25) == 7 || parseInt(lewishamPM25) == 8 || parseInt(lewishamPM25) ==9 || parseInt(lewishamPM25) == 10) {
         const imgsrc17 = document.getElementById("lewisham");
         imgsrc17.src = "./public/londonmaps/lewisham_red.png";
     }
@@ -1697,74 +1384,74 @@ async function setmapPM25(){
     const imgsrcmerton = document.getElementById('merton');
     imgsrcmerton.src = "./public/londonmaps/merton_white.png";
     //newham
-    newham.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[24].Site[0].Species[2]["@AirQualityIndex"];
-    if (parseInt(newham.PM25) == 1 || parseInt(newham.PM25) == 2 || parseInt(newham.PM25) ==3){
+    const newhamPM25 = apidata.HourlyAirQualityIndex.LocalAuthority[24].Site[0].Species[2]["@AirQualityIndex"];
+    if (parseInt(newhamPM25) == 1 || parseInt(newhamPM25) == 2 || parseInt(newhamPM25) ==3){
         const imgsrc19 = document.getElementById("newham");
         imgsrc19.src = "./public/londonmaps/newham_green.png";
-    } else if (parseInt(newham.PM25) == 4 || parseInt(newham.PM25) == 5 || parseInt(newham.PM25) ==6) {
+    } else if (parseInt(newhamPM25) == 4 || parseInt(newhamPM25) == 5 || parseInt(newhamPM25) ==6) {
         const imgsrc19 = document.getElementById("newham");
         imgsrc19.src = "./public/londonmaps/newham_orange.png";
-    } else if (parseInt(newham.PM25) == 7 || parseInt(newham.PM25) == 8 || parseInt(newham.PM25) ==9 || parseInt(newham.PM25) == 10) {
+    } else if (parseInt(newhamPM25) == 7 || parseInt(newhamPM25) == 8 || parseInt(newhamPM25) ==9 || parseInt(newhamPM25) == 10) {
         const imgsrc19 = document.getElementById("newham");
         imgsrc19.src = "./public/londonmaps/newham_red.png";
     }
     //redbridge
-    redbridge.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[25].Site[1].Species[3]["@AirQualityIndex"];
-    if (parseInt(redbridge.PM25) == 1 || parseInt(redbridge.PM25) == 2 || parseInt(redbridge.PM25) ==3){
+    const redbridgePM25 = apidata.HourlyAirQualityIndex.LocalAuthority[25].Site[1].Species[3]["@AirQualityIndex"];
+    if (parseInt(redbridgePM25) == 1 || parseInt(redbridgePM25) == 2 || parseInt(redbridgePM25) ==3){
         const imgsrc20 = document.getElementById("redbridge");
         imgsrc20.src = "./public/londonmaps/redbridge_green.png";
-    } else if (parseInt(redbridge.PM25) == 4 || parseInt(redbridge.PM25) == 5 || parseInt(redbridge.PM25) ==6) {
+    } else if (parseInt(redbridgePM25) == 4 || parseInt(redbridgePM25) == 5 || parseInt(redbridgePM25) ==6) {
         const imgsrc20 = document.getElementById("redbridge");
         imgsrc20.src = "./public/londonmaps/redbridge_orange.png";
-    } else if (parseInt(redbridge.PM25) == 7 || parseInt(redbridge.PM25) == 8 || parseInt(redbridge.PM25) ==9 || parseInt(redbridge.PM25) == 10) {
+    } else if (parseInt(redbridgePM25) == 7 || parseInt(redbridgePM25) == 8 || parseInt(redbridgePM25) ==9 || parseInt(redbridgePM25) == 10) {
         const imgsrc20 = document.getElementById("redbridge");
         imgsrc20.src = "./public/londonmaps/redbridge_red.png";
     }
     //richmond
-    richmond.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[26].Site[2].Species[1]["@AirQualityIndex"];
-    if (parseInt(richmond.PM25) == 1 || parseInt(richmond.PM25) == 2 || parseInt(richmond.PM25) ==3){
+    const richmondPM25 = apidata.HourlyAirQualityIndex.LocalAuthority[26].Site[2].Species[1]["@AirQualityIndex"];
+    if (parseInt(richmondPM25) == 1 || parseInt(richmondPM25) == 2 || parseInt(richmondPM25) ==3){
         const imgsrc21 = document.getElementById("richmond");
         imgsrc21.src = "./public/londonmaps/richmond_green.png";
-    } else if (parseInt(richmond.PM25) == 4 || parseInt(richmond.PM25) == 5 || parseInt(richmond.PM25) ==6) {
+    } else if (parseInt(richmondPM25) == 4 || parseInt(richmondPM25) == 5 || parseInt(richmondPM25) ==6) {
         const imgsrc21 = document.getElementById("richmond");
         imgsrc21.src = "./public/londonmaps/richmond_orange.png";
-    } else if (parseInt(richmond.PM25) == 7 || parseInt(richmond.PM25) == 8 || parseInt(richmond.PM25) ==9 || parseInt(richmond.PM25) == 10) {
+    } else if (parseInt(richmondPM25) == 7 || parseInt(richmondPM25) == 8 || parseInt(richmondPM25) ==9 || parseInt(richmondPM25) == 10) {
         const imgsrc21 = document.getElementById("richmond");
         imgsrc21.src = "./public/londonmaps/richmond_red.png";
     }
     //southwark
-    southwark.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[27].Site[1].Species[3]["@AirQualityIndex"];
-    if (parseInt(southwark.PM25) == 1 || parseInt(southwark.PM25) == 2 || parseInt(southwark.PM25) ==3){
+    const southwarkPM25 = apidata.HourlyAirQualityIndex.LocalAuthority[27].Site[1].Species[3]["@AirQualityIndex"];
+    if (parseInt(southwarkPM25) == 1 || parseInt(southwarkPM25) == 2 || parseInt(southwarkPM25) ==3){
         const imgsrc22 = document.getElementById("southwark");
         imgsrc22.src = "./public/londonmaps/southwark_green.png";
-    } else if (parseInt(southwark.PM25) == 4 || parseInt(southwark.PM25) == 5 || parseInt(southwark.PM25) ==6) {
+    } else if (parseInt(southwarkPM25) == 4 || parseInt(southwarkPM25) == 5 || parseInt(southwarkPM25) ==6) {
         const imgsrc22 = document.getElementById("southwark");
         imgsrc22.src = "./public/londonmaps/southwark_orange.png";
-    } else if (parseInt(southwark.PM25) == 7 || parseInt(southwark.PM25) == 8 || parseInt(southwark.PM25) ==9 || parseInt(southwark.PM25) == 10) {
+    } else if (parseInt(southwarkPM25) == 7 || parseInt(southwarkPM25) == 8 || parseInt(southwarkPM25) ==9 || parseInt(southwarkPM25) == 10) {
         const imgsrc22 = document.getElementById("southwark");
         imgsrc22.src = "./public/londonmaps/southwark_red.png";
     }
     //sutton
-    sutton.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[28].Site[1].Species[1]["@AirQualityIndex"];
-    if (parseInt(sutton.PM25) == 1 || parseInt(sutton.PM25) == 2 || parseInt(sutton.PM25) ==3){
+    const suttonPM25 = apidata.HourlyAirQualityIndex.LocalAuthority[28].Site[1].Species[1]["@AirQualityIndex"];
+    if (parseInt(suttonPM25) == 1 || parseInt(suttonPM25) == 2 || parseInt(suttonPM25) ==3){
         const imgsrc23 = document.getElementById("sutton");
         imgsrc23.src = "./public/londonmaps/sutton_green.png";
-    } else if (parseInt(sutton.PM25) == 4 || parseInt(sutton.PM25) == 5 || parseInt(sutton.PM25) ==6) {
+    } else if (parseInt(suttonPM25) == 4 || parseInt(suttonPM25) == 5 || parseInt(suttonPM25) ==6) {
         const imgsrc23 = document.getElementById("sutton");
         imgsrc23.src = "./public/londonmaps/sutton_orange.png";
-    } else if (parseInt(sutton.PM25) == 7 || parseInt(sutton.PM25) == 8 || parseInt(sutton.PM25) ==9 || parseInt(sutton.PM25) == 10) {
+    } else if (parseInt(suttonPM25) == 7 || parseInt(suttonPM25) == 8 || parseInt(suttonPM25) ==9 || parseInt(suttonPM25) == 10) {
         const imgsrc23 = document.getElementById("sutton");
         imgsrc23.src = "./public/londonmaps/sutton_red.png";
     }
     //towerhamlet
-    towerhamlet.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[29].Site[0].Species[2]["@AirQualityIndex"];
-    if (parseInt(towerhamlet.PM25) == 1 || parseInt(towerhamlet.PM25) == 2 || parseInt(towerhamlet.PM25) ==3){
+    const towerhamletPM25 = apidata.HourlyAirQualityIndex.LocalAuthority[29].Site[0].Species[2]["@AirQualityIndex"];
+    if (parseInt(towerhamletPM25) == 1 || parseInt(towerhamletPM25) == 2 || parseInt(towerhamletPM25) ==3){
         const imgsrc24 = document.getElementById("towerhamlet");
         imgsrc24.src = "./public/londonmaps/towerhamlet_green.png";
-    } else if (parseInt(towerhamlet.PM25) == 4 || parseInt(towerhamlet.PM25) == 5 || parseInt(towerhamlet.PM25) ==6) {
+    } else if (parseInt(towerhamletPM25) == 4 || parseInt(towerhamletPM25) == 5 || parseInt(towerhamletPM25) ==6) {
         const imgsrc24 = document.getElementById("towerhamlet");
         imgsrc24.src = "./public/londonmaps/towerhamlet_orange.png";
-    } else if (parseInt(towerhamlet.PM25) == 7 || parseInt(towerhamlet.PM25) == 8 || parseInt(towerhamlet.PM25) ==9 || parseInt(towerhamlet.PM25) == 10) {
+    } else if (parseInt(towerhamletPM25) == 7 || parseInt(towerhamletPM25) == 8 || parseInt(towerhamletPM25) ==9 || parseInt(towerhamletPM25) == 10) {
         const imgsrc24 = document.getElementById("towerhamlet");
         imgsrc24.src = "./public/londonmaps/towerhamlet_red.png";
     }
@@ -1775,14 +1462,14 @@ async function setmapPM25(){
     const imgsrcwandsworth = document.getElementById('wandsworth');
     imgsrcwandsworth.src = "./public/londonmaps/wandsworth_white.png";
     //westminster
-    westminster.PM25 = apidata.HourlyAirQualityIndex.LocalAuthority[32].Site[0].Species[3]["@AirQualityIndex"];
-    if (parseInt(westminster.PM25) == 1 || parseInt(westminster.PM25) == 2 || parseInt(westminster.PM25) ==3){
+    const westminsterPM25 = apidata.HourlyAirQualityIndex.LocalAuthority[32].Site[0].Species[3]["@AirQualityIndex"];
+    if (parseInt(westminsterPM25) == 1 || parseInt(westminsterPM25) == 2 || parseInt(westminsterPM25) ==3){
         const imgsrc26 = document.getElementById("westminster");
         imgsrc26.src = "./public/londonmaps/westminster_green.png";
-    } else if (parseInt(westminster.PM25) == 4 || parseInt(westminster.PM25) == 5 || parseInt(westminster.PM25) ==6) {
+    } else if (parseInt(westminsterPM25) == 4 || parseInt(westminsterPM25) == 5 || parseInt(westminsterPM25) ==6) {
         const imgsrc26 = document.getElementById("westminster");
         imgsrc26.src = "./public/londonmaps/westminster_orange.png";
-    } else if (parseInt(westminster.PM25) == 7 || parseInt(westminster.PM25) == 8 || parseInt(westminster.PM25) ==9 || parseInt(haringey.PM25) == 10) {
+    } else if (parseInt(westminsterPM25) == 7 || parseInt(westminsterPM25) == 8 || parseInt(westminsterPM25) ==9 || parseInt(westminsterPM25) == 10) {
         const imgsrc26 = document.getElementById("westminster");
         imgsrc26.src = "./public/londonmaps/westminster_red.png";
     }
