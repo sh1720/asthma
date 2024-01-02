@@ -67,13 +67,6 @@
         }
     })
 
-    //setting up for inhalers list (My Inhaler)
 
-    const setFavBtn = document.getElementById("FavBtn"); //need to be more specific to which inhaler, assumed as inhaler1
-    let favInhaler = Inhaler.getInhaler(0); //set first inhaler added as default favourite
-
-    setFavBtn.addEventListener('click', function () {
-        favInhaler = Inhaler.getInhaler(0);
-    })
 
 
