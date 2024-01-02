@@ -92,10 +92,7 @@ class Inhaler{
     }
 
     isOverused(){ //intake is earlier by 1 hour or more
-        if (this.getLastIntakeTime()<(this.getNextDoseTime()-3600000)){
-            return true
-        }
-        else return false
+        return this.getLastIntakeTime() < (this.getNextDoseTime() - 3600000);
     }
 
     getLastIntakeTime(){
@@ -107,10 +104,7 @@ class Inhaler{
     }
 
     isAlmostEmpty(){
-        if (this.volume<10){
-            return true
-        }
-        else return false
+        return this.volume < 10;
     }
 
     static getInhaler(index){
