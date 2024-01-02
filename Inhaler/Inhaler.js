@@ -1,13 +1,13 @@
 class Dosage{
-    constructor(time,dose){
-        this.reminderTime = time;
-        this.maxDoseAllowed = dose;
+    constructor(time){
+        this.reminderTime = new Date(time);
+        this.maxPuffAllowed = 2;
     }
     getReminderTime(){
-        return this.reminderTime
+        return this.reminderTime.getTime()
     }
     getMaxDose(){
-        return this.maxDoseAllowed
+        return this.maxPuffAllowed*5
     }
 }
 
@@ -52,12 +52,12 @@ class Inhaler{
         return this.name
     }
 
-    setDose(intakeTime, proposedDose){
-        this.dose.push(new Dosage(intakeTime,proposedDose));
+    setDose(intakeTime){
+        this.dose.push(new Dosage(intakeTime));
         let now = Date.now();
         // setting next dose using for loop
-        for (let i = 0; i >= this.getInhalerDoses().length();i++){
-            let doses = this.getInhalerDoses();
+        for (let i = 0; i >= this.getAllDoses().length();i++){
+            let doses = this.getAllDoses();
             let allDiff = [];
             if (doses(i).getTime()>now.getTime()){
                 let diff = doses(i).getTime()-now.getTime();
