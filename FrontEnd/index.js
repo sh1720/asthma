@@ -1,10 +1,13 @@
 /* === Imports === */
 //import { initializeApp } from "firebase/app"
 //import { getFirestore, collection, query, where, getDocs, addDoc } from "firebase/firestore";
-import { initializeApp } from 'https://cdn.jsdelivr.net/npm/firebase/firebase-app.js';
-import { getFirestore } from 'https://cdn.jsdelivr.net/npm/firebase/firestore/dist/index.esm2017.min.js';
-
-
+//import { initializeApp } from 'https://cdn.jsdelivr.net/npm/firebase/firebase-app.js';
+//import { getFirestore } from 'https://cdn.jsdelivr.net/npm/firebase/firestore/dist/index.esm2017.min.js';
+//import { getDatabase, connectDatabaseEmulator } from "firebase/database";
+// import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+// import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+import { initializeApp } from "firebase/app"
+import { getDatabase, ref, push} from 'firebase/database'
 
 /* === Firebase Setup === */
 
@@ -24,8 +27,8 @@ const firebaseConfig = {
 
 
 const app = initializeApp(firebaseConfig)
-const db = getFirestore(app)
-
+export const db = getDatabase(app)
+const users = ref(db, "users")
 /* === UI === */
 
 /* == UI - Elements == */
@@ -59,9 +62,9 @@ function navigateTo(url){
 /* === Functions === */
 
 function authSignInWithEmail() {
-    //const email = emailInput.value;
-    //const password = passwordInput.value;
-    //readDataFromDB(email)
+    const email = emailInput.value;
+    const password = passwordInput.value;
+    console.log(readDataFromDB(email))
 
     // Implementation for signing in
     // After successful sign in, you might navigate to home page
@@ -72,30 +75,38 @@ function authSignInWithEmail() {
 
 
 /* === Async Functions == */
-async function addDataToDB(postBody) {
+// Import firebase
+const firebase = require("firebase/app");
+require("firebase/database");
 
+// Initialize Firebase
+// (Make sure you've already initialized Firebase with your config)
+
+// Async function to add data to Firebase Realtime Database
+async function addDataToDB(data) {
     try {
-        const docRef = await addDoc(collection(db, "users"), {
-            body: 'test'
-        })
-        console.log("Document written with ID: ", docRef.id);
+        const db = firebase.database();
+        const ref = db.ref("users");
+        const newChildRef = ref.push();
+        await newChildRef.set(data);
+        console.log("Data added with key: ", newChildRef.key);
     } catch (error) {
-        console.error(error.message);
+        console.error("Error adding data: ", error.message);
     }
 }
 
-async function readDataFromDB(name, email) {
-    console.log("AAAAAAAAAAAAAA")
+// Async function to read data from Firebase Realtime Database
+async function readDataFromDB() {
     try {
-        // Create a query against the collection.
-        const q = query(collection(db, "users"), where("name", "==", name), where("email", "==", email));
-
-        const querySnapshot = await getDocs(q);
-        querySnapshot.forEach((doc) => {
-            console.log(`${doc.id} =>`, doc.data());
-        });
+        const db = firebase.database();
+        const ref = db.ref("users");
+        const snapshot = await ref.once('value');
+        const value = snapshot.val();
+        console.log("Value is:", value);
+        return value; // Returns the data read from the database
     } catch (error) {
-        console.error(error.message);
+        console.error("Failed to read value:", error.message);
     }
 }
+
 

@@ -58,6 +58,7 @@
                   <input
                     class="loremus-ipsumus-d4"
                     name="emailAdress"
+                    id="emailAdress"
                     placeholder="example@gmail.com"
                     type="email"
                   />
@@ -77,6 +78,7 @@
                 <input
                   class="text22"
                   name="userName"
+                  id="userName"
                   placeholder="example"
                   type="text"
                 />
@@ -104,6 +106,7 @@
                     <input
                       class="loremus-ipsumus-d5"
                       name="newPassword"
+                      id="newPassword"
                       placeholder="********"
                       type="password"
                     />
@@ -132,6 +135,7 @@
                     <input
                       class="loremus-ipsumus-d5"
                       name="passwordConfirm"
+                      id="passwordConfirm"
                       type="password"
                     />
                   </div>
@@ -172,27 +176,28 @@
       </main>
     </div>
 
-    <script>
-      var topNav = document.getElementById("backBtn");
-      if (topNav) {
-        topNav.addEventListener("click", function (e) {
-          window.location.href = "./index.html";
-        });
-      }
-      
-      var buttonPrimaryContainer = document.getElementById("buttonPrimaryContainer");
-      if (buttonPrimaryContainer) {
-        buttonPrimaryContainer.addEventListener("click", function (e) {
-          window.location.href = "./Settings.html";
-        });
-      }
-      
-      var buttonPrimary = document.getElementById("signUpBtn");
-      if (buttonPrimary) {
-        buttonPrimary.addEventListener("click", function (e) {
-          window.location.href = "./Home.html";
-        });
-      }
-      </script>
+    <script type="module" src="./SignUp.js"></script>
   </body>
 </html>
+
+
+<!--var topNav = document.getElementById("backBtn");-->
+<!--if (topNav) {-->
+<!--topNav.addEventListener("click", function (e) {-->
+<!--window.location.href = "./index.html";-->
+<!--});-->
+<!--}-->
+
+<!--var buttonPrimaryContainer = document.getElementById("buttonPrimaryContainer");-->
+<!--if (buttonPrimaryContainer) {-->
+<!--buttonPrimaryContainer.addEventListener("click", function (e) {-->
+<!--window.location.href = "./Settings.html";-->
+<!--});-->
+<!--}-->
+
+<!--var buttonPrimary = document.getElementById("signUpBtn");-->
+<!--if (buttonPrimary) {-->
+<!--buttonPrimary.addEventListener("click", function (e) {-->
+<!--window.location.href = "./Home.html";-->
+<!--});-->
+<!--}-->
