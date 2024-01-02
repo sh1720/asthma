@@ -30,6 +30,7 @@ class Intake{
 
 class Inhaler{
     static inhalers = [];
+    static favInhaler;
 
     constructor(inhalerName,vol,expDate,type){
         this.volume = vol;
@@ -87,8 +88,15 @@ class Inhaler{
         this.lastIntakeTime = this.lastIntake.getTime();
 
         //if (this.lastIntakeTime<(this.nextDose.getTime()-3600000)){}
-        this.volume = this.volume - (this.lastIntakeTime.getPuffs()*5);
+        this.volume = this.volume - (this.lastIntake.getPuffs()*5);
         //this.isAlmostEmpty();
+    }
+
+    removeLastIntake(){
+        this.allIntakes.slice(0, -1)
+        this.lastIntake = this.allIntakes[0];
+        this.lastIntakeTime = this.lastIntake.getTime();
+        this.volume = this.volume + (this.lastIntake.getPuffs()*5);
     }
 
     isOverused(){ //intake is earlier by 1 hour or more
@@ -113,6 +121,9 @@ class Inhaler{
 
     static getAllInhalers(){
         return Inhaler.inhalers;
+    }
+    setFav(){
+        Inhaler.favInhaler=this;
     }
 
 }
