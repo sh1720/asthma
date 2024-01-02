@@ -30,12 +30,12 @@ class Intake{
 
 class Inhaler{
     static inhalers = [];
-    static favInhaler;
+    static favInhaler = null;
 
     constructor(inhalerName,vol,expDate,type){
         this.volume = vol;
         this.name = inhalerName;
-        this.expiryDate = new Date(Date.parse(expDate));
+        this.expiryDate = Date.parse(expDate);
         this.type = type;
 
         this.dose =  [];
@@ -108,7 +108,7 @@ class Inhaler{
     }
 
     getNextDoseTime(){
-        return this.nextDose.getTime()
+        return this.nextDose.getReminderTime().toLocaleTimeString()
     }
 
     isAlmostEmpty(){
@@ -117,6 +117,9 @@ class Inhaler{
 
     static getInhaler(index){
         return Inhaler.inhalers[index];
+    }
+    static getFavInhaler(){
+        return Inhaler.favInhaler
     }
 
     static getAllInhalers(){
