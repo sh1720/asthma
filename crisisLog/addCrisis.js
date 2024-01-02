@@ -21,6 +21,7 @@ const resolutionButtons = document.querySelectorAll('.resolutionButton'); // Add
 crisisForm.addEventListener('submit', function (e) {
     e.preventDefault(); // Prevent the default form submission
     submitForm();
+    resetForm();
 });
 
 // Toggle state when symptom buttons are clicked
@@ -164,4 +165,36 @@ function submitForm() {
 
     // Adding data using push (generates a unique key)
     push(dataRef, newData);
+}
+function resetForm() {
+    // Clear the input values
+    document.getElementById('dateTimeInput').value = '';
+    document.getElementById('resDateTimeInput').value = '';
+
+    // Reset symptom buttons
+    symptomButtons.forEach(button => {
+        button.classList.remove('true');
+        button.classList.add('false');
+    });
+
+    // Reset allergen buttons
+    allergenButtons.forEach(button => {
+        button.classList.remove('true');
+        button.classList.add('false');
+    });
+
+    // Reset location buttons
+    locationButtons.forEach(button => {
+        button.classList.remove('true');
+        button.classList.add('false');
+    });
+
+    // Reset resolution buttons
+    resolutionButtons.forEach(button => {
+        button.classList.remove('true');
+        button.classList.add('false');
+    });
+
+    // Clear the display result
+    displayResult.textContent = '';
 }
