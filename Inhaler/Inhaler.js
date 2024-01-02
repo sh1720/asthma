@@ -1,10 +1,10 @@
 class Dosage{
     constructor(time){
-        this.reminderTime = new Date(time);
+        this.reminderTime = Date.parse(time);
         this.maxPuffAllowed = 2;
     }
     getReminderTime(){
-        return this.reminderTime.getTime()
+        return this.reminderTime
     }
     getMaxDose(){
         return this.maxPuffAllowed*5
@@ -40,13 +40,14 @@ class Inhaler{
         this.dose =  [];
         this.allIntakes = [];
         Inhaler.inhalers.push(this);
-        this.isExpired();
+    }
+
+    getExpDate(){
+        return this.expiryDate
     }
 
     isExpired(){
-        if (this.expiryDate<Date.now()){
-            return true;}
-        else return false
+        return this.getExpDate() < Date.now();
     }
     getName(){
         return this.name
