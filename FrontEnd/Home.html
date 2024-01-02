@@ -165,6 +165,14 @@
     </div>
 
     <script>
+      Notification.requestPermission().then(permission => {
+        alert(permission)
+        if (permission === 'denied'){
+          alert("You need to allow notifications to receive dosage reminders and alerts.")
+        }
+      }
+      )
+
       var popupcancelBtnContainer = document.getElementById(
         "popupcancelBtnContainer"
       );
