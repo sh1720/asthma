@@ -1,125 +1,123 @@
-class Prescription{
-    constructor(daily,nightly,weekly){
-        this.dailyPuffLimit = daily;
-        this.nightlyPuffLimit = nightly;
-        this.weeklyPuffLimit =weekly;
+class Dosage{
+    constructor(time,dose){
+        this.reminderTime = time;
+        this.maxDoseAllowed = dose;
     }
-    getDaily() {return this.dailyPuffLimit;}
-    getNightly() {return this.nightlyPuffLimit;}
-    getWeekly() {return this.weeklyPuffLimit;}
+    getReminderTime(){
+        return this.reminderTime
+    }
+    getMaxDose(){
+        return this.maxDoseAllowed
+    }
+}
 
-    resetDaily(newDaily){this.dailyPuffLimit = newDaily;}
-    resetNightly(newNightly){this.dailyPuffLimit = newNightly;}
-    resetWeekly(newWeekly){this.dailyPuffLimit = newWeekly;}
+class Intake{
+    constructor(intakeTime, puffs){
+        this.timestamp = new Date(Date.parse(intakeTime));
+        this.puffTaken = puffs; // 1 puff is 100mg
+    }
+
+    getDate(){
+        return this.timestamp.getDate()
+    }
+    getTime(){
+        return this.timestamp.getTime()
+    }
+    getPuffs(){
+        return this.puffTaken
+    }
 }
 
 class Inhaler{
     static inhalers = [];
 
-    constructor(inhalerName,perPuff,vol,expDate,type){
-        this.dosePerPuff = perPuff;
+    constructor(inhalerName,vol,expDate,type){
         this.volume = vol;
         this.name = inhalerName;
-        this.expiryDate = new Date(expDate);
+        this.expiryDate = new Date(Date.parse(expDate));
         this.type = type;
 
+        this.dose =  [];
         this.allIntakes = [];
         Inhaler.inhalers.push(this);
-        this.checkExpiryDate();
+        this.isExpired();
     }
 
-    checkExpiryDate(){
-        if (new Date(this.expiryDate.toDateString())<(new Date(new Date().toDateString()))){
-            console.log("This inhaler is expired!");
+    isExpired(){
+        if (this.expiryDate<Date.now()){
+            return true;}
+        else return false
+    }
+    getName(){
+        return this.name
+    }
+
+    setDose(intakeTime, proposedDose){
+        this.dose.push(new Dosage(intakeTime,proposedDose));
+        let now = Date.now();
+        // setting next dose using for loop
+        for (let i = 0; i >= this.getInhalerDoses().length();i++){
+            let doses = this.getInhalerDoses();
+            let allDiff = [];
+            if (doses(i).getTime()>now.getTime()){
+                let diff = doses(i).getTime()-now.getTime();
+                allDiff.push(diff);
+                if (allDiff.min() === diff){
+                    this.nextDose = doses(i);
+                }
+            }
         }
-        if (new Date(this.expiryDate.toDateString())<((new Date(new Date().toDateString()))+7)){
-            console.log("This inhaler is almost expired!");
-        }
     }
 
-    setPrescriptions(day,night,week){
-        this.prescriptions = new Prescription(day,night,week);
-        this.dailyLeft = day;
-        this.nightlyLeft = night;
-        this.weeklyLeft = week;
+    getDose(index){
+        return this.dose(index);
     }
 
-    getPrescriptions(){
-        return this.prescriptions;
+    getAllDoses(){
+        return this.dose
     }
+
     getType(){return this.type;}
 
-    //setFavourite(){
-        //Inhaler.inhalers.remove(Inhaler.inhalers.indexOf(this));
-        //Inhaler.inhalers.unshift(this);
-    //}
 
+    addIntake(time,puff){
+        this.lastIntake = new Intake(time,puff);
+        this.allIntakes.push(this.lastIntake);
+        this.lastIntakeTime = this.lastIntake.getTime();
 
-    resetDailyDose(){
-        this.dailyTotal = this.getPrescriptions().getDaily();
-    }
-    resetNightlyDose(){
-        this.nightlyTotal = this.getPrescriptions().getNightly();
-    }
-    resetWeeklyDose(){
-        this.weeklyTotal = this.getPrescriptions().getWeekly();
+        //if (this.lastIntakeTime<(this.nextDose.getTime()-3600000)){}
+        this.volume = this.volume - (this.lastIntakeTime.getPuffs()*5);
+        //this.isAlmostEmpty();
     }
 
-    addIntake(date,time,puff){
-        if (new Date(this.lastIntakeDate.toDateString())<(new Date(new Date().toDateString()))){
-            this.resetDailyDose();
-            this.resetNightlyDose();
+    isOverused(){ //intake is earlier by 1 hour or more
+        if (this.getLastIntakeTime()<(this.getNextDoseTime()-3600000)){
+            return true
         }
-        if (this.lastIntakeDate.getWeekNumber()<date.getWeekNumber()){
-            this.resetWeeklyDose();
-        }
-        else this.weeklyLeft = this.weeklyLeft-1;
-
-        this.lastIntake = [];
-        this.lastIntakeDate = date;
-        this.lastIntakeTime = time.withSecond(0).withNano(0);
-        this.lastPuffsNum = puffs;
-
-        this.lastIntake.push(this.lastIntakeDate);
-        this.lastIntake.push(this.lastIntakeTime);
-        this.lastIntake.push(this.lastPuffsNum);
-
-        this.allIntakes.push(lastIntake);
-        this.lastDoseTaken = this.lastPuffsNum*this.dosePerPuff;
-
-        if (time.isAfter(LocalTime.of(18,0))&time.isBefore(LocalTime.of(6,0))){ // need editing??
-            this.nightlyLeft = this.nightlyLeft - this.lastDoseTaken;
-        }
-        else this.dailyLeft = this.dailyLeft - this.lastDoseTaken;
-
-        this.volume = this.volume - this.lastDoseTaken;
-        this.checkContent();
+        else return false
     }
 
-    checkDose(){
-        if(this.dailyTotal > (this.getPrescriptions().getDaily()-1)){
-            console.log("Warning, you used your inhaler too often today!");
-            console.log("Spacing out your inhaler intake is recommended.");
-        }
-
-        if(this.nightlyTotal > (this.getPrescriptions().getNightly()-1)){
-            console.log("Warning, you used your inhaler too often tonight!");
-            console.log("Spacing out your inhaler intake is recommended.");
-        }
-
-        if (weeklyTotal > (this.getPrescriptions().getWeekly()-1)) {
-            console.log("Warning, you used your inhaler too often this week!");
-            console.log("Spacing out the days of inhaler intake is recommended.");
-        }
+    getLastIntakeTime(){
+        return this.lastIntakeTime
     }
 
-    checkContent(){
-        if (this.volume<5*this.dosePerPuff){
-            console.log("You need to replace your inhaler soon!");
+    getNextDoseTime(){
+        return this.nextDose.getTime()
+    }
+
+    isAlmostEmpty(){
+        if (this.volume<10){
+            return true
         }
+        else return false
     }
 
     static getInhaler(index){
         return Inhaler.inhalers[index];
     }
+
+    static getAllInhalers(){
+        return Inhaler.inhalers;
+    }
+
 }
