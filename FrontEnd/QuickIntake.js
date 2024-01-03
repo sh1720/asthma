@@ -2,7 +2,7 @@
     const cancelBtn = document.getElementById("cancelBtn");
     let favInhalerName = document.getElementById("favInhalerName");
 
-    favInhalerName.textContent = 'main'//Inhaler.favInhaler.getName();
+    favInhalerName.textContent = Inhaler.favInhaler.getName();
 
     cancelBtn.addEventListener('click', function () {
             Inhaler.favInhaler.removeLastIntake();

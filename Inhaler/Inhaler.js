@@ -12,35 +12,47 @@ class Dosage{
 }
 
 class Intake{
-    constructor(intakeTime, puffs){
-        this.timestamp = new Date(Date.parse(intakeTime));
+    static allIntakes=[]
+    constructor(intakeTime, puffs, whichInhaler){
+        this.timestamp = Date.parse(intakeTime);
         this.puffTaken = puffs; // 1 puff is 100mg
+        this.inhaler = whichInhaler
+        Intake.allIntakes.push(this)
     }
 
-    getDate(){
-        return this.timestamp.getDate()
-    }
     getTime(){
-        return this.timestamp.getTime()
+        return this.timestamp.toLocaleString()
     }
     getPuffs(){
         return this.puffTaken
+    }
+    forWhichInhaler(){
+        return this.inhaler.getName()
+    }
+    static getAllIntakes(){
+        return Intake.allIntakes;
+    }
+    static getIntake(index){
+        return Intake.allIntakes[index]
     }
 }
 
 class Inhaler{
     static inhalers = [];
-    static favInhaler;
+    static favInhaler = null;
 
     constructor(inhalerName,vol,expDate,type){
         this.volume = vol;
         this.name = inhalerName;
-        this.expiryDate = new Date(Date.parse(expDate));
+        this.expiryDate = Date.parse(expDate);
         this.type = type;
 
         this.dose =  [];
         this.allIntakes = [];
         Inhaler.inhalers.push(this);
+    }
+    getAllInhalerIntakes(){
+        return this.allIntakes
     }
 
     getExpDate(){
@@ -68,6 +80,7 @@ class Inhaler{
                     this.nextDose = doses(i);
                 }
             }
+            else this.dose.splice(i,1)
         }
     }
 
@@ -83,7 +96,7 @@ class Inhaler{
 
 
     addIntake(time,puff){
-        this.lastIntake = new Intake(time,puff);
+        this.lastIntake = new Intake(time,puff,this);
         this.allIntakes.push(this.lastIntake);
         this.lastIntakeTime = this.lastIntake.getTime();
 
@@ -108,7 +121,7 @@ class Inhaler{
     }
 
     getNextDoseTime(){
-        return this.nextDose.getTime()
+        return this.nextDose.getReminderTime().toLocaleTimeString()
     }
 
     isAlmostEmpty(){
@@ -117,6 +130,9 @@ class Inhaler{
 
     static getInhaler(index){
         return Inhaler.inhalers[index];
+    }
+    static getFavInhaler(){
+        return Inhaler.favInhaler
     }
 
     static getAllInhalers(){
