@@ -12,19 +12,22 @@ class Dosage{
 }
 
 class Intake{
-    constructor(intakeTime, puffs){
-        this.timestamp = new Date(Date.parse(intakeTime));
+    static allIntakes=[]
+    constructor(intakeTime, puffs, whichInhaler){
+        this.timestamp = Date.parse(intakeTime);
         this.puffTaken = puffs; // 1 puff is 100mg
+        this.inhaler = whichInhaler
+        Intake.allIntakes.push(this)
     }
 
-    getDate(){
-        return this.timestamp.getDate()
-    }
     getTime(){
-        return this.timestamp.getTime()
+        return this.timestamp.toLocaleString()
     }
     getPuffs(){
         return this.puffTaken
+    }
+    forWhichInhaler(){
+        return this.inhaler.getName()
     }
 }
 
