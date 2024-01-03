@@ -29,6 +29,12 @@ class Intake{
     forWhichInhaler(){
         return this.inhaler.getName()
     }
+    static getAllIntakes(){
+        return Intake.allIntakes;
+    }
+    static getIntake(index){
+        return Intake.allIntakes[index]
+    }
 }
 
 class Inhaler{
