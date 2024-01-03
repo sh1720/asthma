@@ -4,7 +4,7 @@ import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.15.
 
 // Initialize Firebase
 const appSettings = {
-    databaseURL: "https://scrimba-162f5-default-rtdb.europe-west1.firebasedatabase.app/"
+    databaseURL: "https://asthmapp-121a8-default-rtdb.europe-west1.firebasedatabase.app/"
 };
 
 const app = initializeApp(appSettings);
