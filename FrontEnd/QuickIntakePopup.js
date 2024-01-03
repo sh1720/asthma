@@ -32,5 +32,5 @@ if (popupcancelBtnContainer) {
     });
 }
 
-let favInhalerName = document.getElementById("favInhalerVar");
-favInhalerName.textContent = "Favourite Inhaler: "+Inhaler.favInhaler.getName();
+    let favInhalerName = document.getElementById("favInhalerVar");
+    favInhalerName.textContent = "Favourite Inhaler: "+Inhaler.favInhaler.getName();

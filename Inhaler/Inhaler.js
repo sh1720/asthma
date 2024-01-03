@@ -93,7 +93,7 @@ class Inhaler{
 
 
     addIntake(time,puff){
-        this.lastIntake = new Intake(time,puff);
+        this.lastIntake = new Intake(time,puff,this);
         this.allIntakes.push(this.lastIntake);
         this.lastIntakeTime = this.lastIntake.getTime();
 
