@@ -58,7 +58,7 @@
     }
 
     addIntakeBtn.addEventListener('click', function () {
-        newIntakeInhaler.addIntake(new Date(new Date().toDateString()), newIntakeTime, newIntakePuffs);
+        newIntakeInhaler.addIntake(newIntakeTime, newIntakePuffs);
         if (newIntakeInhaler.isOverused()) {
             new Notification("Warning:"+newIntakeInhaler.getName() + " is Overused!", {
                     body: "It is recommended to space out this inhaler intake according to your registered dose.",
