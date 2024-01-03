@@ -68,6 +68,7 @@ class Inhaler{
                     this.nextDose = doses(i);
                 }
             }
+            else this.dose.splice(i,1)
         }
     }
 
