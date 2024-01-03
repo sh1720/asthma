@@ -45,12 +45,15 @@
             let inhalerType = document.createElement('h1');
             inhalerType.className = "reminders"
             inhalerType.textContent = inhaler.getType();
+
             let inhalerField = document.createElement('ul')
             inhalerField.className = "inhalerfield"
 
-            //let editBtn = document.createElement('button');
-            //editBtn.className = 'editInhaler';
-            //editBtn.addEventListener('click', function () {
+            let inhalerImage = document.createElement('button')
+            inhalerImage.id = "editInhalerBtn"
+            if (inhalerType.textContent === "Prevention"){inhalerImage.className = "inhalerimage"}
+            else{inhalerImage.className ="inhalerimage2"}
+            inhalerField.appendChild(inhalerImage)
 
             let favBtn = document.createElement('button');
             favBtn.className = "love"
@@ -62,7 +65,7 @@
               inhaler.setFav()
             })
             favBtn.appendChild(favImg)
-            inhalerField.appendChild(favImg)
+            inhalerField.appendChild(favBtn)
 
             let inhalerSection = document.createElement('section')
             inhalerSection.className = "inhalertext"

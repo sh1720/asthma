@@ -9,6 +9,7 @@ const appSettings = {
 
 const app = initializeApp(appSettings);
 const database = getDatabase(app);
+const inhalerDoseDB = ref(database,"inhalerDose");
 
     Notification.requestPermission().then(permission => {
         if (permission === 'denied') {
@@ -35,5 +36,25 @@ const database = getDatabase(app);
     })
     addInhalerBtn.addEventListener('click', function () {
         let newInhaler = new Inhaler(newInhalerName,newInhalerDose,newInhalerVolume,newInhalerExpDate,newInhalerType);
-        push(InhalerDataRef,newInhaler)
+        if (newInhaler.isExpired()){
+            alert("Inhaler "+ newInhaler.getName() + " is expired!")
+        }
     })
+
+    push(inhalerDoseDB,{
+        inhaler: newInhaler,
+        doses: newInhalerDoses
+    })
+
+    for (let i=0;i<=newInhalerDoses.length;i++){
+        let reminderTime = newInhaler.getDose(i).getReminderTime();
+        if (reminderTime - Date.now()>0){
+            setTimeout(()=>{
+                new Notification("Time to Use "+newInhalerName+"!", {
+                    body: "Based on your dosage, it is recommended to use your inhaler now.",
+                    icon: "./public/inhaler2@2x.png",
+                    tag:"dose-notify"
+                })
+            },(reminderTime - Date.now()))
+        }
+    }

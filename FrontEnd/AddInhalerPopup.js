@@ -91,7 +91,8 @@ var popupclose = document.getElementById("closeBtn");
             setTimeout(()=>{
                 new Notification("Time to Use "+newInhalerName+"!", {
                     body: "Based on your dosage, it is recommended to use your inhaler now.",
-                    icon: "./public/inhaler2@2x.png"
+                    icon: "./public/inhaler2@2x.png",
+                    tag: "dose-notify"
                 })
             },(reminderTime - Date.now()))
         }

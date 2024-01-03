@@ -51,6 +51,9 @@ class Inhaler{
         this.allIntakes = [];
         Inhaler.inhalers.push(this);
     }
+    getAllInhalerIntakes(){
+        return this.allIntakes
+    }
 
     getExpDate(){
         return this.expiryDate
