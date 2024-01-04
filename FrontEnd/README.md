@@ -8,3 +8,15 @@
   2) In the terminal, run `npm install`
   3) Run `npm start` to view project in browser
   
+--------------------------------------------------------------
+
+## Solved the SignUp.html module reference issue and DB connection issue with Firebase.
+
+### Solution
+1. run npm install
+2. Use a bundler - Rollup.js to work around with the browser import issue. I'm using this cause its easier compared to webpack.
+2. Next, run the command on terminal: `npx rollup -c` within the same directory as `rollup.config.js` to bundle your SignUp.js with Firebase JS SDK.
+3. You can code as usual with imports in SignUp.js, the bundler will do the heavy lifting.
+4. I have added the code to read the users from the database which is working.
+5. You can just run debug once from your IDE and refresh the page each time after bundling (step 2).
+6. - end

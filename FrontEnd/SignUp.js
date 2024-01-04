@@ -1,11 +1,23 @@
 // /* === Imports === */
-// import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+// import { firebase } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 // import { getDatabase, ref, set, onValue, remove } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 // import { admin } from "firebase/app";
 // import {getDatabase, ref, push} from "firebase/database";
 // import firebase from "firebase/compat";
 
-console.log('Firebase loaded:', typeof firebase !== 'undefined' ? 'Yes' : 'No');
+
+
+
+
+
+
+// Use Bundler to rollup the entire code base - Rollup/Webpack
+// Firebase App (the core Firebase SDK) is always required and must be listed before other Firebase SDKs
+import { initializeApp } from "firebase/app";
+import { getDatabase, ref, get, push } from "firebase/database"; // Import the specific Firebase services you need
+import { getAnalytics } from "firebase/analytics";
+
+console.log('FBS loaded:', typeof firebase !== 'undefined' ? 'Yes' : 'No');
 
 /* === Firebase Setup === */
 // Your web app's Firebase configuration
@@ -21,24 +33,26 @@ const firebaseConfig = {
     measurementId: "G-PLRLWFR1X7"
 };
 
-
-firebase.initializeApp(firebaseConfig);
-
-// Get a reference to the Firebase Realtime Database
-const database = firebase.database();
-
-// Test connection by writing and reading data
-const testRef = database.ref('test-node');
-
-// Write data to Firebase
-testRef.set({ message: 'Hello, Firebase!' });
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const db = getDatabase(app);
+const messagesRef = ref(db,'users');
 
 // Read data from Firebase
-testRef.once('value', (snapshot) => {
-    const data = snapshot.val();
-    console.log('Data from Firebase:', data);
+get(messagesRef).then((snapshot) => {
+    console.log('Users from Firebase:');
+    snapshot.forEach((childSnapshot) => {
+        const usr = childSnapshot.val();
+        console.table(usr);
+    });
 }).catch((error) => {
-    console.error('Error reading data')})
+    console.error('Error reading data from Firebase:', error.message);
+});
+
+
+
+
+
 
 // //
 // // /* == Firebase Variables & Constants == */
