@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="../js/AirQuality2.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="../css/AirQuality2.css" />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Plus Jakarta Sans:wght@400;500;600;700;800&display=swap"
+    />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap"
+    />
+</head>
+<body>
+<div class="air-quality-2">
+    <header class="headerairquality" id="airQualityHeader">
+        <button class="top-nav" id="backBtn">
+            <div class="top-nav1">
+                <img
+                        class="monotone-chevron-left-lg"
+                        alt=""
+                        src="../assets/monotone-chevron-left-lg@2x.png"
+                />
+
+                <div class="text8">OTP Setup</div>
+                <div class="monotone-question">
+                    <img class="vector-icon3" alt="" src="../assets/vector@2x.png" />
+
+                    <div class="vector"></div>
+                </div>
+            </div>
+        </button>
+        <div class="headerlogos">
+            <img
+                    class="asthmapp-logo-light-1"
+                    alt=""
+                    src="../assets/asthmappLogoLight@2x.png"
+            />
+
+            <img
+                    class="monotone-chevron-left-lg"
+                    alt=""
+                    src="../assets/airQualityLogo@2x.png"
+            />
+        </div>
+        <button class="close" id="closeBtn">
+            <img class="close-icon" alt="" src="../assets/close@2x.png" />
+        </button>
+    </header>
+    <main class="mainlondoninsights" id="mainLondonInsights">
+        <nav class="navairqltylondon" id="navAirQltyLondon">
+            <button class="yourareabtn" id="yourAreaBtn">
+                <div class="your-area">Your area</div>
+            </button>
+            <div class="londonpageselect">
+                <div class="london">London</div>
+            </div>
+            <button class="yourareabtn" id="travelBtn">
+                <div class="your-area">Travel</div>
+            </button>
+        </nav>
+        <div class="navairqltylondon" id="species">
+            <button id="NO2" class="yourareabtn" onclick="setmapNO2()">NO2</button>
+            <button id="SO2" class="yourareabtn" onclick="setmapSO2()">SO2</button>
+            <button id="O3" class="yourareabtn" onclick="setmapO3()">O3</button>
+            <button id="PM10" class="yourareabtn" onclick="setmapPM10()">PM10</button>
+            <button id="PM2.5" class="yourareabtn" onclick="setmapPM25()">PM2.5</button>
+        </div>
+        <div class="mainlondoninsights-inner">
+            <div class="westminster-white-1-parent">
+                <a href = "./AirQuality01.html"><img
+                        class="westminster-white-1-icon"
+                        id="westminster"
+                        alt=""
+                        src="../assets/londonmaps/westminster_white.png"
+                /></a>
+
+                <a href = "./AirQuality01.html"><img
+                        class="barking-white-icon"
+                        id="barking"
+                        alt=""
+                        src="../assets/londonmaps/Barking_white.png"
+                /></a>
+
+                <a href = "./AirQuality01.html"><img
+                        class="barnet-white-icon"
+                        id="barnet"
+                        alt=""
+                        src="../assets/londonmaps/barnet_white.png"
+                /></a>
+
+                <a href = "./AirQuality01.html"><img
+                        class="bexley-white-icon"
+                        id="bexley"
+                        alt=""
+                        src="../assets/londonmaps/bexley_white.png"
+                /></a>
+
+                <a href = "./AirQuality01.html"><img
+                        class="brent-white-icon"
+                        id="brent"
+                        alt=""
+                        src="../assets/londonmaps/brent_white.png"
+                /></a>
+
+                <a href = "./AirQuality01.html"><img
+                        class="bromley-white-icon"
+                        id="bromley"
+                        alt=""
+                        src="../assets/londonmaps/bromley_white.png"
+                /></a>
+
+                <a href = "./AirQuality01.html"><img
+                        class="camden-white-icon"
+                        id="camden"
+                        alt=""
+                        src="../assets/londonmaps/camden_white.png"
+                /></a>
+
+                <a href = "./AirQuality01.html"><img
+                        class="city-white-icon"
+                        id="city"
+                        alt=""
+                        src="../assets/londonmaps/city_white.png"
+                /></a>
+
+                <a href = "./AirQuality01.html"><img
+                        class="croydon-white-icon"
+                        id="croydon"
+                        alt=""
+                        src="../assets/londonmaps/croydon_white.png"
+                /></a>
+
+                <a href = "./AirQuality01.html"><img
+                        class="ealing-white-icon"
+                        id="ealing"
+                        alt=""
+                        src="../assets/londonmaps/ealing_white.png"
+                /></a>
+
+                <a href = "./AirQuality01.html"><img
+                        class="enfield-white-icon"
+                        id="enfield"
+                        alt=""
+                        src="../assets/londonmaps/enfield_white.png"
+                /></a>
+
+                <a href = "./AirQuality01.html"><img
+                        class="greenwich-white-icon"
+                        id="greenwich"
+                        alt=""
+                        src="../assets/londonmaps/greenwich_white.png"
+                /></a>
+
+                <a href = "./AirQuality01.html"><img
+                        class="hackney-white-icon"
+                        id="hackney"
+                        alt=""
+                        src="../assets/londonmaps/hackney_white.png"
+                /></a>
+
+                <a href = "./AirQuality01.html"><img
+                        class="hammersmith-white-icon"
+                        id="hammersmith"
+                        alt=""
+                        src="../assets/londonmaps/hammersmith_white.png"
+                /></a>
+
+                <a href = "./AirQuality01.html"><img
+                        class="haringey-white-icon"
+                        id="haringey"
+                        alt=""
+                        src="../assets/londonmaps/Haringey_white.png"
+                /></a>
+
+                <a href = "./AirQuality01.html"><img
+                        class="harrow-white-icon"
+                        id="harrow"
+                        alt=""
+                        src="../assets/londonmaps/harrow_white.png"
+                /></a>
+
+                <a href = "./AirQuality01.html"><img
+                        class="havering-white-icon"
+                        id="havering"
+                        alt=""
+                        src="../assets/londonmaps/Havering_white.png"
+                /></a>
+
+                <a href = "./AirQuality01.html"><img
+                        class="hillingdon-white-icon"
+                        id="hillingdon"
+                        alt=""
+                        src="../assets/londonmaps/hillingdon_white.png"
+                /></a>
+
+                <a href = "./AirQuality01.html"><img
+                        class="hounslow-white-icon"
+                        id="hounslow"
+                        alt=""
+                        src="../assets/londonmaps/hounslow_white.png"
+                /></a>
+
+                <a href = "./AirQuality01.html"><img
+                        class="islington-white-icon"
+                        id="islington"
+                        alt=""
+                        src="../assets/londonmaps/islington_white.png"
+                /></a>
+
+                <a href = "./AirQuality01.html"><img class="kc-white-icon" id="kc" alt="" src="../assets/londonmaps/kc_white.png" /></a>
+
+                <a href = "./AirQuality01.html"><img
+                        class="kingston-white-icon"
+                        id="kingston"
+                        alt=""
+                        src="../assets/londonmaps/kingston_white.png"
+                /></a>
+
+                <a href = "./AirQuality01.html"><img
+                        class="lambeth-white-icon"
+                        id="lambeth"
+                        alt=""
+                        src="../assets/londonmaps/lambeth_white.png"
+                /></a>
+
+                <a href = "./AirQuality01.html"><img
+                        class="lewisham-white-icon"
+                        id="lewisham"
+                        alt=""
+                        src="../assets/londonmaps/lewisham_white.png"
+                /></a>
+
+                <a href = "./AirQuality01.html"><img
+                        class="merton-white-icon"
+                        id="merton"
+                        alt=""
+                        src="../assets/londonmaps/merton_white.png"
+                /></a>
+
+                <a href = "./AirQuality01.html"><img
+                        class="newham-white-icon"
+                        id="newham"
+                        alt=""
+                        src="../assets/londonmaps/newham_white.png"
+                /></a>
+
+                <a href = "./AirQuality01.html"><img
+                        class="redbridge-white-icon"
+                        id="redbridge"
+                        alt=""
+                        src="../assets/londonmaps/redbridge_white.png"
+                /></a>
+
+                <a href = "./AirQuality01.html"><img
+                        class="richmond-white-icon"
+                        id="richmond"
+                        alt=""
+                        src="../assets/londonmaps/richmond_white.png"
+                /></a>
+
+                <a href = "./AirQuality01.html"><img
+                        class="southwark-white-icon"
+                        id="southwark"
+                        alt=""
+                        src="../assets/londonmaps/southwark_white.png"
+                /></a>
+
+                <a href = "./AirQuality01.html"><img
+                        class="sutton-white-icon"
+                        id="sutton"
+                        alt=""
+                        src="../assets/londonmaps/sutton_white.png"
+                /></a>
+
+                <a href = "./AirQuality01.html"><img
+                        class="towerhamlet-white-icon"
+                        id="towerhamlet"
+                        alt=""
+                        src="../assets/londonmaps/towerhamlet_white.png"
+                /></a>
+
+                <a href = "./AirQuality01.html"><img
+                        class="walthamforest-white-icon"
+                        id="walthamforest"
+                        alt=""
+                        src="../assets/londonmaps/walthamforest_white.png"
+                /></a>
+
+                <a href = "./AirQuality01.html"><img
+                        class="wandsworth-white-icon"
+                        id="wandsworth"
+                        alt=""
+                        src="../assets/londonmaps/wandsworth_white.png"
+                /></a>
+            </div>
+        </div>
+    </main>
+    <nav class="navbarairqlty" id="navBarAirQlty">
+        <button class="home" id="HomeBtn">
+            <img class="path-icon" alt="" src="../assets/home@2x.png" />
+        </button>
+        <img class="cloud-icon" alt="" src="../assets/airQualityLogoBlue@2x.png" />
+
+        <button class="home" id="inhalerBtn">
+            <img class="path-icon" alt="" src="../assets/inhalerLogo@2x.png" />
+        </button>
+        <button class="home" id="emergencyBtn">
+            <img class="path-icon" alt="" src="../assets/hospital@2x.png" />
+        </button>
+    </nav>
+</div>
+<script>
+    var topNav = document.getElementById("backBtn");
+    if (topNav) {
+        topNav.addEventListener("click", function (e) {
+            window.location.href = "./Home.html";
+        });
+    }
+
+    var close = document.getElementById("closeBtn");
+    if (close) {
+        close.addEventListener("click", function (e) {
+            window.location.href = "./Home.html";
+        });
+    }
+
+    var yourAreaBtn = document.getElementById("yourAreaBtn");
+    if (yourAreaBtn) {
+        yourAreaBtn.addEventListener("click", function (e) {
+            window.location.href = "./AirQuality01.html";
+        });
+    }
+
+    var travelBtn = document.getElementById("travelBtn");
+    if (travelBtn) {
+        travelBtn.addEventListener("click", function (e) {
+            window.location.href = "./AirQuality3.html";
+        });
+    }
+
+    var home = document.getElementById("HomeBtn");
+    if (home) {
+        home.addEventListener("click", function (e) {
+            window.location.href = "./Home.html";
+        });
+    }
+
+    var inhaler = document.getElementById("inhalerBtn");
+    if (inhaler) {
+        inhaler.addEventListener("click", function (e) {
+            window.location.href = "./MyInhaler.html";
+        });
+    }
+
+    var hospital = document.getElementById("emergencyBtn");
+    if (hospital) {
+        hospital.addEventListener("click", function (e) {
+            window.location.href = "./Emergency1.html";
+        });
+    }
+
+</script>
+
+
+</body>
+</html>
