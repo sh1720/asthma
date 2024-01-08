@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
 
+    <link rel="stylesheet" href="../css/Shared.css" />
     <link rel="stylesheet" href="../css/SignUp.css" />
     <link
             rel="stylesheet"
@@ -15,10 +16,10 @@
     />
 </head>
 <body>
-<div class="sign-up6">
-    <header class="header3" id="HeaderSignUp">
+<div class="content-wrapper">
+    <header class="header27 header3" id="HeaderSignUp">
         <div class="headercontents2">
-            <button class="top-nav4" id="backBtn">
+            <button class="top-nav4" id="backPageBtn">
                 <img
                         class="monotone-chevron-left-lg3"
                         alt=""
@@ -42,9 +43,24 @@
             <h1 class="signuptitle" id="h1SignUp">Sign Up For Free!</h1>
         </div>
     </header>
+    <section class="alert-notification-main2 hide" id="errorSection">
+        <div class="alert-notification-main3">
+            <div class="content12">
+                <img
+                        class="solid-warning-icon1"
+                        alt=""
+                        src="../assets/solid-warning@2x.png"
+                />
+
+                <p class="must-have-a1" id="errorMsg"
+                >ERROR: Invalid
+                </p>
+            </div>
+        </div>
+    </section>
     <main class="mainsignup" id="mainSignUp">
-        <div class="form1">
-            <section class="email2" id="sectionEmail">
+        <form class="form1" action="#">
+            <section class="frame1" id="sectionEmail">
                 <div class="input-fields4">
                     <h2 class="name4" id="h2EmailAdress">Email Address</h2>
                     <div class="content8">
@@ -71,7 +87,7 @@
                     </div>
                 </div>
             </section>
-            <section class="email2" id="sectionUserName">
+            <section class="frame1" id="sectionUserName">
                 <div class="input-fields4">
                     <h2 class="name4" id="h2Username">Username</h2>
                     <div class="content8">
@@ -149,36 +165,42 @@
                         </div>
                     </div>
                 </div>
-                <section class="alert-notification-main2" id="errorSection">
-                    <div class="alert-notification-main3">
-                        <div class="content12">
-                            <img
-                                    class="solid-warning-icon1"
-                                    alt=""
-                                    src="../assets/solid-warning@2x.png"
-                            />
-
-                            <small class="must-have-a1" id="errorPassword"
-                            >ERROR: Invalid Password
-                            </small>
-                        </div>
-                    </div>
-                </section>
             </section>
+            <button class="button-primary6" autofocus="{true}" id="signUpBtn">
+                <div class="button-primary7" id="buttonPrimaryContainer">
+                    <div class="content13">
+                        <b class="text25">Sign Up</b>
+                    </div>
+                </div>
+            </button>
+        </form>
+        <button class="bottom-links" id="forgotPasswordPageBtn">
+            <div class="text41">Forgot password?</div>
+            <div class="text42" id="">
+                <div class="text43">
+                    <span class="span2"> </span>
+                    <span class="sign-up7">Reset.</span>
+                </div>
+            </div>
+        </button>
+        <div class="or" id="orDiv">
+            <img class="vector-icon13" alt="" src="../assets/white-line.svg" />
+
+            <div class="or1">Or</div>
+            <img class="vector-icon14" alt="" src="../assets/white-line.svg" />
         </div>
-        <button class="button-primary6" autofocus="{true}" id="signUpBtn">
-            <div class="button-primary7" id="buttonPrimaryContainer">
-                <div class="content13">
-                    <b class="text25">Sign Up</b>
+        <button class="bottom-links" id="signInPageBtn">
+            <div class="text41">Already registered?</div>
+            <div class="text42" id="">
+                <div class="text43">
+                    <span class="span2"> </span>
+                    <span class="sign-up7">Sign In.</span>
                 </div>
             </div>
         </button>
     </main>
 </div>
-<script type = "module" src="../js/SignUp.js"></script>
-<script src="../dist/index.js"></script>
-
-
+<script src="../js/dist/index.js"></script>
 </body>
 </html>
 

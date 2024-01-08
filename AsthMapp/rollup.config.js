@@ -3,9 +3,9 @@ import commonjs from "@rollup/plugin-commonjs";
 import babel from "@rollup/plugin-babel";
 
 export default {
-    input: "js/index.js",
+    input: "./js/index.js",
     output: {
-        file: "dist/index.js",
+        file: "./js/dist/index.js",
         format: "cjs"
     },
     plugins: [

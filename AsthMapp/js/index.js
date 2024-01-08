@@ -1,10 +1,9 @@
-/* == Index == */
-
-/* == Imports ==*/
+/* == Firebase == */
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, child, get, push , set} from "firebase/database";
+import { getDatabase, ref, child, get, push , set} from './../node_modules/firebase/database';
+import { getAuth, fetchSignInMethodsForEmail, createUserWithEmailAndPassword, onAuthStateChanged } from './../node_modules/firebase/auth';
 
-console.log('Firebase loaded:', typeof firebase !== 'undefined' ? 'Yes' : 'No');
+console.log('Firebase loaded:', typeof initializeApp !== 'undefined' ? 'Yes' : 'No');
 
 /* === Firebase Setup === */
 // Your web app's Firebase configuration
@@ -20,53 +19,17 @@ const firebaseConfig = {
     measurementId: "G-PLRLWFR1X7"
 };
 
-const app = initializeApp(firebaseConfig);
-const db = getDatabase(app);
+import Nav from "./Nav.js";
+import SignIn from "./SignIn.js";
+import ForgotPassword from "./forgotPassword.js";
+import SignUp from "./SignUp.js";
 
-/* Selecting Buttons and Input Fields from HTML */
-const signInBtn = document.getElementById("signInBtn");
-const forgotPasswordLink = document.getElementById("textContainer2");
-
-/* Event Listeners */
-if (signInBtn) {
-    signInBtn.addEventListener("click", authSignInWithEmail);
-}
-if (forgotPasswordLink) {
-    forgotPasswordLink.addEventListener("click", () => navigateTo("./ForgotPassword.html"));
-}
-
-/* Functions */
-
-// Function to Navigate Between Webpages
-function navigateTo(url){
-    window.location.href = url;
-}
+Nav();
+SignUp(firebaseConfig);
+//SignIn();
+ForgotPassword();
 
 
-async function postNewUser() {
-
-    const signUpModule = await import("./SignUp.js");
-    const {userNameToPost, emailAddressToPost, passwordToPost} = signUpModule;
-    console.log(userNameToPost, emailAddressToPost, passwordToPost)
-
-    const db = getDatabase();
-    const userId = push(ref(db, 'users')).key;
-    console.log(userId);
-
-    const userData = {
-        id: userId,
-        username: userNameToPost,
-        email: emailAddressToPost,
-        password: passwordToPost // Reminder: Storing passwords in plain text is insecure
-    };
-
-    try {
-        await set(ref(db, 'users/' + userId), userData);
-        console.log("User created successfully with ID:", userId);
-    } catch (error) {
-        console.error("Error creating user:", error);
-    }
-}
 
 
 // Use the executeSignUp function with SignUp as the callback

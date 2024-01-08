@@ -58,8 +58,8 @@
 }
 .monotone-chevron-left-lg3 {
     position: relative;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 2rem;
+    height: 2rem;
     object-fit: cover;
 }
 .text20 {
@@ -105,6 +105,7 @@
     display: none;
 }
 .top-nav4 {
+    position: absolute;
     cursor: pointer;
     border: 0;
     padding: 0;
@@ -115,6 +116,7 @@
     align-items: center;
     justify-content: flex-start;
     gap: 1rem;
+    top: 3rem;
 }
 .asthmapp-logo-dark-11 {
     position: relative;
@@ -151,6 +153,7 @@
     font-size: 1.88rem;
     color: #1e385f;
     font-family: "Plus Jakarta Sans";
+    padding-top: 3rem;
 }
 .loremus-ipsumus-d4,
 .name4 {
@@ -232,7 +235,7 @@
     flex-direction: row;
     align-items: center;
 }
-.name6 {
+.name6, .name7 {
     margin: 0;
     align-self: stretch;
     position: relative;
@@ -309,40 +312,6 @@
     letter-spacing: -0.01em;
     font-weight: 600;
 }
-.alert-notification-main3,
-.content12 {
-    flex: 1;
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-}
-.content12 {
-    gap: 0.25rem;
-}
-.alert-notification-main3 {
-    align-self: stretch;
-    border-radius: 6px;
-    background-color: #fff;
-    border: 1px solid #ff8a84;
-    padding: 0.5rem;
-}
-.alert-notification-main2,
-.form1,
-.frame1 {
-    align-self: stretch;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-}
-.alert-notification-main2 {
-    flex-direction: row;
-    text-align: left;
-    font-size: 0.88rem;
-    color: #ff8a84;
-    font-family: "Plus Jakarta Sans";
-}
 .form1,
 .frame1 {
     flex-direction: column;
@@ -408,21 +377,28 @@
     filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
     padding: 0 1.5rem;
     gap: 2rem;
+    padding-bottom: 5rem;
 }
 .sign-up6 {
     position: relative;
     border-radius: 32px;
     width: 100%;
+    max-width: 600px;
+    padding: 0 2rem;
     min-height: 100dvh;
     overflow: auto;
-    margin: 0;
+    margin: 0 auto;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     gap: 1.63rem;
-    background-color: #F0ECEC;
-    background-image: url(../assets/lightShapeBackgroundSimple.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: bottom;
+}
+.error-msg {
+    color: #fff;
+    font-family: "Plus Jakarta Sans";
+    font-size: 1rem;
+    background: lightpink;
+    padding: 3px 10px;
+    border: solid 1px hotpink;
+    outline: solid 3px pink;
 }
