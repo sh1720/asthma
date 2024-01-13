@@ -1,5 +1,5 @@
 /* == Firebase == */
-import { initializeApp } from "firebase/app";
+import { initializeApp } from './../node_modules/firebase/app';
 import { getDatabase, ref, child, get, push , set} from './../node_modules/firebase/database';
 import { getAuth, fetchSignInMethodsForEmail, createUserWithEmailAndPassword, onAuthStateChanged } from './../node_modules/firebase/auth';
 
@@ -21,13 +21,15 @@ const firebaseConfig = {
 
 import Nav from "./Nav.js";
 import SignIn from "./SignIn.js";
-import ForgotPassword from "./forgotPassword.js";
+import forgotPassword from "./ForgotPassword.js";
 import SignUp from "./SignUp.js";
+import Home from "./Home.js"
 
 Nav();
+SignIn(firebaseConfig);
 SignUp(firebaseConfig);
-//SignIn();
-ForgotPassword();
+Home(firebaseConfig);
+forgotPassword(firebaseConfig);
 
 
 

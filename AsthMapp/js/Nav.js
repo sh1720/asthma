@@ -1,31 +1,33 @@
 // Function to Navigate Between Webpages
-function Nav(){
-    let navi = [];
-
-// 1. maintenance needed to keep track page links, ID must remain unique on every page
-    let nav_link = {
-        "signUpPageBtn":"SignUp.html",
-        "forgotPasswordPageBtn":"ForgotPassword.html",
-        "signInPageBtn":"index.html",
-        "backPageBtn":"index.html",
+function Nav() {
+    const pageLinks = {
+        "signUpPageBtn": "../html/SignUp.html",
+        "forgotPasswordPageBtn": "../html/ForgotPassword.html",
+        "signInPageBtn": "../html/index.html",
+        "backPageBtn": "../html/index.html",
+        "homePageBtn": "../html/home.html"
     };
-// 2. maintenance needed to keep track page links, ID must remain unique on every page
-    const forgotPasswordBtn = document.getElementById("forgotPasswordPageBtn") || '';
-    const signInPageBtn = document.getElementById("signInPageBtn") || '';
-    const signUpPageBtn = document.getElementById("signUpPageBtn") || '';
-    const backPageBtn = document.getElementById("backPageBtn") || '';
-// 3. maintenance needed to keep track page links, ID must remain unique on every page
-    navi.push(forgotPasswordBtn,signInPageBtn, signUpPageBtn, backPageBtn);
 
+    const navigationButtons = [
+        document.getElementById("forgotPasswordPageBtn"),
+        document.getElementById("signInPageBtn"),
+        document.getElementById("signUpPageBtn"),
+        document.getElementById("backPageBtn"),
+        document.getElementById("homePageBtn")
+    ];
 
-    navi.forEach( (btn) => {
-        if(btn) {
-            btn.addEventListener("click", function(e){
+    navigationButtons.forEach(btn => {
+        if (btn) {
+            btn.addEventListener("click", function(e) {
                 const id = btn.getAttribute("id");
-                window.location.href = nav_link[id];
+                if (pageLinks[id]) {
+                    window.location.href = pageLinks[id];
+                } else {
+                    console.error(`No link defined for button with id ${id}`);
+                }
             });
         }
-    })
+    });
 }
 
 export default Nav;

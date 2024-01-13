@@ -2,6 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, ref, child, get, push , set} from './../node_modules/firebase/database';
 import { getAuth, fetchSignInMethodsForEmail, createUserWithEmailAndPassword, onAuthStateChanged } from './../node_modules/firebase/auth';
 import ErrorHandle from "./ErrorHandle.js";
+
 function SignUp(firebaseConfig) {
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
@@ -15,24 +16,29 @@ function SignUp(firebaseConfig) {
         if (!userName || userName.length < 3) {
             ErrorHandle("Username must be at least 3 characters long.");
             console.error("Username must be at least 3 characters long.");
-            return;
+            var msg = "Username must be at least 3 characters long.";
+            return msg;
         }
         if (!emailAddress || !emailAddress.includes('@')) {
             ErrorHandle("Invalid email format.");
             console.error("Invalid email format.");
+            var msg = "Invalid email format.";
             return;
         }
         if (!newPassword || newPassword.length < 6) {
             ErrorHandle("Password must be at least 6 characters long.");
             console.error("Password must be at least 6 characters long.");
+            var msg = "Password must be at least 6 characters long.";
             return;
         }
         if (newPassword !== confirmPassword) {
             ErrorHandle("Passwords do not match.");
             console.error("Passwords do not match.");
+            var msg = "Passwords do not match."
             return;
         }
-        return { userName, emailAddress, confirmPassword };
+         var msg = 'SignUp Validated'
+        return { userName, emailAddress, confirmPassword, msg };
     }
 
     function postNewUser() {
@@ -49,11 +55,11 @@ function SignUp(firebaseConfig) {
                     // Add more user details as needed
                 };
 
-                const userRef = ref(`users_om/${user.uid}`);
+                const userRef = ref(db,`users/${user.uid}`);
 
                 // Set user data in the Realtime Database
                 if (user) {
-                    set(userRef, user)
+                    set(userRef, userData)
                         .then(() => {
                             ErrorHandle(`Signup successful:`);
                             console.log('User data updated in the Realtime Database');
@@ -99,15 +105,16 @@ function SignUp(firebaseConfig) {
         const confirmPassword = document.getElementById("passwordConfirm").value;
 
         //Call the validate_signup function
-        result = validate_signup(emailAddress, userName, newPassword, confirmPassword);
+        result = validate_signup(emailAddress, userName, newPassword, confirmPassword, msg);
         if (result) {
             userNameToPost = result.userName;
             emailAddressToPost = result.emailAddress;
             passwordToPost = result.confirmPassword;
+            var msg = result.msg
             return true;
         }
 
-        ErrorHandle("Please fill up all the fields correctly.");
+        ErrorHandle(msg);
         return false;
     }
 
