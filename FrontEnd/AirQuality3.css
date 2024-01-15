@@ -1,0 +1,256 @@
+.monotone-chevron-left-lg,
+.text8 {
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.text8 {
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+  font-weight: 800;
+  font-family: "Plus Jakarta Sans";
+  color: #090e1d;
+  text-align: left;
+  display: none;
+  width: 17.94rem;
+  height: 1.56rem;
+  flex-shrink: 0;
+}
+.vector-icon3 {
+  position: absolute;
+  height: 54.17%;
+  width: 41.67%;
+  top: 16.67%;
+  right: 29.17%;
+  bottom: 29.17%;
+  left: 29.17%;
+  border-radius: 3px;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.vector {
+  position: absolute;
+  height: 8.33%;
+  width: 8.33%;
+  top: 79.17%;
+  right: 45.83%;
+  bottom: 12.5%;
+  left: 45.83%;
+  border-radius: 0.5px;
+  background-color: #090e1d;
+}
+.monotone-question {
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: none;
+}
+.top-nav,
+.top-nav1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.top-nav1 {
+  align-items: center;
+  gap: 1rem;
+}
+.top-nav {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  width: 1.75rem;
+  align-items: flex-start;
+}
+.airqualitylogo-icon,
+.asthmapp-logo-light-1 {
+  position: relative;
+  width: 6.88rem;
+  height: 3.66rem;
+  object-fit: cover;
+}
+.airqualitylogo-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.headerlogos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.close,
+.close-icon {
+  position: relative;
+  width: 0.93rem;
+  height: 0.93rem;
+}
+.close {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  width: 1.13rem;
+  height: 1.13rem;
+}
+.headerairquality {
+  align-self: stretch;
+  border-radius: 0 0 24px 24px;
+  background-color: #1e385f;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem 0.31rem;
+  z-index: 0;
+}
+.your-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 0.88rem;
+  letter-spacing: -0.01em;
+  font-family: "Plus Jakarta Sans";
+  color: #7a8aa1;
+  text-align: left;
+}
+.yourareabtn {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: relative;
+  width: 3.75rem;
+  height: 1.13rem;
+}
+.travel {
+  position: relative;
+  letter-spacing: -0.01em;
+}
+.navairqltytravel,
+.travelpageselect {
+  border-radius: 10px;
+  background-color: #b2e1e7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.31rem 0.63rem;
+}
+.navairqltytravel {
+  margin: 0;
+  align-self: stretch;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0rem 0.63rem;
+  text-align: left;
+  font-size: 0.88rem;
+  color: #fff;
+  font-family: "Plus Jakarta Sans";
+}
+.travelmap-icon {
+  position: relative;
+  width: 21.44rem;
+  height: 13.63rem;
+  object-fit: cover;
+}
+.areavar {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  letter-spacing: -0.02em;
+  line-height: 2.38rem;
+  font-weight: 800;
+  font-family: inherit;
+}
+.maintravelinsights {
+  align-self: stretch;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.88rem;
+  gap: 1.63rem;
+  z-index: 1;
+  text-align: left;
+  font-size: 1.88rem;
+  color: #1e385f;
+  font-family: "Plus Jakarta Sans";
+}
+.home-icon {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.cloud-icon,
+.home {
+  position: relative;
+  width: 2.25rem;
+  height: 2.25rem;
+}
+.home {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+}
+.cloud-icon {
+  object-fit: cover;
+}
+.air-quality-3,
+.navbarairqlty {
+  display: flex;
+  align-items: flex-start;
+}
+.navbarairqlty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  justify-content: flex-end;
+  mix-blend-mode: normal;
+  z-index: 2;
+  border-radius: 32px 32px 0 0;
+  background-color: #fff;
+  box-shadow: 0 0 34px rgba(0, 0, 0, 0.6);
+  height: 5.13rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 0.63rem 1.88rem;
+  box-sizing: border-box;
+}
+.air-quality-3 {
+  position: relative;
+  border-radius: 32px;
+  background-color: #fcf8f8;
+  width: 100%;
+  height: 50.75rem;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.75rem;
+}
